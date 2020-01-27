@@ -1,0 +1,112 @@
+{
+  "Code" : "C3224",
+  "Label" : "Melanoma",
+  "Preferred_Name" : "Melanoma",
+  "FULL_SYN" : [ {
+    "term-name" : "MELANOMA, MALIGNANT",
+    "term-group" : "PT",
+    "term-source" : "CDISC"
+  }, {
+    "term-name" : "Malignant Melanoma",
+    "term-group" : "PT",
+    "term-source" : "CPTAC"
+  }, {
+    "term-name" : "Malignant Melanoma",
+    "term-group" : "SY",
+    "term-source" : "CDISC"
+  }, {
+    "term-name" : "Malignant Melanoma",
+    "term-group" : "SY",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "CTEP",
+    "source-code" : "10053571",
+    "subsource-name" : "SDC"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "SY",
+    "term-source" : "NCI",
+    "source-code" : "TCGA",
+    "subsource-name" : "caDSR"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "DN",
+    "term-source" : "CTRP"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "CTRP"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "Cellosaurus"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "NICHD"
+  }, {
+    "term-name" : "melanoma",
+    "term-group" : "PT",
+    "term-source" : "NCI-GLOSS",
+    "source-code" : "CDR0000045135"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.",
+    "def-source" : "NCI"
+  } ],
+  "ALT_DEFINITION" : [ {
+    "definition" : "A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.",
+    "def-source" : "NCI-GLOSS"
+  }, {
+    "definition" : "A malignant neoplasm composed of melanocytes.",
+    "def-source" : "CDISC"
+  }, {
+    "definition" : "A malignant neoplasm comprised of melanocytes typically arising in the skin.",
+    "def-source" : "NICHD"
+  } ],
+  "Maps_To" : [ {
+    "annotatedTarget" : "Malignant melanoma, NOS",
+    "Relationship_to_Target" : "Related To",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "8720/3",
+    "Target_Terminology" : "ICDO3"
+  }, {
+    "annotatedTarget" : "Malignant melanoma, NOS",
+    "Relationship_to_Target" : "Related To",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "PD",
+    "Target_Terminology" : "GDC"
+  }, {
+    "annotatedTarget" : "Melanoma",
+    "Relationship_to_Target" : "Has Synonym",
+    "Target_Term_Type" : "LLT",
+    "Target_Code" : "10053571",
+    "Target_Terminology" : "MedDRA"
+  }, {
+    "annotatedTarget" : "Melanoma",
+    "Relationship_to_Target" : "Has Synonym",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "RPD",
+    "Target_Terminology" : "GDC"
+  }, {
+    "annotatedTarget" : "Melanoma, NOS",
+    "Relationship_to_Target" : "Has Synonym",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "PD",
+    "Target_Terminology" : "GDC"
+  } ],
+  "Semantic_Type" : [ "Neoplastic Process" ],
+  "Neoplastic_Status" : [ "Malignant" ],
+  "UMLS_CUI" : [ "C0025202" ],
+  "Legacy_Concept_Name" : [ "Melanoma" ],
+  "NICHD_Hierarchy_Term" : [ "Melanoma" ],
+  "Display_Name" : [ "Melanoma" ],
+  "ICD-O-3_Code" : [ "8720/3" ],
+  "Contributing_Source" : [ "CTRP", "CTEP", "Cellosaurus", "MedDRA", "CDISC", "NICHD", "CPTAC" ]
+}

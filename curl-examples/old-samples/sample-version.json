@@ -1,0 +1,5 @@
+"http://ncias-d2174-c.nci.nih.gov:8080/version"
+{
+  "version" : "1.0.0-SNAPSHOT",
+  "description" : "NCI EVS API"
+}

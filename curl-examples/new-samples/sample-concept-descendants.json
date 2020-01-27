@@ -1,0 +1,92 @@
+{
+  "total": 17,
+  "fromRecord": 0,
+  "pageSize": 100,
+  "descendants": [
+    {
+      "code": "C3802",
+      "label": "Amelanotic Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C8410",
+      "label": "Breast Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C131506",
+      "label": "Childhood Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C3510",
+      "label": "Cutaneous Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C4236",
+      "label": "Epithelioid Cell Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C9499",
+      "label": "Melanomatosis",
+      "level": 1
+    },
+    {
+      "code": "C8925",
+      "label": "Metastatic Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C66756",
+      "label": "Mixed Epithelioid and Spindle Cell Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C8711",
+      "label": "Non-Cutaneous Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C8562",
+      "label": "Ocular Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C118828",
+      "label": "Orbital Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C162547",
+      "label": "Penile Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C7087",
+      "label": "Recurrent Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C147983",
+      "label": "Refractory Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C4228",
+      "label": "Regressing Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C4237",
+      "label": "Spindle Cell Melanoma",
+      "level": 1
+    },
+    {
+      "code": "C148517",
+      "label": "Unresectable Melanoma",
+      "level": 1
+    }
+  ]
+}

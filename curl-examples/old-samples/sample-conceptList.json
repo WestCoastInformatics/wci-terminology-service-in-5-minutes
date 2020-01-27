@@ -1,0 +1,736 @@
+[ {
+  "Code" : "C3224",
+  "Label" : "Melanoma",
+  "Preferred_Name" : "Melanoma",
+  "FULL_SYN" : [ {
+    "term-name" : "MELANOMA, MALIGNANT",
+    "term-group" : "PT",
+    "term-source" : "CDISC"
+  }, {
+    "term-name" : "Malignant Melanoma",
+    "term-group" : "PT",
+    "term-source" : "CPTAC"
+  }, {
+    "term-name" : "Malignant Melanoma",
+    "term-group" : "SY",
+    "term-source" : "CDISC"
+  }, {
+    "term-name" : "Malignant Melanoma",
+    "term-group" : "SY",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "CTEP",
+    "source-code" : "10053571",
+    "subsource-name" : "SDC"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "SY",
+    "term-source" : "NCI",
+    "source-code" : "TCGA",
+    "subsource-name" : "caDSR"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "DN",
+    "term-source" : "CTRP"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "CTRP"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "Cellosaurus"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Melanoma",
+    "term-group" : "PT",
+    "term-source" : "NICHD"
+  }, {
+    "term-name" : "melanoma",
+    "term-group" : "PT",
+    "term-source" : "NCI-GLOSS",
+    "source-code" : "CDR0000045135"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.",
+    "def-source" : "NCI"
+  } ],
+  "ALT_DEFINITION" : [ {
+    "definition" : "A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.",
+    "def-source" : "NCI-GLOSS"
+  }, {
+    "definition" : "A malignant neoplasm composed of melanocytes.",
+    "def-source" : "CDISC"
+  }, {
+    "definition" : "A malignant neoplasm comprised of melanocytes typically arising in the skin.",
+    "def-source" : "NICHD"
+  } ],
+  "Subconcept" : [ {
+    "code" : "C3802",
+    "label" : "Amelanotic Melanoma"
+  }, {
+    "code" : "C8410",
+    "label" : "Breast Melanoma"
+  }, {
+    "code" : "C131506",
+    "label" : "Childhood Melanoma"
+  }, {
+    "code" : "C3510",
+    "label" : "Cutaneous Melanoma"
+  }, {
+    "code" : "C4236",
+    "label" : "Epithelioid Cell Melanoma"
+  }, {
+    "code" : "C9499",
+    "label" : "Melanomatosis"
+  }, {
+    "code" : "C8925",
+    "label" : "Metastatic Melanoma"
+  }, {
+    "code" : "C66756",
+    "label" : "Mixed Epithelioid and Spindle Cell Melanoma"
+  }, {
+    "code" : "C8711",
+    "label" : "Non-Cutaneous Melanoma"
+  }, {
+    "code" : "C8562",
+    "label" : "Ocular Melanoma"
+  }, {
+    "code" : "C118828",
+    "label" : "Orbital Melanoma"
+  }, {
+    "code" : "C162547",
+    "label" : "Penile Melanoma"
+  }, {
+    "code" : "C7087",
+    "label" : "Recurrent Melanoma"
+  }, {
+    "code" : "C147983",
+    "label" : "Refractory Melanoma"
+  }, {
+    "code" : "C4228",
+    "label" : "Regressing Melanoma"
+  }, {
+    "code" : "C4237",
+    "label" : "Spindle Cell Melanoma"
+  }, {
+    "code" : "C148517",
+    "label" : "Unresectable Melanoma"
+  } ],
+  "Superconcept" : [ {
+    "code" : "C9305",
+    "label" : "Malignant Neoplasm"
+  }, {
+    "code" : "C7058",
+    "label" : "Melanocytic Neoplasm"
+  } ],
+  "Association" : [ {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C77526",
+    "relatedConceptLabel" : "CDISC SEND Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C88025",
+    "relatedConceptLabel" : "CDISC SEND Tumor Findings Results Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C156953",
+    "relatedConceptLabel" : "CPTAC Baseline Medical Forms Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C158520",
+    "relatedConceptLabel" : "CPTAC Codelists Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C159415",
+    "relatedConceptLabel" : "CPTAC Melanoma Baseline Form"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C156966",
+    "relatedConceptLabel" : "CPTAC Neoplasms Codelist"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C156952",
+    "relatedConceptLabel" : "CPTAC Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C157534",
+    "relatedConceptLabel" : "CPTAC Uveal Melanoma Baseline Form"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C118168",
+    "relatedConceptLabel" : "CTRP Disease Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C116977",
+    "relatedConceptLabel" : "CTRP Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C138190",
+    "relatedConceptLabel" : "CTS-API Disease Main Type Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C165258",
+    "relatedConceptLabel" : "Cellosaurus Disease Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C61410",
+    "relatedConceptLabel" : "Clinical Data Interchange Standards Consortium Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C138188",
+    "relatedConceptLabel" : "Clinical Trials Search-Application Programming Interface Disease Category Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C157711",
+    "relatedConceptLabel" : "GDC Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C103113",
+    "relatedConceptLabel" : "NCI CTEP SDC Melanoma Sub-Category Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C102905",
+    "relatedConceptLabel" : "NCI CTEP Simplified Disease Classification Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C126659",
+    "relatedConceptLabel" : "NCIt Neoplasm Core Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C90259",
+    "relatedConceptLabel" : "NICHD Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C118464",
+    "relatedConceptLabel" : "Pediatric Adverse Events Terminology"
+  }, {
+    "relationship" : "Has_NICHD_Parent",
+    "relationshipCode" : "A11",
+    "relatedConceptCode" : "C9305",
+    "relatedConceptLabel" : "Malignant Neoplasm"
+  }, {
+    "relationship" : "Has_NICHD_Parent",
+    "relationshipCode" : "A11",
+    "relatedConceptCode" : "C3371",
+    "relatedConceptLabel" : "Skin Disorder"
+  }, {
+    "relationship" : "Neoplasm_Has_Special_Category",
+    "relationshipCode" : "A14",
+    "relatedConceptCode" : "C9292",
+    "relatedConceptLabel" : "Solid Neoplasm"
+  } ],
+  "InverseAssociation" : [ {
+    "relationship" : "Has_NICHD_Parent",
+    "relationshipCode" : "A11",
+    "relatedConceptCode" : "C131506",
+    "relatedConceptLabel" : "Childhood Melanoma"
+  } ],
+  "Role" : [ {
+    "relationship" : "Disease_Excludes_Finding",
+    "relationshipCode" : "R142",
+    "relatedConceptCode" : "C36122",
+    "relatedConceptLabel" : "Benign Cellular Infiltrate"
+  }, {
+    "relationship" : "Disease_Has_Abnormal_Cell",
+    "relationshipCode" : "R105",
+    "relatedConceptCode" : "C12917",
+    "relatedConceptLabel" : "Malignant Cell"
+  }, {
+    "relationship" : "Disease_Has_Abnormal_Cell",
+    "relationshipCode" : "R105",
+    "relatedConceptCode" : "C36873",
+    "relatedConceptLabel" : "Melanoma Cell"
+  }, {
+    "relationship" : "Disease_Has_Abnormal_Cell",
+    "relationshipCode" : "R105",
+    "relatedConceptCode" : "C12922",
+    "relatedConceptLabel" : "Neoplastic Cell"
+  }, {
+    "relationship" : "Disease_Has_Abnormal_Cell",
+    "relationshipCode" : "R105",
+    "relatedConceptCode" : "C36862",
+    "relatedConceptLabel" : "Neoplastic Melanocyte"
+  }, {
+    "relationship" : "Disease_Has_Finding",
+    "relationshipCode" : "R108",
+    "relatedConceptCode" : "C36115",
+    "relatedConceptLabel" : "Malignant Cellular Infiltrate"
+  }, {
+    "relationship" : "Disease_Has_Normal_Cell_Origin",
+    "relationshipCode" : "R104",
+    "relatedConceptCode" : "C12591",
+    "relatedConceptLabel" : "Melanocyte"
+  }, {
+    "relationship" : "Disease_May_Have_Finding",
+    "relationshipCode" : "R115",
+    "relatedConceptCode" : "C43268",
+    "relatedConceptLabel" : "HMB-45-Positive Neoplastic Cells Present"
+  }, {
+    "relationship" : "Disease_May_Have_Finding",
+    "relationshipCode" : "R115",
+    "relatedConceptCode" : "C40993",
+    "relatedConceptLabel" : "S-100-Positive Neoplastic Cells Present"
+  } ],
+  "InverseRole" : [ {
+    "relationship" : "Disease_Has_Associated_Disease",
+    "relationshipCode" : "R126",
+    "relatedConceptCode" : "C40001",
+    "relatedConceptLabel" : "Ovarian Dermoid Cyst with Melanoma"
+  }, {
+    "relationship" : "Disease_May_Have_Associated_Disease",
+    "relationshipCode" : "R116",
+    "relatedConceptCode" : "C36101",
+    "relatedConceptLabel" : "BRCA2 Syndrome"
+  }, {
+    "relationship" : "Disease_May_Have_Associated_Disease",
+    "relationshipCode" : "R116",
+    "relatedConceptCode" : "C27264",
+    "relatedConceptLabel" : "Familial Atypical Mole Melanoma Syndrome"
+  }, {
+    "relationship" : "Disease_May_Have_Associated_Disease",
+    "relationshipCode" : "R116",
+    "relatedConceptCode" : "C8495",
+    "relatedConceptLabel" : "Hereditary Retinoblastoma"
+  }, {
+    "relationship" : "Disease_May_Have_Associated_Disease",
+    "relationshipCode" : "R116",
+    "relatedConceptCode" : "C3447",
+    "relatedConceptLabel" : "Werner Syndrome"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C21389",
+    "relatedConceptLabel" : "CRYBG1 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C54321",
+    "relatedConceptLabel" : "CRYBG1 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C21470",
+    "relatedConceptLabel" : "CSAG2 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C54542",
+    "relatedConceptLabel" : "CSAG2 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C81903",
+    "relatedConceptLabel" : "CSAG3 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C81904",
+    "relatedConceptLabel" : "CSAG3 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C24316",
+    "relatedConceptLabel" : "CSPG4 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C52436",
+    "relatedConceptLabel" : "CSPG4 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C82885",
+    "relatedConceptLabel" : "DCT Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C82886",
+    "relatedConceptLabel" : "DCT wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C20765",
+    "relatedConceptLabel" : "KISS1 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C54288",
+    "relatedConceptLabel" : "KISS1 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C24561",
+    "relatedConceptLabel" : "LTBP2 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C51270",
+    "relatedConceptLabel" : "LTBP2 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C21261",
+    "relatedConceptLabel" : "MCAM Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C54308",
+    "relatedConceptLabel" : "MCAM wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C81756",
+    "relatedConceptLabel" : "MIR221 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C82171",
+    "relatedConceptLabel" : "MIR221 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C80700",
+    "relatedConceptLabel" : "MIRLET7A1 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C81825",
+    "relatedConceptLabel" : "MIRLET7A1 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C80701",
+    "relatedConceptLabel" : "MIRLET7A3 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C81826",
+    "relatedConceptLabel" : "MIRLET7A3 wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C80702",
+    "relatedConceptLabel" : "MIRLET7B Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C81853",
+    "relatedConceptLabel" : "MIRLET7B wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C28629",
+    "relatedConceptLabel" : "MLANA Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C54313",
+    "relatedConceptLabel" : "MLANA wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C18336",
+    "relatedConceptLabel" : "RAB8A Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C52547",
+    "relatedConceptLabel" : "RAB8A wt Allele"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C20335",
+    "relatedConceptLabel" : "XRCC3 Gene"
+  }, {
+    "relationship" : "Gene_Associated_With_Disease",
+    "relationshipCode" : "R38",
+    "relatedConceptCode" : "C51014",
+    "relatedConceptLabel" : "XRCC3 wt Allele"
+  }, {
+    "relationship" : "Gene_Product_Is_Biomarker_Of",
+    "relationshipCode" : "R47",
+    "relatedConceptCode" : "C17513",
+    "relatedConceptLabel" : "Melanoma-Associated Antigen 3"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C21390",
+    "relatedConceptLabel" : "Beta/Gamma Crystallin Domain-Containing Protein 1"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C26083",
+    "relatedConceptLabel" : "Chondroitin Sulfate Proteoglycan 4"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C17680",
+    "relatedConceptLabel" : "Cyclin-Dependent Kinase 4"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C17786",
+    "relatedConceptLabel" : "Cyclin-Dependent Kinase Inhibitor 2A"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C21569",
+    "relatedConceptLabel" : "DNA Repair Protein XRCC3"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C2646",
+    "relatedConceptLabel" : "L-Dopachrome Tautomerase"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C26331",
+    "relatedConceptLabel" : "Latent-Transforming Growth Factor Beta-Binding Protein 2"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C21141",
+    "relatedConceptLabel" : "Metastasis-Suppressor KiSS-1"
+  }, {
+    "relationship" : "Gene_Product_Malfunction_Associated_With_Disease",
+    "relationshipCode" : "R48",
+    "relatedConceptCode" : "C84349",
+    "relatedConceptLabel" : "Tumor Suppressor ARF"
+  }, {
+    "relationship" : "Regimen_Has_Accepted_Use_For_Disease",
+    "relationshipCode" : "R172",
+    "relatedConceptCode" : "C63785",
+    "relatedConceptLabel" : "CVD IL-2/IFNa2b Regimen"
+  }, {
+    "relationship" : "Regimen_Has_Accepted_Use_For_Disease",
+    "relationshipCode" : "R172",
+    "relatedConceptCode" : "C63525",
+    "relatedConceptLabel" : "CVD Regimen"
+  }, {
+    "relationship" : "Regimen_Has_Accepted_Use_For_Disease",
+    "relationshipCode" : "R172",
+    "relatedConceptCode" : "C63784",
+    "relatedConceptLabel" : "DTIC-BCNU-Cisplatin Regimen"
+  }, {
+    "relationship" : "Regimen_Has_Accepted_Use_For_Disease",
+    "relationshipCode" : "R172",
+    "relatedConceptCode" : "C63781",
+    "relatedConceptLabel" : "Dartmouth Regimen"
+  }, {
+    "relationship" : "Regimen_Has_Accepted_Use_For_Disease",
+    "relationshipCode" : "R172",
+    "relatedConceptCode" : "C63782",
+    "relatedConceptLabel" : "IFN-DTIC Regimen"
+  } ],
+  "Maps_To" : [ {
+    "annotatedTarget" : "Malignant melanoma, NOS",
+    "Relationship_to_Target" : "Related To",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "8720/3",
+    "Target_Terminology" : "ICDO3"
+  }, {
+    "annotatedTarget" : "Malignant melanoma, NOS",
+    "Relationship_to_Target" : "Related To",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "PD",
+    "Target_Terminology" : "GDC"
+  }, {
+    "annotatedTarget" : "Melanoma",
+    "Relationship_to_Target" : "Has Synonym",
+    "Target_Term_Type" : "LLT",
+    "Target_Code" : "10053571",
+    "Target_Terminology" : "MedDRA"
+  }, {
+    "annotatedTarget" : "Melanoma",
+    "Relationship_to_Target" : "Has Synonym",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "RPD",
+    "Target_Terminology" : "GDC"
+  }, {
+    "annotatedTarget" : "Melanoma, NOS",
+    "Relationship_to_Target" : "Has Synonym",
+    "Target_Term_Type" : "PT",
+    "Target_Code" : "PD",
+    "Target_Terminology" : "GDC"
+  } ],
+  "Semantic_Type" : [ "Neoplastic Process" ],
+  "Neoplastic_Status" : [ "Malignant" ],
+  "UMLS_CUI" : [ "C0025202" ],
+  "Legacy_Concept_Name" : [ "Melanoma" ],
+  "NICHD_Hierarchy_Term" : [ "Melanoma" ],
+  "Display_Name" : [ "Melanoma" ],
+  "ICD-O-3_Code" : [ "8720/3" ],
+  "Contributing_Source" : [ "CTRP", "CTEP", "Cellosaurus", "MedDRA", "CDISC", "NICHD", "CPTAC" ]
+}, {
+  "Code" : "C7062",
+  "Label" : "Neoplasm by Special Category",
+  "Preferred_Name" : "Neoplasm by Special Category",
+  "FULL_SYN" : [ {
+    "term-name" : "Neoplasm by Special Category",
+    "term-group" : "DN",
+    "term-source" : "CTRP"
+  }, {
+    "term-name" : "Neoplasm by Special Category",
+    "term-group" : "HD",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Neoplasm by Special Category",
+    "term-group" : "PT",
+    "term-source" : "CTRP"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "A neoplasm defined by its unique characteristic as they apply to clinical presentation and course, morphologic patterns, frequency, and/or age distribution.",
+    "def-source" : "NCI"
+  } ],
+  "Subconcept" : [ {
+    "code" : "C3677",
+    "label" : "Benign Neoplasm"
+  }, {
+    "code" : "C6283",
+    "label" : "Childhood Neoplasm"
+  }, {
+    "code" : "C6784",
+    "label" : "Cystic Neoplasm"
+  }, {
+    "code" : "C3264",
+    "label" : "Embryonal Neoplasm"
+  }, {
+    "code" : "C36035",
+    "label" : "Encapsulated Neoplasm"
+  }, {
+    "code" : "C7201",
+    "label" : "Infrequent Neoplasm"
+  }, {
+    "code" : "C116915",
+    "label" : "Liquid Tumor"
+  }, {
+    "code" : "C9305",
+    "label" : "Malignant Neoplasm"
+  }, {
+    "code" : "C3261",
+    "label" : "Metastatic Neoplasm"
+  }, {
+    "code" : "C102883",
+    "label" : "Miscellaneous Neoplasm"
+  }, {
+    "code" : "C6930",
+    "label" : "Mixed Neoplasm"
+  }, {
+    "code" : "C36029",
+    "label" : "Necrotic Neoplasm"
+  }, {
+    "code" : "C27933",
+    "label" : "Neoplasm by Cause"
+  }, {
+    "code" : "C45230",
+    "label" : "Neoplasm by Obsolete Classification"
+  }, {
+    "code" : "C3646",
+    "label" : "Neoplasm of Uncertain Malignant Potential"
+  }, {
+    "code" : "C65157",
+    "label" : "Neoplasm, Uncertain Whether Benign or Malignant"
+  }, {
+    "code" : "C7068",
+    "label" : "Neoplastic Polyp"
+  }, {
+    "code" : "C36012",
+    "label" : "Nodular Neoplasm"
+  }, {
+    "code" : "C36036",
+    "label" : "Non-Encapsulated Neoplasm"
+  }, {
+    "code" : "C163003",
+    "label" : "Non-Malignant Neoplasm"
+  }, {
+    "code" : "C36037",
+    "label" : "Non-Metastatic Neoplasm"
+  }, {
+    "code" : "C36030",
+    "label" : "Osteolytic Neoplasm"
+  }, {
+    "code" : "C36031",
+    "label" : "Papillary Neoplasm"
+  }, {
+    "code" : "C36032",
+    "label" : "Premalignant Neoplasm"
+  }, {
+    "code" : "C8509",
+    "label" : "Primary Neoplasm"
+  }, {
+    "code" : "C4798",
+    "label" : "Recurrent Neoplasm"
+  }, {
+    "code" : "C7628",
+    "label" : "Refractory Neoplasm"
+  }, {
+    "code" : "C36255",
+    "label" : "Secondary Neoplasm"
+  }, {
+    "code" : "C9292",
+    "label" : "Solid Neoplasm"
+  }, {
+    "code" : "C27263",
+    "label" : "Spindle Cell Neoplasm"
+  }, {
+    "code" : "C36033",
+    "label" : "Tubular Neoplasm"
+  }, {
+    "code" : "C36034",
+    "label" : "Villous Neoplasm"
+  } ],
+  "Superconcept" : [ {
+    "code" : "C3262",
+    "label" : "Neoplasm"
+  } ],
+  "Association" : [ {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C118168",
+    "relatedConceptLabel" : "CTRP Disease Terminology"
+  }, {
+    "relationship" : "Concept_In_Subset",
+    "relationshipCode" : "A8",
+    "relatedConceptCode" : "C116977",
+    "relatedConceptLabel" : "CTRP Terminology"
+  } ],
+  "Role" : [ {
+    "relationship" : "Disease_Has_Abnormal_Cell",
+    "relationshipCode" : "R105",
+    "relatedConceptCode" : "C12922",
+    "relatedConceptLabel" : "Neoplastic Cell"
+  } ],
+  "Semantic_Type" : [ "Neoplastic Process" ],
+  "Neoplastic_Status" : [ "Undetermined" ],
+  "UMLS_CUI" : [ "C1334935" ],
+  "Legacy_Concept_Name" : [ "Neoplasm_by_Special_Category" ],
+  "Display_Name" : [ "Neoplasm by Special Category" ],
+  "Contributing_Source" : [ "CTRP" ],
+  "Concept_Status" : [ "Header_Concept" ]
+} ]

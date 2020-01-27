@@ -1,0 +1,389 @@
+[ {
+  "Code" : "A8",
+  "Label" : "Concept_In_Subset",
+  "Preferred_Name" : "Concept_In_Subset",
+  "FULL_SYN" : [ {
+    "term-name" : "Concept_In_Subset",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that connects the concept defining a particular terminology subset with concepts that belong to this subset.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Concept Is In Subset" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A10",
+  "Label" : "Has_CDRH_Parent",
+  "Preferred_Name" : "Has_CDRH_Parent",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_CDRH_Parent",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association created to allow the source CDRH to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Has CDRH Parent" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A15",
+  "Label" : "Has_CTCAE_5_Parent",
+  "Preferred_Name" : "Has_CTCAE_5_Parent",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_CTCAE_5_Parent",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association created to allow the source CTCAE 5.0 to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which CTCAE is the contributing source.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A12",
+  "Label" : "Has_Data_Element",
+  "Preferred_Name" : "Has_Data_Element",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Data_Element",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association created to relate a data element concept to the codelist term that is used to bundle its subset of valid value concepts.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Has Data Element" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A6",
+  "Label" : "Has_Free_Acid_Or_Base_Form",
+  "Preferred_Name" : "Has_Free_Acid_Or_Base_Form",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Free_Acid_Or_Base_Form",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that connects the salt form of a drug with its free acid or free base.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Has Free Acid Or Base Form" ],
+  "DesignNote" : [ "The free acid or base is responsible for the drug's therapeutic effect. Hence, the salt form of a drug has the same mechanism of action as the free acid or base form." ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A16",
+  "Label" : "Has_INC_Parent",
+  "Preferred_Name" : "Has_INC_Parent",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_INC_Parent",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association created to allow the source INC to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A11",
+  "Label" : "Has_NICHD_Parent",
+  "Preferred_Name" : "Has_NICHD_Parent",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_NICHD_Parent",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association created to allow the source NICHD to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are a contributing source.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A19",
+  "Label" : "Has_Pharmaceutical_Administration_Method",
+  "Preferred_Name" : "Has_Pharmaceutical_Administration_Method",
+  "FULL_SYN" : [ {
+    "term-name" : "Administration Method",
+    "term-group" : "PT",
+    "term-source" : "EDQM-HC"
+  }, {
+    "term-name" : "Has_Pharmaceutical_Administration_Method",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the methods by which a pharmaceutical product is intended to be administered to the patient. The target value should belong to the EDQM-HC Administration Method Terminology.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A18",
+  "Label" : "Has_Pharmaceutical_Basic_Dose_Form",
+  "Preferred_Name" : "Has_Pharmaceutical_Basic_Dose_Form",
+  "FULL_SYN" : [ {
+    "term-name" : "Basic Dose Form",
+    "term-group" : "PT",
+    "term-source" : "EDQM-HC"
+  }, {
+    "term-name" : "Has_Pharmaceutical_Basic_Dose_Form",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the category of the pharmaceutical dose form, used to group together related pharmaceutical dose forms. The target value should belong to the EDQM-HC Basic Dose Form Terminology.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A20",
+  "Label" : "Has_Pharmaceutical_Intended_Site",
+  "Preferred_Name" : "Has_Pharmaceutical_Intended_Site",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Pharmaceutical_Intended_Site",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Intended Site",
+    "term-group" : "EDQM-HC"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the general body sites at which a pharmaceutical product is intended to be administered. The target value should belong to the EDQM-HC Intended Site of Administration Terminology.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A21",
+  "Label" : "Has_Pharmaceutical_Release_Characteristics",
+  "Preferred_Name" : "Has_Pharmaceutical_Release_Characteristics",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Pharmaceutical_Release_Characteristics",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Release Characteristics",
+    "term-group" : "PT",
+    "term-source" : "EDQM-HC"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the timing by which an active ingredient is made available in the body after administration of the pharmaceutical product, in comparison with a conventional, direct release of the active ingredient. The target value should belong to the EDQM-HC Release Characteristics Terminology.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A17",
+  "Label" : "Has_Pharmaceutical_State_Of_Matter",
+  "Preferred_Name" : "Has_Pharmaceutical_State_Of_Matter",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Pharmaceutical_State_Of_Matter",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "State of Matter",
+    "term-group" : "PT",
+    "term-source" : "EDQM-HC"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the physical conditions describing the molecular form of a product. The target value should belong to the EDQM-HC State of Matter Terminology.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A22",
+  "Label" : "Has_Pharmaceutical_Transformation",
+  "Preferred_Name" : "Has_Pharmaceutical_Transformation",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Pharmaceutical_Transformation",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  }, {
+    "term-name" : "Transformation",
+    "term-group" : "PT",
+    "term-source" : "EDQM-HC"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the procedures that are carried out in order to convert a manufactured item that requires such a procedure into a pharmaceutical product. The target value should belong to the EDQM-HC Transformation Terminology.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A5",
+  "Label" : "Has_Salt_Form",
+  "Preferred_Name" : "Has_Salt_Form",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Salt_Form",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that connects the salt form of a drug with its free acid or free base.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Has Salt Form" ],
+  "DesignNote" : [ "USAGE NOTE: A salt form of a drug consists of 2 parts, one acidic and one basic group that are readily disassociated in liquid phase. Salt forms are either salts of strong acids and basic drugs (e.g. Atropine Sulfate, Cetirizine Hydrochloride) or salts of strong bases and acidic drugs (Allopurinol Sodium). This association is usually used in conjunction with Has_Free_Acid_Or_Base_Form." ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A7",
+  "Label" : "Has_Target",
+  "Preferred_Name" : "Has_Target",
+  "FULL_SYN" : [ {
+    "term-name" : "Has_Target",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that connects a drug or other agent to a clinically intended, molecular-scale target. The target value may be a gene, gene product, anatomic structure, biological process, or other concept, where the effect of the agent on the target is thought to be of therapeutic, diagnostic, or other clinical relevance to a disease process. The effect is most often direct, as defined at a molecular scale, but may also be indirect and/or defined at a larger scale.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Has Target" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A9",
+  "Label" : "Is_Related_To_Endogenous_Product",
+  "Preferred_Name" : "Is_Related_To_Endogenous_Product",
+  "FULL_SYN" : [ {
+    "term-name" : "Is_Related_To_Endogenous_Product",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that is asserted when there is a relationship or association between the therapeutic moiety and the endogenous gene product.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Is Related To Endogenous Product" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A14",
+  "Label" : "Neoplasm_Has_Special_Category",
+  "Preferred_Name" : "Neoplasm_Has_Special_Category",
+  "FULL_SYN" : [ {
+    "term-name" : "Neoplasm_Has_Special_Category",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that indicates that a neoplastic disease can have the characteristics defined by a Neoplasm by Special Category concept.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A4",
+  "Label" : "Qualifier_Applies_To",
+  "Preferred_Name" : "Qualifier_Applies_To",
+  "FULL_SYN" : [ {
+    "term-name" : "Qualifier_Applies_To",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that indicates the property or association that the qualifier is to be used with.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Qualifier Applies To" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A13",
+  "Label" : "Related_To_Genetic_Biomarker",
+  "Preferred_Name" : "Related_To_Genetic_Biomarker",
+  "FULL_SYN" : [ {
+    "term-name" : "Related_To_Genetic_Biomarker",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that indicates that a finding or lab test is related to a gene, possibly through a variant or product.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A1",
+  "Label" : "Role_Has_Domain",
+  "Preferred_Name" : "Role_Has_Domain",
+  "FULL_SYN" : [ {
+    "term-name" : "Role_Has_Domain",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies the parent of the branch encompassing a role's domain.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Role Has Domain" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A3",
+  "Label" : "Role_Has_Parent",
+  "Preferred_Name" : "Role_Has_Parent",
+  "FULL_SYN" : [ {
+    "term-name" : "Role_Has_Parent",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies that a role exists as part of a role hierarchy and specifies the role's parent, the role that this role specializes.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Role Has Parent" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+}, {
+  "Code" : "A2",
+  "Label" : "Role_Has_Range",
+  "Preferred_Name" : "Role_Has_Range",
+  "FULL_SYN" : [ {
+    "term-name" : "Role_Has_Range",
+    "term-group" : "PT",
+    "term-source" : "NCI"
+  } ],
+  "DEFINITION" : [ {
+    "definition" : "An association that specifies  the parent of the branch encompassing the role's range.",
+    "def-source" : "NCI"
+  } ],
+  "Semantic_Type" : [ "Conceptual Entity" ],
+  "Display_Name" : [ "Role Has Range" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ "http://www.w3.org/2001/XMLSchema#anyURI" ]
+} ]

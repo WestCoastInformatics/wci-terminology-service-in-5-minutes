@@ -1,0 +1,17 @@
+[
+  {
+    "terminology": "NCIt",
+    "version": "2019_10e",
+    "name": "NCIThesaurus2019_10e",
+    "combined": "NCI_2019_10e",
+    "weekly": true
+  },
+  {
+    "terminology": "NCIt",
+    "version": "2019_11f",
+    "name": "NCIThesaurus2019_11f",
+    "combined": "NCI_2019_11f",
+    "latest": "true",
+    "monthly": true
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "total": 16,
+  "fromRecord": 0,
+  "pageSize": 100,
+  "associations": [
+    {
+      "code": "A8",
+      "label": "Concept_In_Subset"
+    },
+    {
+      "code": "A10",
+      "label": "Has_CDRH_Parent"
+    },
+    {
+      "code": "A15",
+      "label": "Has_CTCAE_5_Parent"
+    },
+    {
+      "code": "A12",
+      "label": "Has_Data_Element"
+    },
+    {
+      "code": "A6",
+      "label": "Has_Free_Acid_Or_Base_Form"
+    },
+    {
+      "code": "A16",
+      "label": "Has_INC_Parent"
+    },
+    {
+      "code": "A11",
+      "label": "Has_NICHD_Parent"
+    },
+    {
+      "code": "A19",
+      "label": "Has_Pharmaceutical_Administration_Method"
+    },
+    {
+      "code": "A18",
+      "label": "Has_Pharmaceutical_Basic_Dose_Form"
+    },
+    {
+      "code": "A20",
+      "label": "Has_Pharmaceutical_Intended_Site"
+    },
+    {
+      "code": "A21",
+      "label": "Has_Pharmaceutical_Release_Characteristics"
+    },
+    {
+      "code": "A17",
+      "label": "Has_Pharmaceutical_State_Of_Matter"
+    },
+    {
+      "code": "A22",
+      "label": "Has_Pharmaceutical_Transformation"
+    },
+    {
+      "code": "A5",
+      "label": "Has_Salt_Form"
+    },
+    {
+      "code": "A7",
+      "label": "Has_Target"
+    },
+    {
+      "code": "A9",
+      "label": "Is_Related_To_Endogenous_Product"
+    },
+    {
+      "code": "A14",
+      "label": "Neoplasm_Has_Special_Category"
+    },
+    {
+      "code": "A4",
+      "label": "Qualifier_Applies_To"
+    },
+    {
+      "code": "A13",
+      "label": "Related_To_Genetic_Biomarker"
+    },
+    {
+      "code": "A1",
+      "label": "Role_Has_Domain"
+    },
+    {
+      "code": "A3",
+      "label": "Role_Has_Parent"
+    },
+    {
+      "code": "A2",
+      "label": "Role_Has_Range"
+    }
+  ]
+}

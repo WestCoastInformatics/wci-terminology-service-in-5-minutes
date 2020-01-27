@@ -1,0 +1,43 @@
+{
+  "paths" : [ {
+    "path" : [ {
+      "name" : "Melanoma",
+      "code" : "C3224"
+    }, {
+      "name" : "Melanocytic Neoplasm",
+      "code" : "C7058"
+    }, {
+      "name" : "Neoplasm by Morphology",
+      "code" : "C4741"
+    }, {
+      "name" : "Neoplasm",
+      "code" : "C3262"
+    }, {
+      "name" : "Disease or Disorder",
+      "code" : "C2991"
+    }, {
+      "name" : "Disease, Disorder or Finding",
+      "code" : "C7057"
+    } ]
+  }, {
+    "path" : [ {
+      "name" : "Melanoma",
+      "code" : "C3224"
+    }, {
+      "name" : "Malignant Neoplasm",
+      "code" : "C9305"
+    }, {
+      "name" : "Neoplasm by Special Category",
+      "code" : "C7062"
+    }, {
+      "name" : "Neoplasm",
+      "code" : "C3262"
+    }, {
+      "name" : "Disease or Disorder",
+      "code" : "C2991"
+    }, {
+      "name" : "Disease, Disorder or Finding",
+      "code" : "C7057"
+    } ]
+  } ]
+}

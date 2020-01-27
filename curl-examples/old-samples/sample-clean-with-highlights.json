@@ -1,0 +1,13 @@
+... normal report, followed by ...
+
+ "highlight" : {
+      "synonyms_plain.ngram" : [ "Anal Malignant <em>Melanoma</em>", "Anal <em>Melanoma</em>", "Malignant <em>Melanoma</em> of Anus", "Malignant <em>Melanoma</em> of the Anus", "<em>Melanoma</em> of Anus", "<em>Melanoma</em> of the Anus" ],
+      "definitions_plain.ngram" : [ "A <em>melanoma</em> arising from the anus." ],
+      "Superconcept.label.ngram" : [ "Digestive System <em>Melanoma</em>" ],
+      "Preferred_Name.ngram" : [ "Anal <em>Melanoma</em>" ],
+      "Label.ngram" : [ "Anal <em>Melanoma</em>" ],
+      "Legacy_Concept_Name.ngram" : [ "Anal_<em>Melanoma</em>" ]
+    }
+
+    => inline this informatio ninto the "term" or "propety" entry.
+    e.g. "highlight": ... and it's a variation of the name
