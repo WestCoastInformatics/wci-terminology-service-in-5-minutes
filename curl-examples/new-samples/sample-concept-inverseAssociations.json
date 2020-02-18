@@ -1,8 +1,0 @@
-{
-  "inverseAssociations" : [ {
-    "type" : "Has_NICHD_Parent",
-    "code" : "A11",
-    "relatedCode" : "C131506",
-    "relatedName" : "Childhood Melanoma"
-  } ]
-}

@@ -1,92 +1,93 @@
- EVSRESTAPI in 5 minutes: CURL Tutorial
-======================================
+<a name="top" />
 
-This tutorial shows how to use raw cURL commands to access NCI Thesaurus content from the EVSRESTAPI.
+WCI Terminology Service in 5 minutes: Curl Tutorial
+===================================================
 
-If you don' have CURL in your system check the official [cURL site](https://curl.haxx.se/dlwiz/) or use any alternative.
+This tutorial shows how to use raw cURL commands to access content from the WCI Terminology Service.
 
-The responses from the web service are in [JSON](http://www.json.org/) format, that you can save into a file and explore. For these examples, we use in line [python](https://www.python.org/) scripts to parse and extract meaningful information from the response.
+Prerequisites
+* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
 The Browser as a terminology server
 ------------------------------------
 
-The base url for the EVSRESTAPI is:
+The base API url for the WCI Terminology Service is: 
 
-<http://ncias-d2174-c.nci.nih.gov:8080/api/v1/>
+`export API_URL=https://wci.terminology.tools
 
-This is the base URL, all the content calls we will perform will construct adding more values after that
+Run this command before the sample curl calls below as they expect $API_URL to be set.
 
-All the operations described here will perform a GET request.
+All the operations described here perform a GET request.
 
-The full documentation of the REST API can be consulted in the Sawgger documentation at http://ncias-d2174-c.nci.nih.gov:8080/swagger-ui.html
+The full documentation of the WCI Terminology Service can be found here: https://wci-wiki.atlassian.net/wiki/spaces/TSV2/overview
+
 
 Sample cURL Calls
 -----------------
 
-The following examples can be types into the command line of any terminal that has cURL and python configured. It should work by without requiring any installation in Unix/Linx/BSD and Apple OS X systems.
+The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
-### Searching for a term
+- [Get terminologies](#get-terminologies)
+- [Get concept by code (minimum information)](#get-concept-by-code)
+- [Get concept by code (more information)](#get-concept-by-code-summary)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 
-Searching by term for "melanoma":
+<a name="get-terminologies"/>
 
-```
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/search?term=melanoma&format=clean" | python -c "import json,sys;obj=json.load(sys.stdin);print obj['total'];"
-```
+### Get terminologies
 
-This command will obtain a json response from the server, parse it, and display the number of concepts that match with our search query.
-
-**Output**: `1456`
-
-Same API call, but now we display the first match code and name:
+Return all loaded terminologies currently hosted by the API.
 
 ```
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/search?term=melanoma&format=clean" | python -c "import json,sys;obj=json.load(sys.stdin);print obj['hits'][0]['Code'],obj['hits'][0]['Label'];"
+curl "$API_URL/metadata/terminologies" | jq '.'
 ```
 
-**Output**: `C3224 Melanoma`
+See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
-### Get a concept by code
+[Back to Top](#top)
 
-Get concept for code C3224:
+<a name="get-concept-by-code"/>
 
-```
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/concept/C3224" | python -c "import json,sys;obj=json.load(sys.stdin);print obj['Code'],obj['Label'];"
-```
+### Get concept by code (minimal information)
 
-This command will obtain a json response from the server, parse it, and display the "Code" and "Label" fields.
-
-**Output**: `C3224 Melanoma`
-
-
-### Get children of a concept by code
-
-Find child concepts for code C3224:
+Return minimal concept information for a given terminology and code.
 
 ```
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/concept/C3224/allChildNodes" | python -c "import json,sys;obj=json.load(sys.stdin);print len(obj)"
+curl "$API_URL/concept/SNOMEDCT_US/2092003?resolver=MINIMAL" | jq '.'
 ```
 
-This command will obtain a json response from the server, parse it, and print the number of child concepts.
+See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
 
-**Output**: `207`
+[Back to Top](#top)
 
-### Next Steps
+<a name="get-concept-summary"/>
+
+### Get concept by code (more information)
+
+Return more concept information for a given terminology and code, use ATOM as the
+resolver parameter.
 
 ```
-### Get path to root for code
+curl "$API_URL/concept/SNOMEDCT_US/2092003?resolver=ATOM" | jq '.'
+```
 
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/concept/C3224/pathInHierarchy"
+See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-more.txt)
 
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/concept/C3224/pathToRoot"
+[Back to Top](#top)
 
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/concept/C3224/pathToParent/C2991"
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/concept/C2991/pathToParent/C3262"
+<a name="find-concepts"/>
 
-curl --silent "http://ncias-d2174-c.nci.nih.gov:8080/api/v1/documentation/associationsList"
+### Find concepts by search term
 
-### Get relationships for a code
-### Get details for a list of concepts
-### Get a list of concepts from comma-separated list of ids
-### Get root nodes
-### Get metadata assocations, properties, roles
+Find concepts matching a search term within a specified terminology. This 
+example uses paging to get only the first 5 results.
+
+```
+curl "$API_URL/concept/SNOMEDCT_US?query=melanoma&limit=5" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
+
+[Back to Top](#top)
 

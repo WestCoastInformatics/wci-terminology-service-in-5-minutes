@@ -1,68 +1,63 @@
-EVSRESTAPI CT in 5 minutes: bash Tutorial
-=========================================
+<a name="top"/>
+
+WCI Terminology Service in 5 minutes: bash Tutorial
+===================================================
 
 This tutorial shows how to use bash scripts to access NCI Thesaurus content from the EVSRESTAPI.
 
 Prerequisites
-* curl must be installled ([cURL site](https://curl.haxx.se/dlwiz/))
-* python must be installed ([python](https://www.python.org/))
+* bash must be installed
+* curl must be installed ([Download cURL](https://curl.haxx.se/dlwiz/))
+* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
 
 Test Scripts
 ------------
+- [get-terminologies.sh](#get-terminologies-sh)
+- [get-concept.sh](#get-concept-sh)
+- [find-concepts.sh](#find-concepts-sh)
 
-The following examples can be typed into the command line of any terminal that has cURL and python configured.
+The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
-### term-search.sh
+<a name="get-terminologies-sh"/>
 
-Searching for "melanoma":
+### get-terminologies.sh
 
-```
-./term-search.sh "melanoma"
-```
-
-This command produces a log that includes the json response from the server.
-
-**Output**: 
+Return all loaded terminologies currently hosted by the API:
 
 ```
------------------------------------------------------
-Starting ...Wed Nov 20 14:11:01 EST 2019
------------------------------------------------------
-  Performing search for 'melanoma' - http://ncias-d2174-c.nci.nih.gov:8080/api/v1
-
-{
-  "from" : 0,
-  "size" : 10,
-  "total" : 1456,
-  "hits" : [ {
-    "Code" : "C3224",
-    "Label" : "Melanoma",
-    "Semantic_Type" : [ "Neoplastic Process" ],
-    ...
-      "relationship" : "Disease_May_Have_Finding",
-      "relationshipCode" : "R115",
-      "relatedConceptCode" : "C40993",
-      "relatedConceptLabel" : "S-100-Positive Neoplastic Cells Present"
-    } ]
-  } ]
-}
------------------------------------------------------
-Finished ..Wed Nov 20 14:11:02 EST 2019
------------------------------------------------------
+TBD
 ```
+
+[Back to Top](#top)
+
+<a name="get-concept-sh"/>
 
 ### get-concept.sh
 
-Searching for "melanoma":
+Return concept information for a given terminology and code.  The "resolver" parameter
+can be used to specify the amount of information you want back.  Try with "CODING" and
+"ATOM"
 
 ```
-./get-concept.sh "C3224"
+TBD
 ```
 
-This command produces a log that includes the json response from the server.
+[Back to Top](#top)
 
-**Output**: 
+<a name="find-concepts-sh"/>
 
+### find-concepts.sh
 
+Used to perform text searches to find matching concepts. In its simplest form the
+script will perform a simple "contains" text search for concepts within the specified
+terminology.  Use the --include parameter to control how much information to get back,
+use the --type to change the nature of the search, and use --fromRecord and --pageSize
+to control which records to return. 
+
+```
+TBD
+```
+
+[Back to Top](#top)
 
