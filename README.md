@@ -1,6 +1,7 @@
 # EVSRESTAPI Client SDK
 
-This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
+This is an easy-to-use tutorial for accessing West Coast Informatics
+Terminology Server APIs.
 
 ## Table of Contents
 
@@ -26,11 +27,13 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 ## Use Cases
 
-The following cases will be used to demonstrate accessing the EVSREST API
+The following cases will be used to demonstrate accessing the West Coast Informatics
+Terminology Server API
 
+- login
 - Get terminologies
-- Get concept by code (minimum information)
-- Get concept by code (more information)
+- Get concept by code
+- Get concept relationships by code
 - Find concepts by search term (use paging to get only first 5 results)
 
 All of the tutorials use an environment variable for the API URL of the deployment:
@@ -43,7 +46,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 ## Resources
 
 - API Documentation - https://wci-terminology-server.docs.stoplight.io
-- Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2/overview
+- Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 
 
 **[Back to top](#table-of-contents)**

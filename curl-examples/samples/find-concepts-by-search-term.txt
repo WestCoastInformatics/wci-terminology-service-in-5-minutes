@@ -1,1 +1,72 @@
-TBD
+{
+  "total": 394,
+  "limit": 0,
+  "offset": 0,
+  "items": [
+    {
+      "id": "dfb307b2-2224-41e8-b1fd-1b249ae87dcb",
+      "modified": "2019-01-01T00:00:00.000Z",
+      "created": "2019-01-01T00:00:00.000Z",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Malignant melanoma",
+      "code": "2092003",
+      "terminology": "SNOMEDCT_US",
+      "sufficientlyDefined": false,
+      "anonymous": false
+    },
+    {
+      "id": "afaab8d0-44a9-4bdd-9686-043a07b0592d",
+      "modified": "2019-01-01T00:00:00.000Z",
+      "created": "2019-01-01T00:00:00.000Z",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Melanoma vaccine",
+      "code": "428026004",
+      "terminology": "SNOMEDCT_US",
+      "sufficientlyDefined": false,
+      "anonymous": false
+    },
+    {
+      "id": "335dbb19-5d73-4e2e-8d33-c65c59d282d4",
+      "modified": "2019-01-01T00:00:00.000Z",
+      "created": "2019-01-01T00:00:00.000Z",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Melanoma carcinomatosis",
+      "code": "103511000119103",
+      "terminology": "SNOMEDCT_US",
+      "sufficientlyDefined": true,
+      "anonymous": false
+    },
+    {
+      "id": "de7c0741-4d0a-401d-b7dc-2ddc24754bee",
+      "modified": "2019-01-01T00:00:00.000Z",
+      "created": "2019-01-01T00:00:00.000Z",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": true,
+      "name": "Melanoma vaccine",
+      "code": "373869007",
+      "terminology": "SNOMEDCT_US",
+      "sufficientlyDefined": false,
+      "anonymous": false
+    },
+    {
+      "id": "c76107dd-039b-49a2-b49b-3084e61c7ce2",
+      "modified": "2019-01-01T00:00:00.000Z",
+      "created": "2019-01-01T00:00:00.000Z",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": false,
+      "name": "Melanoma in situ",
+      "code": "189758001",
+      "terminology": "SNOMEDCT_US",
+      "sufficientlyDefined": false,
+      "anonymous": false
+    }
+  ]
+}

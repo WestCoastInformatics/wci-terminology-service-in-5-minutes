@@ -1,16 +1,24 @@
 #!/bin/bash
 #
-# Script to call WCI Terminology Service to perform a concept code lookup.
+# Script to call WCI Terminology Service to perform concept relationships 
+# lookup for a code.
 # NOTE: the token might be optional for endpoints without authentication.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --token) token="$2"; shift;;
+  --limit) limit="$2"; shift;;
+  --offset) offset="$2"; shift;;
+  --ascending) ascending="$2"; shift;;
+  --sort) sort="$2"; shift;;
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
 if [ ${#arr[@]} -ne 2 ]; then
-  echo "Usage: $0 <terminology> <code> [--token token]"
+  echo "Usage: $0 <terminology> <code> [--token token] [--limit #]"
+  echo "    [--offset #] [--ascending <true|false>] [--sort <sort>]"
   echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token"
+  echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token --limit 5"
+  echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token --limit 5 --sort additionalType"
   exit 1
 fi
 
@@ -29,9 +37,22 @@ echo "terminology = $terminology"
 echo "code = $code"
 echo ""
 
+if [[ -z $offset ]]; then
+  offset=0
+fi
+if [[ -z $limit ]]; then
+  limit=10
+fi
+if [[ -z $ascending ]]; then
+  ascending=
+fi
+if [[ -z $sort ]]; then
+  sort=
+fi
+
 # GET call
 echo "  Get concept for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/terminology/concept/$terminology/$code" -H "Authorization: Bearer $token"  2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/terminology/concept/$terminology/$code/relationships" -H "Authorization: Bearer $token" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset" --data-urlencode "ascending=$ascending" --data-urlencode "sort=$sort" 2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$

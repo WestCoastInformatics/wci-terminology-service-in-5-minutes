@@ -1,0 +1,6 @@
+{
+  "access_token": "eyJ0eXAiOi4AV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI499E1MDMsImF1ZCI6Im51bGwiLCJpc3MiOiJodHRwczovL3dlc3Rjb2FzdGluZm9ybWF0aWNzLmNvbSIsImh0dHBzOi8vd2NpLmNvbS9pZCI6IjU4YjM3MmMyLTc2OTgtNDY3YS05YmRjLTliODRmMmY1M2Q1MyIsImh0dHBzOi8vd2NpLmNvbS9vcmciOiJiY2FybHNlbiIsImh0dHBzOi8vd2NpLmNvbS9yb2xlIjoiVVNFUiIsImV4cCI6MTU4MjkyNzkwM30.ce7MDDNTdiXCPWg1rSC4bll8iQ2lQDasvxj4NhH9vD8",
+  "expires_in": 86400,
+  "expires_on": 1582927903,
+  "token_type": "Bearer"
+}

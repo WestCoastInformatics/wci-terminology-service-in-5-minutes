@@ -3,7 +3,7 @@
 WCI Terminology Service in 5 minutes: Curl Tutorial
 ===================================================
 
-This tutorial shows how to use raw cURL commands to access content from the WCI Terminology Service.
+This tutorial shows how to use raw cURL commands to access content from the WCI Terminology API.
 
 Prerequisites
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
@@ -14,7 +14,7 @@ The Browser as a terminology server
 
 The base API url for the WCI Terminology Service is: 
 
-`export API_URL=https://wci.terminology.tools
+`export API_URL=https://wci.terminology.tools`
 
 Run this command before the sample curl calls below as they expect $API_URL to be set.
 
@@ -26,12 +26,31 @@ The full documentation of the WCI Terminology Service can be found here: https:/
 Sample cURL Calls
 -----------------
 
-The following examples can be types into the command line of any terminal that has cURL and jq installed.
+The following examples can be types into the command line of any terminal that has cURL and jq installed.  NOTE: the login step must be performed before the other calls will
+work.
 
+- [Login with UTS Account](#login-uts)
 - [Get terminologies](#get-terminologies)
-- [Get concept by code (minimum information)](#get-concept-by-code)
-- [Get concept by code (more information)](#get-concept-by-code-summary)
+- [Get concept by code](#get-concept-by-code)
+- [Get concept relationships by code](#get-concept-relationships)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
+
+<a name="login-uts"/>
+
+### Login with UTS Account
+
+Logs in to the API using a UTS account username and password, acquire a token.
+
+```
+cat > /tmp/data.txt << EOF
+{ "grant_type": "username_password", "username": "$username", "password": "$password"}
+EOF
+token=`curl -X POST "$API_URL/auth/token" -d "@/tmp/data.txt" -H "Content-type: application/json" | jq '.access_token' | sed 's/"//g'`
+```
+
+See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
+
+[Back to Top](#top)
 
 <a name="get-terminologies"/>
 
@@ -40,7 +59,7 @@ The following examples can be types into the command line of any terminal that h
 Return all loaded terminologies currently hosted by the API.
 
 ```
-curl "$API_URL/metadata/terminologies" | jq '.'
+curl -H "Authorization: Bearer $token" "$API_URL/terminology" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
@@ -49,27 +68,28 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 
 <a name="get-concept-by-code"/>
 
-### Get concept by code (minimal information)
+### Get concept by code
 
-Return minimal concept information for a given terminology and code.
+Look up concept information for a given terminology and code.
 
 ```
-curl "$API_URL/concept/SNOMEDCT_US/2092003?resolver=MINIMAL" | jq '.'
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/80891009" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
+See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
 
 [Back to Top](#top)
 
-<a name="get-concept-summary"/>
+<a name="get-concept-relationships"/>
 
-### Get concept by code (more information)
+### Get concept relationships by code
 
-Return more concept information for a given terminology and code, use ATOM as the
-resolver parameter.
+Get concept relationships for a terminology and code. In this environment, relationships
+are represented bidirectionally, so this call will get relationships pointing "from"
+this concept as well as (inversed) relationships pointing "to" this concept.
 
 ```
-curl "$API_URL/concept/SNOMEDCT_US/2092003?resolver=ATOM" | jq '.'
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US/80891009/relationships" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-more.txt)
@@ -81,10 +101,11 @@ See sample payload data from this call in [`samples/get-concept-by-code-summary.
 ### Find concepts by search term
 
 Find concepts matching a search term within a specified terminology. This 
-example uses paging to get only the first 5 results.
+example uses paging to get only the first 5 results and a resolver that
+gets only minimum amount of data.
 
 ```
-curl "$API_URL/concept/SNOMEDCT_US?query=melanoma&limit=5" | jq '.'
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)

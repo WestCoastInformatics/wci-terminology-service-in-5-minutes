@@ -1,1 +1,77 @@
-TBD
+[
+  {
+    "id": "e439d62b-1b71-4955-827e-365301661813",
+    "modified": "2020-02-27T02:28:32.034Z",
+    "created": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "admin",
+    "local": false,
+    "active": true,
+    "abbreviation": "ICD10CM",
+    "name": "International Classification of Diseases, 10th Edition, Clinical Modification, 2020",
+    "version": "2020",
+    "systemUri": "http://hl7.org/fhir/sid/icd-10-cm",
+    "systemOid": "2.16.840.1.113883.6.90",
+    "expressionEnabled": true,
+    "attributes": {
+      "tree-positions": "true"
+    }
+  },
+  {
+    "id": "bf9b0bd8-be54-43ad-876f-3223da58a65d",
+    "modified": "2020-02-27T02:30:55.203Z",
+    "created": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "admin",
+    "local": false,
+    "active": true,
+    "abbreviation": "LNC",
+    "name": "LOINC, 266",
+    "version": "266",
+    "systemUri": "http://loinc.org",
+    "systemOid": "2.16.840.1.113883.6.1",
+    "expressionEnabled": true,
+    "attributes": {
+      "tree-positions": "true"
+    }
+  },
+  {
+    "id": "21cfcfe1-4217-49a4-a281-279f5d9beeab",
+    "modified": "2019-01-01T00:00:00.000Z",
+    "created": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "admin",
+    "local": false,
+    "active": true,
+    "abbreviation": "NET",
+    "name": "NET",
+    "version": "latest",
+    "expressionEnabled": true
+  },
+  {
+    "id": "9855f487-2698-4b66-bce3-ea67e1654a8e",
+    "modified": "2019-01-01T00:00:00.000Z",
+    "created": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "loader",
+    "local": false,
+    "active": true,
+    "abbreviation": "RXNORM",
+    "name": "RxNorm Vocabulary, 19AA_190903F",
+    "version": "19AA_190903F",
+    "systemUri": "http://www.nlm.nih.gov/research/umls/rxnorm",
+    "systemOid": "2.16.840.1.113883.6.88",
+    "expressionEnabled": true
+  },
+  {
+    "id": "a3c4e858-6f75-4c14-a25c-cd824c325caa",
+    "modified": "2020-02-27T02:27:32.158Z",
+    "created": "2019-01-01T00:00:00.000Z",
+    "modifiedBy": "admin",
+    "local": false,
+    "active": true,
+    "abbreviation": "SNOMEDCT_US",
+    "name": "US Edition of SNOMED CT, 2019_09_01",
+    "version": "2019_09_01",
+    "expressionEnabled": true,
+    "attributes": {
+      "tree-positions": "true"
+    }
+  }
+]
