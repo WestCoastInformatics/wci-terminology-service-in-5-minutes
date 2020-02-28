@@ -1,4 +1,4 @@
-# EVSRESTAPI Client SDK
+# West Coast Informatics Terminology Server Tutorial
 
 This is an easy-to-use tutorial for accessing West Coast Informatics
 Terminology Server APIs.
