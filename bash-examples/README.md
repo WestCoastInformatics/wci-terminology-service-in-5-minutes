@@ -116,31 +116,29 @@ example gets the 80891009 | Heart structure | concept in SNOMEDCT_US.
 ```
 $ ./get-concept.sh SNOMEDCT_US 80891009 --token $token
 -----------------------------------------------------
-Starting ...Thu, Feb 27, 2020  3:49:45 PM
+Starting ...Fri, Feb 28, 2020  2:09:01 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = http://localhost:8081
 terminology = SNOMEDCT_US
 code = 80891009
 
   Get concept for SNOMEDCT_US 80891009:
 
     {
-      "id": "51806948-9b2f-4c34-81a8-c70d298cfcac",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2019-01-01T00:00:00.000Z",
-      "modifiedBy": "admin",
+      "id": "c2273780-4e2e-40e9-b4bb-e4502a12f4fc",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
       "local": false,
       "active": true,
       "name": "Heart structure",
       "code": "80891009",
       "terminology": "SNOMEDCT_US",
-      "sufficientlyDefined": false,
-      "anonymous": false,
       "attributes": {
-        "DEFINITION_STATUS_ID": "900000000000074008",
         "ACTIVE": "1",
+        "DEFINITION_STATUS_ID": "900000000000074008",
         "CUI": "C0018787",
-        "SCG": "<<< 409708007 | Heart and/or pericardium structure | + 27832009 | Structure of thoracic viscus | :  has_entire_anatomy_structure = 302509004 | Entire heart |,  has_part_anatomy_structure = 119202000 | Heart part |",
+        "SCG": "<<< 409708007 | Heart and/or pericardium structure | + 27832009 | Structure of thoracic viscus | :  has_part_anatomy_structure = 119202000 | Heart part |,  has_entire_anatomy_structure = 302509004 | Entire heart |",
         "EFFECTIVE_TIME": "20020131"
       },
       "semanticTypes": [
@@ -149,9 +147,29 @@ code = 80891009
       ],
       "atoms": [
         {
-          "id": "a3c02304-2e33-45bf-aca5-95dca98b6df2",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
+          "id": "88f3b793-f12c-4d75-9d96-92df03e8a894",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": false,
+          "name": "Heart, NOS",
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "A4737609",
+          "codeId": "80891009",
+          "conceptId": "80891009",
+          "localeMap": {
+            "en": false
+          },
+          "termType": "IS",
+          "attributes": {
+            "suppressible": "true"
+          }
+        },
+        {
+          "id": "f0b6a6c3-7f4f-400c-a2a3-d5fa77cd419d",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
@@ -160,9 +178,6 @@ code = 80891009
           "terminologyId": "A3488292",
           "codeId": "80891009",
           "conceptId": "80891009",
-          "caseSensitive": false,
-          "orderSensitive": false,
-          "punctuationSensitive": false,
           "localeMap": {
             "en": false
           },
@@ -171,13 +186,75 @@ code = 80891009
             "TYPE_ID": "900000000000003001",
             "CASE_SIGNIFICANCE_ID": "900000000000448009"
           }
-        }, 
-    ...
+        },
+        {
+          "id": "642ba814-3cf2-4b78-a6ed-1725c4dc038b",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Heart",
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "A2882201",
+          "codeId": "80891009",
+          "conceptId": "80891009",
+          "localeMap": {
+            "en": false
+          },
+          "termType": "SY",
+          "attributes": {
+            "TYPE_ID": "900000000000013009",
+            "CASE_SIGNIFICANCE_ID": "900000000000448009"
+          }
+        },
+        {
+          "id": "bbb4ec88-197a-4a6f-b8f6-56e3f32ff403",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Cardiac structure",
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "A6921135",
+          "codeId": "80891009",
+          "conceptId": "80891009",
+          "localeMap": {
+            "en": false
+          },
+          "termType": "SY",
+          "attributes": {
+            "TYPE_ID": "900000000000013009",
+            "CASE_SIGNIFICANCE_ID": "900000000000448009"
+          }
+        },
+        {
+          "id": "a1561741-9a46-4284-b63b-495d955feb35",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "name": "Heart structure",
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "A3140621",
+          "codeId": "80891009",
+          "conceptId": "80891009",
+          "localeMap": {
+            "en": false
+          },
+          "termType": "PT",
+          "attributes": {
+            "TYPE_ID": "900000000000013009",
+            "CASE_SIGNIFICANCE_ID": "900000000000448009"
+          }
+        }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Thu, Feb 27, 2020  3:49:46 PM
+Finished ...Fri, Feb 28, 2020  2:09:01 PM
 -----------------------------------------------------
 ```
 
@@ -195,23 +272,23 @@ field.
 ```
 $ ./get-concept-relationships.sh SNOMEDCT_US 80891009 --token $token --limit 5 --sort additionalType
 -----------------------------------------------------
-Starting ...Thu, Feb 27, 2020  3:51:52 PM
+Starting ...Fri, Feb 28, 2020  2:09:52 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = http://localhost:8081
 terminology = SNOMEDCT_US
 code = 80891009
 
   Get concept for SNOMEDCT_US 80891009:
 
     {
-      "total": 1207,
-      "limit": 0,
+      "total": 1313,
+      "limit": 5,
       "offset": 0,
       "items": [
         {
-          "id": "fd2b17bc-21c0-4dd9-ab80-9b8a0589a318",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
+          "id": "1262d1a9-72df-4e9e-a56d-a468fd4d6c58",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
           "modifiedBy": "loader",
           "local": false,
           "active": true,
@@ -222,15 +299,82 @@ code = 80891009
           "hierarchical": false,
           "assertedDirection": false,
           "defining": true,
-          "toCode": "116157005",
           "toName": "Heart cytologic material",
-          "toId": "339b9eb1-a2ad-4dcc-bade-69ab4193503c"
-        },...
+          "toCode": "116157005"
+        },
+        {
+          "id": "582540dd-ecd7-4200-92ec-18bc0cd291a4",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343274",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart",
+          "toCode": "127462005"
+        },
+        {
+          "id": "bddbc143-b84b-4863-a0a0-1aceb253f86d",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343059",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart obtained by biopsy",
+          "toCode": "122623002"
+        },
+        {
+          "id": "f1aec2aa-d921-431d-b1b1-7df7c52aa893",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343060",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart obtained by excisional biopsy of lesion",
+          "toCode": "122624008"
+        },
+        {
+          "id": "601a9dfe-e0fc-4368-b4f5-d0e8c35dfa70",
+          "modified": "2019-01-01T00:00:00.000-08:00",
+          "created": "2019-01-01T00:00:00.000-08:00",
+          "modifiedBy": "loader",
+          "local": false,
+          "active": true,
+          "terminology": "SNOMEDCT_US",
+          "terminologyId": "R14343061",
+          "type": "RO",
+          "additionalType": "specimen_source_topography_of",
+          "hierarchical": false,
+          "assertedDirection": false,
+          "defining": true,
+          "toName": "Specimen from heart obtained by incisional biopsy",
+          "toCode": "122625009"
+        }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Thu, Feb 27, 2020  3:51:52 PM
+Finished ...Fri, Feb 28, 2020  2:09:53 PM
 -----------------------------------------------------
 ```
 
@@ -249,90 +393,65 @@ summary concept information about each result.
 ```
 $ ./find-concepts.sh SNOMEDCT_US "malignant melanoma" --token $token --limit 5
 -----------------------------------------------------
-Starting ...Thu, Feb 27, 2020  3:54:32 PM
+Starting ...Fri, Feb 28, 2020  2:12:02 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = http://localhost:8081
 terminology = SNOMEDCT_US
 query = malignant melanoma
-resolver =
+resolver = 
 
   Find concept for SNOMEDCT_US malignant melanoma:
 
     {
       "total": 394,
-      "limit": 5,
+      "limit": 0,
       "offset": 0,
       "items": [
         {
-          "id": "dfb307b2-2224-41e8-b1fd-1b249ae87dcb",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
-          "modifiedBy": "loader",
+          "id": "5641c656-f8c3-4d4f-9b32-af01ae29f705",
           "local": false,
           "active": true,
           "name": "Malignant melanoma",
           "code": "2092003",
-          "terminology": "SNOMEDCT_US",
-          "sufficientlyDefined": false,
-          "anonymous": false
+          "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "e0c14124-2d0f-4116-a486-fe75d16177df",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
-          "modifiedBy": "loader",
+          "id": "fcf32897-368d-4c21-85ea-ddd18e4a01d8",
           "local": false,
           "active": true,
           "name": "Malignant melanoma",
           "code": "372244006",
-          "terminology": "SNOMEDCT_US",
-          "sufficientlyDefined": true,
-          "anonymous": false
+          "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "a5dfb75c-7512-41ca-9af1-69b18653f598",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
-          "modifiedBy": "loader",
+          "id": "ee5d28e2-fcfe-44ab-94f4-87e17747f0e0",
           "local": false,
           "active": false,
           "name": "Melanoma: [skin] or [malignant]",
           "code": "154501005",
-          "terminology": "SNOMEDCT_US",
-          "sufficientlyDefined": false,
-          "anonymous": false
+          "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "4bcd0c14-5fb5-4c1f-b7f8-a4956e2f1fa1",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
-          "modifiedBy": "loader",
+          "id": "9b1f79c0-7ffa-4a4a-b291-42dce1a30864",
           "local": false,
           "active": false,
           "name": "Melanoma: [skin] or [malignant]",
           "code": "269577007",
-          "terminology": "SNOMEDCT_US",
-          "sufficientlyDefined": false,
-          "anonymous": false
+          "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "0c703136-fba8-4dd0-a796-97a0f10eba76",
-          "modified": "2019-01-01T00:00:00.000Z",
-          "created": "2019-01-01T00:00:00.000Z",
-          "modifiedBy": "loader",
+          "id": "592b64dc-c23b-4082-82ae-53173e8ad72d",
           "local": false,
           "active": false,
           "name": "Regressing malignant melanoma",
           "code": "189750008",
-          "terminology": "SNOMEDCT_US",
-          "sufficientlyDefined": false,
-          "anonymous": false
+          "terminology": "SNOMEDCT_US"
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Thu, Feb 27, 2020  3:54:33 PM
+Finished ...Fri, Feb 28, 2020  2:12:02 PM
 -----------------------------------------------------
 ```
 

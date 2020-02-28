@@ -1,20 +1,18 @@
 {
-  "id": "51806948-9b2f-4c34-81a8-c70d298cfcac",
-  "modified": "2020-02-27T02:32:19.291Z",
-  "created": "2019-01-01T00:00:00.000Z",
-  "modifiedBy": "admin",
+  "id": "c2273780-4e2e-40e9-b4bb-e4502a12f4fc",
+  "modified": "2019-01-01T00:00:00.000-08:00",
+  "created": "2019-01-01T00:00:00.000-08:00",
+  "modifiedBy": "loader",
   "local": false,
   "active": true,
   "name": "Heart structure",
   "code": "80891009",
   "terminology": "SNOMEDCT_US",
-  "sufficientlyDefined": false,
-  "anonymous": false,
   "attributes": {
-    "DEFINITION_STATUS_ID": "900000000000074008",
     "ACTIVE": "1",
+    "DEFINITION_STATUS_ID": "900000000000074008",
     "CUI": "C0018787",
-    "SCG": "<<< 409708007 | Heart and/or pericardium structure | + 27832009 | Structure of thoracic viscus | :  has_entire_anatomy_structure = 302509004 | Entire heart |,  has_part_anatomy_structure = 119202000 | Heart part |",
+    "SCG": "<<< 409708007 | Heart and/or pericardium structure | + 27832009 | Structure of thoracic viscus | :  has_part_anatomy_structure = 119202000 | Heart part |,  has_entire_anatomy_structure = 302509004 | Entire heart |",
     "EFFECTIVE_TIME": "20020131"
   },
   "semanticTypes": [
@@ -23,9 +21,29 @@
   ],
   "atoms": [
     {
-      "id": "a3c02304-2e33-45bf-aca5-95dca98b6df2",
-      "modified": "2019-01-01T00:00:00.000Z",
-      "created": "2019-01-01T00:00:00.000Z",
+      "id": "88f3b793-f12c-4d75-9d96-92df03e8a894",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
+      "modifiedBy": "loader",
+      "local": false,
+      "active": false,
+      "name": "Heart, NOS",
+      "terminology": "SNOMEDCT_US",
+      "terminologyId": "A4737609",
+      "codeId": "80891009",
+      "conceptId": "80891009",
+      "localeMap": {
+        "en": false
+      },
+      "termType": "IS",
+      "attributes": {
+        "suppressible": "true"
+      }
+    },
+    {
+      "id": "f0b6a6c3-7f4f-400c-a2a3-d5fa77cd419d",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
@@ -34,9 +52,6 @@
       "terminologyId": "A3488292",
       "codeId": "80891009",
       "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
       "localeMap": {
         "en": false
       },
@@ -47,32 +62,9 @@
       }
     },
     {
-      "id": "6c782020-f49b-40fd-a517-8fd56ecd0f71",
-      "modified": "2019-01-01T00:00:00.000Z",
-      "created": "2019-01-01T00:00:00.000Z",
-      "modifiedBy": "loader",
-      "local": false,
-      "active": false,
-      "name": "Heart, NOS",
-      "terminology": "SNOMEDCT_US",
-      "terminologyId": "A4737609",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "IS",
-      "attributes": {
-        "suppressible": "true"
-      }
-    },
-    {
-      "id": "a7f16a90-c9c6-4483-9bed-355b9222ea3d",
-      "modified": "2019-01-01T00:00:00.000Z",
-      "created": "2019-01-01T00:00:00.000Z",
+      "id": "642ba814-3cf2-4b78-a6ed-1725c4dc038b",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
@@ -81,9 +73,6 @@
       "terminologyId": "A2882201",
       "codeId": "80891009",
       "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
       "localeMap": {
         "en": false
       },
@@ -94,9 +83,9 @@
       }
     },
     {
-      "id": "13d388e6-aca5-4889-a3b1-111e24f38422",
-      "modified": "2019-01-01T00:00:00.000Z",
-      "created": "2019-01-01T00:00:00.000Z",
+      "id": "bbb4ec88-197a-4a6f-b8f6-56e3f32ff403",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
@@ -105,9 +94,6 @@
       "terminologyId": "A6921135",
       "codeId": "80891009",
       "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
       "localeMap": {
         "en": false
       },
@@ -118,9 +104,9 @@
       }
     },
     {
-      "id": "5b276e29-7f9a-48a8-8d51-685763fa147c",
-      "modified": "2019-01-01T00:00:00.000Z",
-      "created": "2019-01-01T00:00:00.000Z",
+      "id": "a1561741-9a46-4284-b63b-495d955feb35",
+      "modified": "2019-01-01T00:00:00.000-08:00",
+      "created": "2019-01-01T00:00:00.000-08:00",
       "modifiedBy": "loader",
       "local": false,
       "active": true,
@@ -129,9 +115,6 @@
       "terminologyId": "A3140621",
       "codeId": "80891009",
       "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
       "localeMap": {
         "en": false
       },
@@ -139,182 +122,6 @@
       "attributes": {
         "TYPE_ID": "900000000000013009",
         "CASE_SIGNIFICANCE_ID": "900000000000448009"
-      }
-    },
-    {
-      "id": "273c06db-56ec-4d71-abad-50a02c9bb835",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "32 HEART",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "1c179ecc-11c3-42a0-9bb0-bae64c780685",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "Cardiac",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "ac87e1af-ab12-4c7c-a120-daa5ce09bd77",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "Cardio-",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "7a4ee3dd-24b9-42b3-9c06-231c21da915a",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "Cor",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "fd2d1c51-b0a8-4560-86a8-9bb45d81703d",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "Hearts",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "ddaa25e1-bab7-4741-8c9d-80c72c0113da",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "Structure of heart, unspecified",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "31817bf5-da27-4ff5-877b-5a490c6e5e73",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "cardi(o)-",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
-      }
-    },
-    {
-      "id": "f76c8574-905c-432b-8c12-0eef0afb5004",
-      "modified": "2020-02-27T02:32:19.291Z",
-      "created": "2020-02-27T02:32:19.291Z",
-      "modifiedBy": "admin",
-      "local": false,
-      "active": true,
-      "name": "coronary",
-      "terminology": "SNOMEDCT_US",
-      "codeId": "80891009",
-      "conceptId": "80891009",
-      "caseSensitive": false,
-      "orderSensitive": false,
-      "punctuationSensitive": false,
-      "localeMap": {
-        "en": false
-      },
-      "termType": "INDEX_SY",
-      "attributes": {
-        "label": "manual"
       }
     }
   ]
