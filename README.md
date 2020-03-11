@@ -47,7 +47,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 - API Documentation - https://wci-terminology-server.docs.stoplight.io
 - Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
-
+- [Additional Documentation](../master/doc/)
 
 **[Back to top](#table-of-contents)**
 
