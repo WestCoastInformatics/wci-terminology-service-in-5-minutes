@@ -32,7 +32,7 @@ indexDir=${arr[2]}
 echo "-----------------------------------------------------"
 echo "Starting ...$(/bin/date)"
 echo "-----------------------------------------------------"
-echo "  dump url  = $dumpUri"
+echo "  dump url  = $dumpUrl"
 echo "  index url = $indexUrl"
 echo "  index dir = $indexDir"
 if [[ $force -eq 1 ]]; then
@@ -75,6 +75,7 @@ if [[ -e $indexDir ]]; then
         echo "ERROR: $indexDir has contents but --force was not used, please re-run with --force"
         error=1
     else
+        echo "    Cleanup existing \$indexDir"
         /bin/rm -rf $indexDir/*
 	fi
 else
@@ -88,7 +89,7 @@ if [[ $error -eq 1 ]]; then
 fi
 
 # Prepare data file
-echo "    Prepare data from $dumpUrl ...`/bin/date`"
+echo "    Prepare data from \$dumpUrl ...`/bin/date`"
 plain=0
 if [[ $dumpUrl =~ http.*dump.gz ]]; then
     wget -O data.$$.dump.gz $dumpUrl > /tmp/x.$$.log 2>&1
@@ -118,7 +119,7 @@ else
 fi
 
 # Prepare index file
-echo "    Prepare indexes from $indexUrl ...`/bin/date`"
+echo "    Prepare indexes from \$indexUrl ...`/bin/date`"
 if [[ $indexUrl =~ http.*zip ]]; then
     wget -O index.$$.zip $indexUrl > /tmp/x.$$.log 2>&1
     if [[ $? -ne 0 ]]; then
@@ -127,9 +128,6 @@ if [[ $indexUrl =~ http.*zip ]]; then
       exit 1
     fi
     indexUrl=index.$$.zip
-else
-    echo "ERROR: bad indexUrl = $indexUrl"
-    exit 1
 fi
 
 # Load the database
@@ -144,13 +142,13 @@ WHERE datname = current_database()
   AND pid <> pg_backend_pid();
 EOF
     echo "      drop $PGDATABASE"
-    dropdb $PGDATABASE | sed 's/^/        /'
+    dropdb $PGDATABASE
 fi
 
 # create database
 if [[ $dbexists -eq 0 ]] || [[ $force -eq 1 ]]; then
     echo "      create $PGDATABASE"
-    createdb --encoding=UTF8 $PGDATABASE | sed 's/^/        /'
+    createdb --encoding=UTF8 $PGDATABASE 
     if [[ $? -ne 0 ]]; then
         echo "ERROR creating database"
         exit 1
@@ -196,8 +194,9 @@ if [[ $elasticsearch -eq 1 ]]; then
 
 else
     echo "    Unpack $indexUrl"
-    unzip $indexUrl -d $indexDir | sed 's/^/    /'
+    unzip $indexUrl -d $indexDir > /tmp/x.$$.log 2>&1
     if [[ $! -ne 0 ]]; then
+        cat /tmp/x.$$.log | sed 's/^/    /'
         echo "ERROR unzipping $indexUrl to $indexDir"
         exit 1
     fi

@@ -25,14 +25,58 @@ All of this information should have been provided by West Coast Informatics, or 
 try with the default testing values which can be found here:
 https://wci-wiki.atlassian.net/wiki/spaces/TSV2/pages/177078310/Getting+Started
 
-
 ```
 $ dumpUrl=https://wci-us-west-2.s3-us-west-2.amazonaws.com/term-server-v2/data/wci-terminology-db-TEST-2020.dump
 $ indexUrl=https://wci-us-west-2.s3-us-west-2.amazonaws.com/term-server-v2/data/wci-terminology-indexes-TEST-2020.zip
 $ indexDir=/tmp/index/data
-$ ./load-data.sh
+$ ./load-data.sh $dumpUrl $indexUrl $indexData
+-----------------------------------------------------
+Starting ...Fri, Mar 13, 2020  7:44:10 PM
+-----------------------------------------------------
+  dump url  = https://wci-us-west-2.s3-us-west-2.amazonaws.com/term-server-v2/data/wci-terminology-db-TEST-2020.dump
+  index url = https://wci-us-west-2.s3-us-west-2.amazonaws.com/term-server-v2/data/wci-terminology-indexes-TEST-2020.zip
+  index dir = /tmp/index/data
+  PGDATABASE = loadtestdb
+  PGHOST = localhost
+  PGUSER = postgres
+  PGPASSWORD = *************
+
+    Prepare data from $dumpUrl ...Fri, Mar 13, 2020  7:44:10 PM
+    Prepare indexes from $indexUrl ...Fri, Mar 13, 2020  7:44:10 PM
+    Load loadtestdb from data.4012.dump ...Fri, Mar 13, 2020  7:44:11 PM
+      create loadtestdb
+    restore dump to db ...Fri, Mar 13, 2020  7:44:14 PM
+    Unpack index.4012.zip
+    Cleanup ...Fri, Mar 13, 2020  7:44:15 PM
+-----------------------------------------------------
+Finished ...Fri, Mar 13, 2020  7:44:15 PM
+-----------------------------------------------------
+```
+
+If running the script for a second time and the database and/or the index directory exist
+and are populated will result in an error and require use of the --force flag unless
+resources are cleaned up first.  For example:
 
 ```
+$ ./load-data.sh $dumpUrl $indexUrl $indexData
+-----------------------------------------------------
+Starting ...Fri, Mar 13, 2020  7:44:33 PM
+-----------------------------------------------------
+  dump url  = https://wci-us-west-2.s3-us-west-2.amazonaws.com/term-server-v2/data/wci-terminology-db-TEST-2020.dump
+  index url = https://wci-us-west-2.s3-us-west-2.amazonaws.com/term-server-v2/data/wci-terminology-indexes-TEST-2020.zip
+  index dir = /tmp/index/data
+  PGDATABASE = loadtestdb
+  PGHOST = localhost
+  PGUSER = postgres
+  PGPASSWORD = *************
+
+ERROR: /tmp/index/data has contents but --force was not used, please re-run with --force
+
+completed with errors...
+```
+
+
+
 
 [Back to Top](#top)
 
