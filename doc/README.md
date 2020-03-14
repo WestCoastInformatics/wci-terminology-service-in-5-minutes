@@ -1,7 +1,7 @@
 <a name="top" />
 
-West Coast Informatics Terminology Server Additional Documentation
-==================================================================
+West Coast Informatics Terminology Server - Additional Documentation
+====================================================================
 
 This page has additional documentation for the WCI Terminology Server:
 
