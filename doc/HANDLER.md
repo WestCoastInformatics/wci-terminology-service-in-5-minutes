@@ -12,7 +12,7 @@ The following standard handler values can be used.
 
  - **DEFAULT**: Performs a very basic lucene search with the value passed in.
  - **ATOM**: needs more explanation.
- - **NLP**: Performs an "exact string" search after normalizing punctuation, whitespace, and case-sensitivity. 
+ - **EXACT**: Performs an "exact string" search after normalizing punctuation, whitespace, case-sensitivity, and stop words. 
  - **NGRAM**: Performs an ngram-based search to be tolerant of incomplete words, spelling issues, etc.
 
 If the handler parameter is not specified, DEFAULT is used.

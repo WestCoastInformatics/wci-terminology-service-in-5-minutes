@@ -12,10 +12,11 @@ The following special "resolver" values are for convenience:
 
 DEFAULT,NLP,NLP2,ATOM,NGRAM,RXNORM,MIN,LOOKUP,CODING
 
- - **DEFAULT**: indicates to return a standard summary of all concept information except for relationships.
- - **MIN**: indicates minimal information should be included - local, active, name, code, and terminology.
  - **CODING**: indicates minimal information plus "synonyms", "definitions" and "properties" should be included. Equivalent to using "synonyms,definitions,properties" as the "include" value. 
+ - **DEFAULT**: indicates to return a standard summary of all concept information except for relationships.
+ - **EXACT**: used with the EXACT search handler, it causes the concept to only be returned with the actual atoms that matched the search criteria
  - **LOOKUP**: indicates to return all available data (never a default).
+ - **MIN**: indicates minimal information should be included - local, active, name, code, and terminology.
 
 If the resolver parameter is not specified, DEFAULT is used.
 
