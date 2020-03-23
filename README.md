@@ -35,6 +35,7 @@ Terminology Server API
 - Get concept by code
 - Get concept relationships by code
 - Find concepts by search term (use paging to get only first 5 results)
+- Get concept subtree
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 

@@ -18,6 +18,7 @@ Test Scripts
 - [get-concept.sh](#get-concept-sh)
 - [get-concept.sh](#get-concept-sh)
 - [find-concepts.sh](#find-concepts-sh)
+- [get-subtree.sh](#get-subtree-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -452,6 +453,65 @@ resolver =
 
 -----------------------------------------------------
 Finished ...Fri, Feb 28, 2020  2:12:02 PM
+-----------------------------------------------------
+```
+
+[Back to Top](#top)
+
+<a name="get-subtree-sh"/>
+
+### get-subtree.sh
+
+Used to lookup a subtree for a terminology code.  The following example finds
+all of the descendants to a depth of 3 (which for ICD10CM is all of the 
+descendants).
+
+```
+-----------------------------------------------------
+Starting ...Mon, Mar 23, 2020  4:40:37 PM
+-----------------------------------------------------
+url = https://wci.terminology.tools
+terminology = ICD10CM
+code = M01
+level = 4
+
+  Get concept for ICD10CM M01:
+
+    {
+      "local": false,
+      "active": true,
+      "terminology": "ICD10CM",
+      "code": "M01",
+      "name": "Direct infections of joint in infectious and parasitic diseases classified elsewhere",
+      "childCt": 1,
+      "level": 0,
+      "children": [
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X",
+          "name": "Direct infection of joint in infectious and parasitic diseases classified elsewhere",
+          "childCt": 10,
+          "level": 1,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X0",
+              "name": "Direct infection of unspecified joint in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 2
+            },
+            ...
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon, Mar 23, 2020  4:40:38 PM
 -----------------------------------------------------
 ```
 

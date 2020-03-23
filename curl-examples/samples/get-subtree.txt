@@ -1,0 +1,315 @@
+{
+  "local": false,
+  "active": true,
+  "terminology": "ICD10CM",
+  "code": "M01",
+  "name": "Direct infections of joint in infectious and parasitic diseases classified elsewhere",
+  "childCt": 1,
+  "level": 0,
+  "children": [
+    {
+      "local": false,
+      "active": true,
+      "terminology": "ICD10CM",
+      "code": "M01.X",
+      "name": "Direct infection of joint in infectious and parasitic diseases classified elsewhere",
+      "childCt": 10,
+      "level": 1,
+      "children": [
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X0",
+          "name": "Direct infection of unspecified joint in infectious and parasitic diseases classified elsewhere",
+          "childCt": 0,
+          "level": 2
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X1",
+          "name": "Direct infection of shoulder joint in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X11",
+              "name": "Direct infection of right shoulder in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X12",
+              "name": "Direct infection of left shoulder in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X19",
+              "name": "Direct infection of unspecified shoulder in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X2",
+          "name": "Direct infection of elbow in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X21",
+              "name": "Direct infection of right elbow in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X22",
+              "name": "Direct infection of left elbow in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X29",
+              "name": "Direct infection of unspecified elbow in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X3",
+          "name": "Direct infection of wrist in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X31",
+              "name": "Direct infection of right wrist in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X32",
+              "name": "Direct infection of left wrist in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X39",
+              "name": "Direct infection of unspecified wrist in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X4",
+          "name": "Direct infection of hand in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X41",
+              "name": "Direct infection of right hand in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X42",
+              "name": "Direct infection of left hand in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X49",
+              "name": "Direct infection of unspecified hand in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X5",
+          "name": "Direct infection of hip in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X51",
+              "name": "Direct infection of right hip in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X52",
+              "name": "Direct infection of left hip in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X59",
+              "name": "Direct infection of unspecified hip in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X6",
+          "name": "Direct infection of knee in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X61",
+              "name": "Direct infection of right knee in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X62",
+              "name": "Direct infection of left knee in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X69",
+              "name": "Direct infection of unspecified knee in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X7",
+          "name": "Direct infection of ankle and foot in infectious and parasitic diseases classified elsewhere",
+          "childCt": 3,
+          "level": 2,
+          "children": [
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X71",
+              "name": "Direct infection of right ankle and foot in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X72",
+              "name": "Direct infection of left ankle and foot in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            },
+            {
+              "local": false,
+              "active": true,
+              "terminology": "ICD10CM",
+              "code": "M01.X79",
+              "name": "Direct infection of unspecified ankle and foot in infectious and parasitic diseases classified elsewhere",
+              "childCt": 0,
+              "level": 3
+            }
+          ]
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X8",
+          "name": "Direct infection of vertebrae in infectious and parasitic diseases classified elsewhere",
+          "childCt": 0,
+          "level": 2
+        },
+        {
+          "local": false,
+          "active": true,
+          "terminology": "ICD10CM",
+          "code": "M01.X9",
+          "name": "Direct infection of multiple joints in infectious and parasitic diseases classified elsewhere",
+          "childCt": 0,
+          "level": 2
+        }
+      ]
+    }
+  ]
+}

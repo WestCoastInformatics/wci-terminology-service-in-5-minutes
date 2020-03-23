@@ -34,6 +34,7 @@ work.
 - [Get concept by code](#get-concept-by-code)
 - [Get concept relationships by code](#get-concept-relationships)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
+- [Get concept subtree](#get-subtree)
 
 <a name="login-uts"/>
 
@@ -109,6 +110,24 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
+
+[Back to Top](#top)
+
+<a name="get-subtree"/>
+
+### Get concept subtree
+
+Get a subtree for a concept code to a maximum level of depth (default = 0).
+This is a way to see all of the concepts underneath a particular node.
+Be careful using this with large terminologies because when huge numbers of
+concepts are involved, performance can be slow and response payloads can be very
+large.
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/ICD10CM/M01/subtree?maxLevel=3" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt)
 
 [Back to Top](#top)
 
