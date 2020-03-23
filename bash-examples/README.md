@@ -473,7 +473,7 @@ Starting ...Mon, Mar 23, 2020  4:40:37 PM
 url = https://wci.terminology.tools
 terminology = ICD10CM
 code = M01
-level = 4
+level = 3
 
   Get concept for ICD10CM M01:
 
