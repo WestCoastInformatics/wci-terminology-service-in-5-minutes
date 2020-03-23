@@ -8,7 +8,7 @@ while [[ "$#" -gt 0 ]]; do case $1 in
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
-if [ ${#arr[@]} -ne 0 ]; then
+if [ ${#arr[@]} -ne 0 ] || [ -z $token ]; then
   echo "Usage: $0 [--token token]"
   echo "  e.g. $0 --token \$token"
   exit 1
