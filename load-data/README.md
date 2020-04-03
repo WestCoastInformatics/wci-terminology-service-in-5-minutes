@@ -75,8 +75,3 @@ ERROR: /tmp/index/data has contents but --force was not used, please re-run with
 completed with errors...
 ```
 
-
-
-
-[Back to Top](#top)
-

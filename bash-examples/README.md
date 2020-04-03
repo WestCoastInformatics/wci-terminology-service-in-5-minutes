@@ -394,22 +394,27 @@ summary concept information about each result.
 ```
 $ ./find-concepts.sh SNOMEDCT_US "malignant melanoma" --token $token --limit 5
 -----------------------------------------------------
-Starting ...Fri, Feb 28, 2020  2:12:02 PM
+Starting ...Thu, Apr  2, 2020  6:35:23 PM
 -----------------------------------------------------
-url = http://localhost:8081
+url = https://wci.terminology.tools
 terminology = SNOMEDCT_US
 query = malignant melanoma
-resolver = 
+resolver = MIN
+expr =
+offset = 0
+limit = 5
+sort =
+ascending =
 
-  Find concept for SNOMEDCT_US malignant melanoma:
+  Find concepts:
 
     {
       "total": 394,
-      "limit": 0,
+      "limit": 5,
       "offset": 0,
       "items": [
         {
-          "id": "5641c656-f8c3-4d4f-9b32-af01ae29f705",
+          "id": "9ac1a95b-efb8-4a6f-98ea-e700b5fc5d4b",
           "local": false,
           "active": true,
           "name": "Malignant melanoma",
@@ -417,7 +422,7 @@ resolver =
           "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "fcf32897-368d-4c21-85ea-ddd18e4a01d8",
+          "id": "b462b506-0a32-4d31-9a8f-ee3e2d0c9ae1",
           "local": false,
           "active": true,
           "name": "Malignant melanoma",
@@ -425,7 +430,7 @@ resolver =
           "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "ee5d28e2-fcfe-44ab-94f4-87e17747f0e0",
+          "id": "2a1f7786-c0c0-4898-a1fb-4f63a8da668d",
           "local": false,
           "active": false,
           "name": "Melanoma: [skin] or [malignant]",
@@ -433,7 +438,7 @@ resolver =
           "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "9b1f79c0-7ffa-4a4a-b291-42dce1a30864",
+          "id": "16452f96-3b40-47ca-8945-6efdaae0135b",
           "local": false,
           "active": false,
           "name": "Melanoma: [skin] or [malignant]",
@@ -441,7 +446,7 @@ resolver =
           "terminology": "SNOMEDCT_US"
         },
         {
-          "id": "592b64dc-c23b-4082-82ae-53173e8ad72d",
+          "id": "696329bf-0e9f-4a1a-b5c1-7ab9cf3027a2",
           "local": false,
           "active": false,
           "name": "Regressing malignant melanoma",
@@ -452,7 +457,83 @@ resolver =
     }
 
 -----------------------------------------------------
-Finished ...Fri, Feb 28, 2020  2:12:02 PM
+Finished ...Thu, Apr  2, 2020  6:35:24 PM
+-----------------------------------------------------
+```
+
+This example performs a search that returns all concept members of the SNOMEDCT_US
+reference set 723264001 | Lateralizable body structure reference set |.  When not 
+specified the "MIN" resolver is used, which returns only first-class attributes of 
+the concept object.  Use "--resolver DEFAULT" for summary concept information about 
+each result.
+
+```
+$ ./find-concepts.sh SNOMEDCT_US "" --expr ^723264001 --limit 5 --token $token
+-----------------------------------------------------
+Starting ...Thu, Apr  2, 2020  6:34:28 PM
+-----------------------------------------------------
+url = https://wci.terminology.tools
+terminology = SNOMEDCT_US
+query =
+resolver = MIN
+expr = ^723264001
+offset = 0
+limit = 5
+sort =
+ascending =
+
+  Find concepts:
+
+    {
+      "total": 19778,
+      "limit": 5,
+      "offset": 0,
+      "items": [
+        {
+          "id": "e9694627-b34f-488f-b134-7a8e0e13b1ba",
+          "local": false,
+          "active": true,
+          "name": "Pulmonary vein confluence",
+          "code": "373097002",
+          "terminology": "SNOMEDCT_US"
+        },
+        {
+          "id": "1ed65df3-f320-47e2-bd25-b902678b3658",
+          "local": false,
+          "active": true,
+          "name": "Deiter's cell",
+          "code": "4799000",
+          "terminology": "SNOMEDCT_US"
+        },
+        {
+          "id": "7358bcab-4791-4378-a094-da9cc83da6e1",
+          "local": false,
+          "active": true,
+          "name": "Cephalometric molar superius point",
+          "code": "713770007",
+          "terminology": "SNOMEDCT_US"
+        },
+        {
+          "id": "eabb911c-78e5-4a17-b175-459bce6e76fd",
+          "local": false,
+          "active": true,
+          "name": "Cephalometric long axis of lower incisor",
+          "code": "713772004",
+          "terminology": "SNOMEDCT_US"
+        },
+        {
+          "id": "7099f23d-9304-4f9d-9fda-6d3b579f7b28",
+          "local": false,
+          "active": true,
+          "name": "Tibia and fibula, CS",
+          "code": "110536004",
+          "terminology": "SNOMEDCT_US"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Thu, Apr  2, 2020  6:34:28 PM
 -----------------------------------------------------
 ```
 

@@ -38,7 +38,7 @@ fi
 status=`tail -1 /tmp/x.$$`
 if [ $status -ne 200 ]; then
   cat /tmp/x.$$ | sed 's/^/    /'
-  echo "ERROR:  POST /uth/token returned $status, expected 200"
+  echo "ERROR:  POST /auth/token returned $status, expected 200"
   exit 1
 fi
 
