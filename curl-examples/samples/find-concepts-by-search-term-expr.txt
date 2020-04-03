@@ -1,0 +1,47 @@
+{
+  "total": 161,
+  "limit": 5,
+  "offset": 0,
+  "items": [
+    {
+      "id": "5e7b4eb2-d6b1-4c21-9bac-c3c02457a127",
+      "local": false,
+      "active": true,
+      "name": "Melanoma carcinomatosis",
+      "code": "103511000119103",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "b462b506-0a32-4d31-9a8f-ee3e2d0c9ae1",
+      "local": false,
+      "active": true,
+      "name": "Malignant melanoma",
+      "code": "372244006",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "dee6e6fb-84e2-45c2-a6ff-aa25e57d2723",
+      "local": false,
+      "active": true,
+      "name": "Borderline malignant melanoma",
+      "code": "403921000",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "3395d7fe-e80f-4459-9c34-eb088f1b08f6",
+      "local": false,
+      "active": true,
+      "name": "Neurotropic malignant melanoma",
+      "code": "403925009",
+      "terminology": "SNOMEDCT_US"
+    },
+    {
+      "id": "01d15266-2d0b-47c2-91fe-94ece5464a6a",
+      "local": false,
+      "active": true,
+      "name": "Desmoplastic malignant melanoma",
+      "code": "403924008",
+      "terminology": "SNOMEDCT_US"
+    }
+  ]
+}

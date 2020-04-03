@@ -34,6 +34,7 @@ work.
 - [Get concept by code](#get-concept-by-code)
 - [Get concept relationships by code](#get-concept-relationships)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
+- [Find concepts by search term and expression](#find-concepts-expr)
 - [Get concept subtree](#get-subtree)
 
 <a name="login-uts"/>
@@ -48,6 +49,8 @@ cat > /tmp/data.txt << EOF
 EOF
 token=`curl -X POST "$API_URL/auth/token" -d "@/tmp/data.txt" -H "Content-type: application/json" | jq '.access_token' | sed 's/"//g'`
 ```
+
+NOTE: if $token is null at this point, authentication was not successful.
 
 See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
 
@@ -110,6 +113,26 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
+
+[Back to Top](#top)
+
+<a name="find-concepts-expr"/>
+
+### Find concepts by search term and expression
+
+Find concepts matching a search term within a specified terminology and constrain
+the search results by an expression. This example uses paging to get only the first 
+5 results and a resolver that gets only minimum amount of data.
+
+NOTE: the expression we are using is <<363346000 (descendants-or-self of the "Malignant
+neoplastic disease" concept in SNOMED).  To work properly, the expression value has to
+be url encoded (See https://www.urlencoder.org/ for an online URL encoder):
+
+```
+curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US?query=melanoma&expression=%3C%3C363346000&limit=5&resolver=MIN" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
 
 [Back to Top](#top)
 
