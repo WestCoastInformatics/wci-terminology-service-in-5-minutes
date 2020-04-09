@@ -11,7 +11,7 @@ Prerequisites
 * postgres client must be installed (psql, dropdb, createdb, pg_restore)
 * Postgres environment variables must be set, including: PGDATABASE PGHOST PGUSER PGPASSWORD
 
-load-data.sh
+[load-data.sh](load-data.sh)
 ------------
 Parameterized script for loading data into a postgres database.  This script requires
 three parameters
