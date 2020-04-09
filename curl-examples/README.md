@@ -6,11 +6,9 @@ WCI Terminology Service in 5 minutes: Curl Tutorial
 This tutorial shows how to use raw cURL commands to access content from the WCI Terminology API.
 
 Prerequisites
+-------------
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
-
-The Browser as a terminology server
-------------------------------------
 
 The base API url for the WCI Terminology Service is: 
 

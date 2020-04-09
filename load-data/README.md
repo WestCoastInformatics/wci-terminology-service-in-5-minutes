@@ -7,6 +7,7 @@ This page provides documentation on a load script that may be helpful for loadin
 postgres data .dump file and index .zip file.
 
 Prerequisites
+-------------
 * wget must be installed
 * postgres client must be installed (psql, dropdb, createdb, pg_restore)
 * Postgres environment variables must be set, including: PGDATABASE PGHOST PGUSER PGPASSWORD

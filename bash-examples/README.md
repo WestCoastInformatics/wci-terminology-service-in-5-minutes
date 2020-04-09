@@ -6,9 +6,12 @@ WCI Terminology Service in 5 minutes: bash Tutorial
 This tutorial shows how to use bash scripts to access content from the WCI Terminology API.
 
 Prerequisites
+-------------
 * bash must be installed
 * curl must be installed ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
+
+The various scripts make use of the local `url.env` file to define the endpoint URL.
 
 
 Test Scripts
