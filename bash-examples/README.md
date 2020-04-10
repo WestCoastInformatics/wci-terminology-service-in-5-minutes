@@ -11,8 +11,13 @@ Prerequisites
 * curl must be installed ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
-The various scripts make use of the local `url.env` file to define the endpoint URL.
+The various scripts make use of the local `url.env` file to define the API URL.
 
+When using a url.env that points to an instance (such as https://wci.terminology.tools) that
+requires authentication, the login.sh script must first be used to obtain an access
+token.   
+
+If running against a local server with authentication disabled, use "guest" as the access token value.
 
 Test Scripts
 ------------
@@ -32,6 +37,8 @@ The following examples can be typed into the command line of any terminal that h
 Login to a WCI terminology server instance via username and password.
 When finished, copy/past the "token=..." to set a local variable that
 can be easily used for further calls.
+
+NOTE: for instances of the server that have login disabled, simply use "guest" as the token.
 
 ```
 $ ./login.sh username "password"

@@ -4,29 +4,32 @@ WCI Terminology Service in 5 minutes: Curl Tutorial
 ===================================================
 
 This tutorial shows how to use raw cURL commands to access content from the WCI Terminology API.
+All the operations described here perform a GET request.
 
 Prerequisites
 -------------
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
-The base API url for the WCI Terminology Service is: 
+The API URL for the WCI Terminology Service is: 
 
 `export API_URL=https://wci.terminology.tools`
 
 Run this command before the sample curl calls below as they expect $API_URL to be set.
 
-All the operations described here perform a GET request.
+When using an API_URL that points to an instance (such as https://wci.terminology.tools) that
+requires authentication, the login call must first be used to obtain an access token.   
 
-The full documentation of the WCI Terminology Service can be found here: https://wci-wiki.atlassian.net/wiki/spaces/TSV2/overview
+If running against a local server with authentication disabled, use "guest" as the access token value.
+
 
 
 Sample cURL Calls
 -----------------
 
-The following examples can be types into the command line of any terminal that has cURL and jq installed.  NOTE: the login step must be performed before the other calls will
-work.
+The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
+- [Guest Login](#login-guest)
 - [Login with UTS Account](#login-uts)
 - [Get terminologies](#get-terminologies)
 - [Get concept by code](#get-concept-by-code)
@@ -34,6 +37,20 @@ work.
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term and expression](#find-concepts-expr)
 - [Get concept subtree](#get-subtree)
+
+<a name="login-guest"/>
+
+### Guest Login 
+
+This only applies when using an API_URL that points to an instance of the WCI Terminology Server
+running with authentication disabled.  In this case, you still need to use a token, but the token
+value is simply "guest".  For example,
+
+```
+token=guest
+```
+
+[Back to Top](#top)
 
 <a name="login-uts"/>
 
