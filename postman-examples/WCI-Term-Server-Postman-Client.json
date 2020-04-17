@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "abb0760e-15be-453f-a430-92d033c7ad02",
+		"name": "WCI Terminology Server Postman Client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get terminologies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US/80891009",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"concept",
+						"SNOMEDCT_US",
+						"80891009"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept relationships by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US/80891009/relationships",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"concept",
+						"SNOMEDCT_US",
+						"80891009",
+						"relationships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US?query=melanoma&limit=5&resolver=MIN",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"concept",
+						"SNOMEDCT_US"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "melanoma"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "resolver",
+							"value": "MIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term and expression",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/concept/SNOMEDCT_US?query=melanoma&expression=<<363346000&limit=5&resolver=MIN",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"concept",
+						"SNOMEDCT_US"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "melanoma"
+						},
+						{
+							"key": "expression",
+							"value": "<<363346000"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "resolver",
+							"value": "MIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept subtree",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/terminology/concept/ICD10CM/M01/subtree?maxLevel=3",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"terminology",
+						"concept",
+						"ICD10CM",
+						"M01",
+						"subtree"
+					],
+					"query": [
+						{
+							"key": "maxLevel",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9e15a49f-3a33-44f5-ac46-100f1e6784cc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3f209e0e-1083-46be-9fff-350be285ad3c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b4b75c63-135a-4003-9f2b-9963477d6ecb",
+			"key": "API_URL",
+			"value": "https://wci.terminology.tools",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

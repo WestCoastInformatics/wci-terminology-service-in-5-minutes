@@ -22,8 +22,6 @@ requires authentication, the login call must first be used to obtain an access t
 
 If running against a local server with authentication disabled, use "guest" as the access token value.
 
-
-
 Sample cURL Calls
 -----------------
 

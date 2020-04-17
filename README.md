@@ -13,13 +13,9 @@ Terminology Server APIs.
 
 ## Tutorials by Language
 
-### Bash
-
 - [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
-
-### Curl
-
 - [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
+- [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
 
 
 **[Back to top](#table-of-contents)**
