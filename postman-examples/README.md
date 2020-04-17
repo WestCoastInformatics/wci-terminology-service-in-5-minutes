@@ -45,7 +45,8 @@ the "Authorization" tab and you'll see a message like this:
 Sample Postman Calls
 -----------------
 When the collection is loaded into Postman, you will see a number
-of requests matching the scenarios defined in the top level README file of this project.  
-Simply choose any one and click the "Send" button to see the result.
+of requests matching the scenarios defined in the top level README 
+file of this project.  Simply choose any one and click the "Send" 
+button to see the result.
 
 [Back to Top](#top)
