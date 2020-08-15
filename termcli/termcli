@@ -1,0 +1,382 @@
+#!/bin/bash
+#
+# Command line interactions with terminology server
+#
+while [[ "$#" -gt 0 ]]; do case $1 in
+  --sort) sort="$2"; shift;;
+  --quiet) quiet=1;;
+  *) arr=( "${arr[@]}" "$1" );;
+esac; shift; done
+
+if [ ${#arr[@]} -ne 0 ]; then
+  echo "Usage: $0"
+  echo "  e.g. $0"
+  echo ""
+  echo "  Prerequisites: jq, curl, perl"
+  echo ""
+  exit 1
+fi
+
+#script=${arr[0]}
+
+# Verify prerequisites
+#  JQ installed
+jq --help >> /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "Failed prerequisite check: jq must be installed"
+    exit 1
+fi
+#  perl installed
+perl --help >> /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "Failed prerequisite check: perl must be installed"
+    exit 1
+fi
+#  curl installed
+curl --help >> /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "Failed prerequisite check: curl must be installed"
+    exit 1
+fi
+
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+history -r $HOME/.termcli_history
+jwt=x
+echo "-----------------------------------------------------"
+echo "Starting termcli $(/bin/date)"
+echo "-----------------------------------------------------"
+
+if [[ -e $HOME/.termcli ]]; then
+    source $HOME/.termcli
+else
+    url=https://wci.terminology.tools
+fi
+
+# ---------------------------------------------------------
+# Subroutines
+#
+checkConfig() {
+    if [[ -n $url ]] && [[ -n $username ]] && [[ -n $password ]]; then
+	    # config is good, bail
+		return 0
+    fi
+	return -1
+}
+
+config() {
+    flag=$1
+	if [[ $flag == "true" ]]; then
+        checkConfig
+	    if [[ $? -eq 0 ]]; then
+		    # config is good, bail
+			return
+	    fi
+	fi
+    echo ""
+    echo "Initializing configuration "
+    # URL
+    echo -n "  Enter URL ($url): "
+    read -e url2
+    if [[ -n $url2 ]]; then
+	url=$url2
+    fi
+    # Username
+    echo -n "  Enter username: "
+    read -e username
+    # password
+    echo -n "  Enter password: "
+    read -e -s password
+
+    if [[ -z $resolver ]]; then
+         resolver=MIN
+    fi
+    if [[ -z $limit ]]; then
+         limit=10
+    fi
+    if [[ -z $offset ]]; then
+         offset=0
+    fi
+    if [[ -z $terminology ]]; then
+         terminology=
+    fi
+
+	saveConfig
+	login
+    echo ""
+}
+saveConfig() {
+    # Write the .termcli config file
+    cat > $HOME/.termcli <<EOF
+url=$url
+username=$username
+password=$password
+resolver=$resolver
+limit=$limit
+offset=$offset
+terminology=$terminology
+EOF
+}
+
+login() {
+    data="{\"grant_type\": \"username_password\", \"username\": \"$username\", \"password\": \"$password\"}"
+    curl -v -w "\n%{http_code}" -X POST "$url/auth/token" -H "Content-type: application/json" -d "$data" 2> /dev/null > /tmp/x.$$
+    if [ $? -ne 0 ]; then
+        cat /tmp/x.$$ | sed 's/^/    /'
+        echo "ERROR: login call failed"
+        echo "  Please re-run config"
+        /bin/rm -f /tmp/x.$$
+		return -1
+    fi
+    # check status
+    status=`tail -1 /tmp/x.$$`
+    if [ $status -ne 200 ]; then
+        echo "ERROR: LOGIN call returned $status, expected 200"
+        echo "  Please re-run config"
+		/bin/rm -f /tmp/x.$$
+        return -1
+    fi
+    jwt=`head -1 /tmp/x.$$ | jq -r '.access_token' | perl -pe 's/\r//'`
+    /bin/rm -f /tmp/x.$$
+	echo ""
+    return 0
+}
+
+terminologies() {
+    curl -v -w "\n%{http_code}" -G "$url/terminology" -H "Authorization: Bearer $jwt" 2> /dev/null > /tmp/x.$$
+    if [ $? -ne 0 ]; then
+        cat /tmp/x.$$ | sed 's/^/    /'
+        echo "ERROR: terminologies call failed"
+        /bin/rm -f /tmp/x.$$
+		return -1
+    fi
+    # check status
+    status=`tail -1 /tmp/x.$$`
+    if [ $status -ne 200 ]; then
+        echo "ERROR: terminologies call returned $status, expected 200"
+		/bin/rm -f /tmp/x.$$
+        return -1
+    fi
+    head -1 /tmp/x.$$| jq -r '.[].abbreviation'
+    /bin/rm -f /tmp/x.$$
+	echo ""
+    return 0
+}
+
+getConcepts() {
+    lterm=$1
+	while IFS= read -r c; do
+	    if [[ $c =~ ^# ]]; then
+		    continue
+	    elif [[ -z $c ]]; then
+			continue
+		fi
+		getConcept $lterm $c
+done < $2
+}
+
+getConcept() {
+
+    if [[ -e $2 ]] && [ "$#" -eq 2 ] && [ -n $terminology ]; then
+		getConcepts $terminology $2
+    elif [[ -e $3 ]] && [ "$#" -eq 3 ]; then
+		getConcepts $2 $3
+    elif [[ -n $terminology ]] && [ "$#" -eq 2 ]; then
+        lterm=$terminology
+		code=$2
+    elif [[ -z $2 ]] || [[ -z $3 ]] || [ "$#" -ne 3 ]; then
+	    echo "Usage: get <terminology> <code>"
+	    echo "  e.g. get SNOMEDCT_US 80891009"
+        return
+	else
+		lterm=$2
+		code=$3
+	fi
+    curl -v -w "\n%{http_code}" -G "$url/terminology/concept/$lterm/$code?resolver=$resolver" -H "Authorization: Bearer $jwt" 2> /dev/null > /tmp/x.$$
+    if [ $? -ne 0 ]; then
+        cat /tmp/x.$$ | sed 's/^/    /'
+        echo "ERROR: get concept call failed"
+        /bin/rm -f /tmp/x.$$
+		return -1
+    fi
+    # check status
+    status=`tail -1 /tmp/x.$$`
+    if [ $status -ne 200 ]; then
+        echo "ERROR: get concept call returned $status, expected 200"
+		/bin/rm -f /tmp/x.$$
+        return -1
+    fi
+    head -1 /tmp/x.$$| jq -r '.'
+    /bin/rm -f /tmp/x.$$
+	echo ""
+    return 0
+}
+
+findConcepts() {
+    lterm=$1
+	while IFS= read -r term; do
+	    if [[ $term =~ ^# ]]; then
+		    continue
+	    elif [[ -z $term ]]; then
+			continue
+		fi
+		findConcept $lterm "$term"
+done < $2
+}
+
+findConcept() {
+    #"'$*'" - consider if needed
+    if [[ -e $2 ]] && [ "$#" -eq 2 ] && [ -n $terminology ]; then
+		findConcepts $terminology $2
+    elif [[ -e $3 ]] && [ "$#" -eq 3 ]; then
+		findConcepts $2 $3
+    elif [[ -n $terminology ]] && [ "$#" -eq 2 ]; then
+        lterm=$terminology
+		term=$2
+    elif [[ -z $2 ]] || [[ -z $3 ]] || [ "$#" -ne 3 ]; then
+	    echo "Usage: find <terminology> <search str>"
+	    echo "  e.g. find SNOMEDCT_US \"malignant melanoma\""
+        return
+	else
+		lterm=$2
+		term=$3
+	fi
+    curl -v -w "\n%{http_code}" -G "$url/terminology/concept/$lterm?handler=STANDARD" -H "Authorization: Bearer $jwt" --data-urlencode "query=$term" --data-urlencode "resolver=$resolver" --data-urlencode "limit=$limit" --data-urlencode "offset=$offset"  2> /dev/null > /tmp/x.$$
+    if [ $? -ne 0 ]; then
+        cat /tmp/x.$$ | sed 's/^/    /'
+        echo "ERROR: find concepts call failed"
+        /bin/rm -f /tmp/x.$$
+		return -1
+    fi
+    # check status
+    status=`tail -1 /tmp/x.$$`
+    if [ $status -ne 200 ]; then
+        echo "ERROR: find concepts call returned $status, expected 200"
+		/bin/rm -f /tmp/x.$$
+        return -1
+    fi
+    head -1 /tmp/x.$$| jq -r '.'
+    /bin/rm -f /tmp/x.$$
+	echo ""
+    return 0
+}
+setParam() {
+    if [[ -z $2 ]] || [ "$#" -ne 2 ]; then
+	    echo "Usage: set key[=value]"
+	    echo "  e.g. set resolver|limit|offset|terminology"
+	    echo "  e.g. set resolver=MIN"
+	    echo "  e.g. set terminology=SNOMEDCT_US"
+	    echo "  e.g. set limit=100"
+		echo ""
+		cat $HOME/.termcli | sed 's/^/    /' | perl -pe 's/(.*password=)(.*)/$1************/'
+		echo ""
+        return
+	fi
+	kev=$2
+	eq=`echo $kev | grep -c '='`
+	if [[ $eq -eq 0 ]]; then
+	    if [[ $kev == "terminology" ]]; then
+		  terminologies
+		elif [[ $kev == "resolver" ]]; then
+		  echo "MIN"
+		  echo "CODING"
+		  echo "STANDARD"
+		elif [[ $kev == "limit" ]] || [[ $kev == "offset" ]]; then
+		  echo "integer, e.g. 0, 10"
+		else
+		  echo "ERROR: invalid parameter to set = $kev"
+		fi
+    else
+	    name=`echo $kev | perl -ne 'chop; @_=split/=/;print "$_[0]\n"'`
+	    if [[ $name != "terminology" ]] && [[ $name != "resolver" ]] && [[ $name != "limit" ]] && [[ $name != "offset" ]]; then
+		  echo "ERROR: invalid parameter to set = $name"
+		fi
+		val=`echo $kev | perl -ne 'chop; @_=split/=/;print "$_[1]\n"'`
+        printf -v "${name}" '%s' "${val}"
+	    saveConfig
+	fi
+}
+
+help() {
+  cat <<EOF
+Welcome to the help page for termcli - the terminology browser command line interface.
+Commands include
+  (c)onfig:        Re-run the configuration setup
+  (l)ogin:         Re-run the login procedure
+  (s)et:           Sets stateful variables.  Includes "terminology", "resolver", "limit", "offset"
+                   Calling with no parameters will provide examles and show current config
+             > set resolver
+             > set resolver=STANDARD
+  (t)erminologies: Gets a list of available terminologies
+             > terminologies
+  (g)et:           Gets a concept payload, requires terminology and/or code
+             > get SNOMEDCT_US 80891009
+			 > get SNOMEDCT_US file-of-ids.txt
+			 > get file-of-ids.txt
+  (f)ind:          Finds concepts based on the search string using default parameters
+             > find SNOMEDCT_US "malignant melanoma"
+             > find SNOMEDCT_US file-of-searches.txt
+  (q)uit:    Exit (also ^D or ^C will exit)
+
+EOF
+}
+# ---------------------------------------------------------
+# Processing Loop
+#
+config true
+
+echo "url = $url"
+echo "username = $username"
+if [[ -n $password ]]; then
+    echo "password = *****************"
+    login
+
+else
+    echo "password = "
+fi
+echo ""
+
+#
+# Command Loop
+#
+echo "Enter \"?\" or \"help\" for instructions. "
+echo -n "> "
+ptnget='^get .*$'
+ptng='^g .*$'
+ptnset='^set .*$'
+ptns='^s .*$'
+ptnfind='^find .*$'
+ptnf='^f .*$'
+while read -e line; do
+    history -s "$line"
+    history -w $HOME/.termcli_history
+
+    if [[ $line == "?" ]] || [[ $line == "help" ]]; then 
+	    help
+    elif [[ $line == "quit" ]] || [[ $line == "q" ]]; then
+	    break
+    elif [[ $line == "config" ]] || [[ $line == "c" ]]; then
+	    config false
+    elif [[ $line == "login" ]] || [[ $line == "l" ]]; then
+		login
+    elif [[ $line == "terminologies" ]] || [[ $line == "t" ]]; then
+	    terminologies
+    elif [[ $line == "get" ]] || [[ $line == "g" ]] || [[ $line =~ $ptnget ]] || [[ $line =~ $ptng ]]; then
+	    getConcept $line
+    elif [[ $line == "find" ]] || [[ $line == "f" ]] || [[ $line =~ $ptnfind ]] || [[ $line =~ $ptnf ]]; then
+        pre=`echo $line | perl -pe 's/(.*)".*"/$1/;'`
+        quot=`echo $line | perl -pe 's/.*"(.*)"/$1/;'`
+	    findConcept $pre "$quot"
+    elif [[ $line == "set" ]] || [[ $line == "s" ]] || [[ $line =~ $ptnset ]] || [[ $line =~ $ptns ]]; then
+	    setParam $line
+    else
+        echo "ERROR: unknown command = $line"
+    fi
+    echo -n "> "
+done
+echo ""
+
+
+echo "-----------------------------------------------------"
+echo "Finished ...`/bin/date`"
+echo "-----------------------------------------------------"

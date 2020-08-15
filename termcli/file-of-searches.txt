@@ -1,0 +1,7 @@
+
+# sample comment preceded by a blank line
+malignant melanoma
+kidney disease
+able to stand
+MRI
+
