@@ -1,5 +1,3 @@
-<a name="top" />
-
 WCI Terminology Service in 5 minutes: Curl Tutorial
 ===================================================
 
@@ -27,34 +25,33 @@ Sample cURL Calls
 
 The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
-- [Guest Login](#login-guest)
-- [Login with UTS Account](#login-uts)
+- [Login](#login)
 - [Get terminologies](#get-terminologies)
 - [Get concept by code](#get-concept-by-code)
-- [Get concept relationships by code](#get-concept-relationships)
-- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
-- [Find concepts by search term and expression](#find-concepts-expr)
-- [Get concept subtree](#get-subtree)
+- [Get concept relationships by code](#get-concept-relationships-by-code)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
+- [Find concepts by search term and expression](#find-concepts-by-search-term-and-expression)
+- [Get concept subtree](#get-concept-subtree)
 
-<a name="login-guest"/>
 
-### Guest Login 
+### Login 
 
-This only applies when using an API_URL that points to an instance of the WCI Terminology Server
-running with authentication disabled.  In this case, you still need to use a token, but the token
-value is simply "guest".  For example,
+Depending on the environment, it will be important to configure a login token for subsequent calls.
+
+For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com and set the "token" variable to that value.
+
+```
+token=<value provided by info@westcoastinformatics.com>
+```
+
+For testing against "https://snomed.terminology.tools", set the "token" variable to the value "guest".
 
 ```
 token=guest
 ```
 
-[Back to Top](#top)
-
-<a name="login-uts"/>
-
-### Login with UTS Account
-
-Logs in to the API using a UTS account username and password, acquire a token.
+For testing against a local install that is using embedded username/password auth, 
+use the API to login.  For examploe,
 
 ```
 cat > /tmp/data.txt << EOF
@@ -67,9 +64,7 @@ NOTE: if $token is null at this point, authentication was not successful.
 
 See sample payload data from this call in [`samples/login.txt`](samples/login.txt)
 
-[Back to Top](#top)
-
-<a name="get-terminologies"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)
 
 ### Get terminologies
 
@@ -81,9 +76,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology" | jq '.'
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-by-code"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)
 
 ### Get concept by code
 
@@ -95,9 +88,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US
 
 See sample payload data from this call in [`samples/get-concept-by-code.txt`](samples/get-concept-by-code.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-relationships"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)
 
 ### Get concept relationships by code
 
@@ -111,9 +102,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US
 
 See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-more.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)
 
 ### Find concepts by search term
 
@@ -127,9 +116,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-expr"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)
 
 ### Find concepts by search term and expression
 
@@ -147,9 +134,7 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/SNOMEDCT_US
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-expr.txt`](samples/find-concepts-by-search-term-expr.txt)
 
-[Back to Top](#top)
-
-<a name="get-subtree"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)
 
 ### Get concept subtree
 
@@ -165,5 +150,4 @@ curl -H "Authorization: Bearer $token" "$API_URL/terminology/concept/ICD10CM/M01
 
 See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt)
 
-[Back to Top](#top)
-
+[Back to Top](#wci-terminology-service-in-5-minutes-curl-tutorial)

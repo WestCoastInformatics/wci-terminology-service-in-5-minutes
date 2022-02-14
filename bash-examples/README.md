@@ -1,5 +1,3 @@
-<a name="top"/>
-
 WCI Terminology Service in 5 minutes: bash Tutorial
 ===================================================
 
@@ -13,11 +11,24 @@ Prerequisites
 
 The various scripts make use of the local `url.env` file to define the API URL.
 
-When using a url.env that points to an instance (such as https://wci.terminology.tools) that
-requires authentication, the login.sh script must first be used to obtain an access
-token.   
+When using a url.env that points to an instance that requires authentication, first obtain an access
+token.
 
-If running against a local server with authentication disabled, use "guest" as the access token value.
+For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com and set the "token" variable to that value.
+
+```
+token=<value provided by info@westcoastinformatics.com>
+```
+
+For testing against "https://snomed.terminology.tools", use "guest" as the token.
+
+```
+token=guest
+```
+
+For testing against a local install that is using embedded username/password auth, 
+use the "login.sh" script described below.
+
 
 Test Scripts
 ------------
@@ -29,8 +40,6 @@ Test Scripts
 - [get-subtree.sh](#get-subtree-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
-
-<a name="login-sh"/>
 
 ### login.sh
 
@@ -45,7 +54,7 @@ $ ./login.sh username "password"
 -----------------------------------------------------
 Starting ...Thu, Feb 27, 2020  3:45:27 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = https://...<your local installation>...
 username = username
 password = ************
 
@@ -56,9 +65,7 @@ Finished ...Thu, Feb 27, 2020  3:45:27 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-terminologies-sh"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-bash-tutorial)
 
 ### get-terminologies.sh
 
@@ -115,9 +122,7 @@ Finished ...Thu, Feb 27, 2020  3:47:56 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-concept-sh"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-bash-tutorial)
 
 ### get-concept.sh
 
@@ -269,9 +274,7 @@ Finished ...Fri, Feb 28, 2020  2:09:01 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-concept-relationships-sh"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-bash-tutorial)
 
 ### get-concept-relationships.sh
 
@@ -389,9 +392,7 @@ Finished ...Fri, Feb 28, 2020  2:09:53 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="find-concepts-sh"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-bash-tutorial)
 
 ### find-concepts.sh
 
@@ -547,9 +548,7 @@ Finished ...Thu, Apr  2, 2020  6:34:28 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
-<a name="get-subtree-sh"/>
+[Back to Top](#wci-terminology-service-in-5-minutes-bash-tutorial)
 
 ### get-subtree.sh
 
@@ -606,5 +605,4 @@ Finished ...Mon, Mar 23, 2020  4:40:38 PM
 -----------------------------------------------------
 ```
 
-[Back to Top](#top)
-
+[Back to Top](#wci-terminology-service-in-5-minutes-bash-tutorial)

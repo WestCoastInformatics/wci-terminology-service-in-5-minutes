@@ -37,6 +37,11 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 - API_URL=https://wci.terminology.tools
 
+For testing against an environment that does not use authentication, use:
+
+- API_URL=https://snomed.terminology.tools
+
+
 **[Back to top](#table-of-contents)**
 
 
