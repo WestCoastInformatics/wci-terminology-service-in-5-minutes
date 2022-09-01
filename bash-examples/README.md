@@ -3,6 +3,8 @@ WCI Terminology Service in 5 minutes: bash Tutorial
 
 This tutorial shows how to use bash scripts to access content from the WCI Terminology API.
 
+[bash Tutorial Training Video](https://youtube.com/tbd)
+
 Prerequisites
 -------------
 * bash must be installed

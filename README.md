@@ -48,6 +48,7 @@ Terminology Server API
 - Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 - [Additional Documentation](../master/doc/)
 - [Data Loading Documentation](../master/load-data/)
+- [Training Video](https://youtube.com/tbd)
 
 
 **[Back to top](#table-of-contents)**

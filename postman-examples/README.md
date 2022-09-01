@@ -3,6 +3,8 @@ WCI Terminology Service in 5 minutes: Postman Tutorial
 
 This tutorial shows how to use Postman access content from the WCI Terminology API.
 
+[Postman Tutorial Training Video](https://youtube.com/tbd)
+
 Prerequisites
 -------------
 * Postman must be installed (with a version capable of importing a v2.1 collection)

@@ -4,6 +4,8 @@ WCI Terminology Service in 5 minutes: Curl Tutorial
 This tutorial shows how to use raw cURL commands to access content from the WCI Terminology API.
 All the operations described here perform a GET request.
 
+[Curl Tutorial Training Video](https://youtube.com/tbd)
+
 Prerequisites
 -------------
 * curl must be installed ([Download cURL](https://curl.haxx.se/dlwiz/))
