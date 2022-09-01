@@ -34,12 +34,12 @@ use the "login.sh" script described below.
 
 Test Scripts
 ------------
-- [login.sh](#login-sh)
-- [get-terminologies.sh](#get-terminologies-sh)
-- [get-concept.sh](#get-concept-sh)
-- [get-concept.sh](#get-concept-sh)
-- [find-concepts.sh](#find-concepts-sh)
-- [get-subtree.sh](#get-subtree-sh)
+- [login.sh](#loginsh)
+- [get-terminologies.sh](#get-terminologiessh)
+- [get-concept.sh](#get-conceptsh)
+- [get-concept.sh](#get-conceptsh)
+- [find-concepts.sh](#find-conceptssh)
+- [get-subtree.sh](#get-subtreesh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
