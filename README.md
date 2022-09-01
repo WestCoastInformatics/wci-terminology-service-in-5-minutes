@@ -3,7 +3,7 @@
 This is an easy-to-use tutorial for accessing West Coast Informatics
 Terminology Server APIs.
 
-*Reference deployments*
+**Reference deployments**
 
 For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com that can be used for Authentication bearer tokens.
 
@@ -38,15 +38,6 @@ Terminology Server API
 - Get concept relationships by code
 - Find concepts by search term (use paging to get only first 5 results)
 - Get concept subtree
-
-All of the tutorials use an environment variable for the API URL of the deployment:
-
-- API_URL=https://wci.terminology.tools
-
-For testing against an environment that does not use authentication, see:
-
-- API_URL=https://snomed.terminology.tools
-
 
 **[Back to top](#table-of-contents)**
 
