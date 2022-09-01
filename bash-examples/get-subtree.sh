@@ -12,7 +12,7 @@ esac; shift; done
 if [ ${#arr[@]} -ne 2 ]; then
   echo "Usage: $0 <terminology> <code> [--token token] [--level level]"
   echo "  e.g. $0 SNOMEDCT_US 80891009 --token \$token --level 2"
-  echo "  e.g. $0 ICD10CM A01 --token \$token --level 4"
+  echo "  e.g. $0 ICD10CM A01 --token \$token --level 3"
   exit 1
 fi
 

@@ -20,9 +20,9 @@ if [ ${#arr[@]} -ne 2 ]; then
   echo "    [--ascending <true|false>] [--sort <sort>]"
   echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --token \$token"
   echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --token \$token --limit 5"
-  echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --token \$token --resolver ATOM"
-  echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --expr disorder --token \$token --resolver ATOM"
-  echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --expr \"<<363346000 | Malignant neoplastic disease | \" --token \$token --resolver ATOM"
+  echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --token \$token --resolver STANDARD"
+  echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --expr disorder --token \$token --resolver STANDARD"
+  echo "  e.g. $0 SNOMEDCT_US "'"'"malignant melanoma"'"'" --expr \"<<363346000 | Malignant neoplastic disease | \" --token \$token --resolver STANDARD"
   echo "  e.g. $0 SNOMEDCT_US \"\" --expr \"^723264001 | Lateralizable body structure reference set |\" --token \$token"
   exit 1
 fi

@@ -37,7 +37,7 @@ Test Scripts
 - [login.sh](#loginsh)
 - [get-terminologies.sh](#get-terminologiessh)
 - [get-concept.sh](#get-conceptsh)
-- [get-concept.sh](#get-conceptsh)
+- [get-concept-relationships.sh](#get-concept-relationshipssh)
 - [find-concepts.sh](#find-conceptssh)
 - [get-subtree.sh](#get-subtreesh)
 
