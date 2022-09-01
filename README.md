@@ -2,7 +2,7 @@
 
 This is an easy-to-use tutorial for accessing West Coast Informatics Terminology Server APIs.
 
-[Tutorial Training Video](https://youtube.com/tbd)
+[Tutorial Training Video](https://youtu.be/nqGFGLQgI2E)
 
 **Reference deployments**
 
