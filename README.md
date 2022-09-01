@@ -3,6 +3,12 @@
 This is an easy-to-use tutorial for accessing West Coast Informatics
 Terminology Server APIs.
 
+*Reference deployments*
+
+For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com that can be used for Authentication bearer tokens.
+
+For testing against "https://snomed.terminology.tools", no Authentication headers are required.
+
 ## Table of Contents
 
 1. [Tutorials by Language](#tutorials-by-language)

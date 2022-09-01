@@ -6,19 +6,16 @@ All the operations described here perform a GET request.
 
 Prerequisites
 -------------
-* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+* curl must be installed ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
-The API URL for the WCI Terminology Service is: 
+An $API_URL environment variable must be set before starting as the sample curl calls below as they expect it.
 
-`export API_URL=https://wci.terminology.tools`
+When using an API_URL that points to an instance that requires authentication
+(such as https://wci.terminology.tools), the login call must first be used to obtain an access token.
 
-Run this command before the sample curl calls below as they expect $API_URL to be set.
-
-When using an API_URL that points to an instance (such as https://wci.terminology.tools) that
-requires authentication, the login call must first be used to obtain an access token.   
-
-If running against a local server with authentication disabled, use "guest" as the access token value.
+If running against a local server with authentication disabled, use "guest" as the access token value
+and skip the login call.  See [Login](#login) for more details regarding reference deployments.
 
 Sample cURL Calls
 -----------------
