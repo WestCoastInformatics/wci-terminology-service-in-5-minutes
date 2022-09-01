@@ -11,7 +11,7 @@ the nature of the search algorithm used to perform the search. Handlers can be c
 The following standard handler values can be used.
 
  - **DEFAULT**: Performs a very basic lucene search with the value passed in.
- - **ATOM**: needs more explanation.
+ - **STANDARD**: Performs a more complicated search of code and name fields intended to produce the best results for browsing.
  - **EXACT**: Performs an "exact string" search after normalizing punctuation, whitespace, case-sensitivity, and stop words. 
  - **NGRAM**: Performs an ngram-based search to be tolerant of incomplete words, spelling issues, etc.
 

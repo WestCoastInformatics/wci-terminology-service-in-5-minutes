@@ -45,10 +45,12 @@ Terminology Server API
 
 ## Resources
 
-- API Documentation - https://wci.terminology.tools/terminology-ui/swagger/index.html
-- Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
-- [Additional Documentation](../master/doc/)
-- [Data Loading Documentation](../master/load-data/)
+* API Documentation 
+  * https://wci.terminology.tools/terminology-ui/swagger/index.html
+  * https://snomed.terminology.tools/terminology-ui/swagger/index.html 
+* Terminology Server Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
+* [Additional Documentation](../master/doc/)
+* [Data Loading Documentation](../master/load-data/)
 
 
 **[Back to top](#table-of-contents)**
