@@ -559,6 +559,7 @@ all of the descendants to a depth of 3 (which for ICD10CM is all of the
 descendants).
 
 ```
+$ ./get-subtree.sh ICD10CM M01 --level 3 --token $token 
 -----------------------------------------------------
 Starting ...Mon, Mar 23, 2020  4:40:37 PM
 -----------------------------------------------------
