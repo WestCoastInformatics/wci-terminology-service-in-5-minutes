@@ -1,7 +1,8 @@
 # West Coast Informatics Terminology Server Tutorial
 
-This is an easy-to-use tutorial for accessing West Coast Informatics
-Terminology Server APIs.
+This is an easy-to-use tutorial for accessing West Coast Informatics Terminology Server APIs.
+
+[Tutorial Training Video](https://youtube.com/tbd)
 
 **Reference deployments**
 
@@ -48,7 +49,6 @@ Terminology Server API
 - Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 - [Additional Documentation](../master/doc/)
 - [Data Loading Documentation](../master/load-data/)
-- [Training Video](https://youtube.com/tbd)
 
 
 **[Back to top](#table-of-contents)**
