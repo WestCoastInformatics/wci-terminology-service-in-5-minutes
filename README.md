@@ -43,7 +43,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 - API_URL=https://wci.terminology.tools
 
-For testing against an environment that does not use authentication, use:
+For testing against an environment that does not use authentication, see:
 
 - API_URL=https://snomed.terminology.tools
 
@@ -53,7 +53,7 @@ For testing against an environment that does not use authentication, use:
 
 ## Resources
 
-- API Documentation - https://wci-terminology-server.docs.stoplight.io
+- API Documentation - https://wci.terminology.tools/terminology-ui/swagger/index.html
 - Full Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 - [Additional Documentation](../master/doc/)
 - [Data Loading Documentation](../master/load-data/)
