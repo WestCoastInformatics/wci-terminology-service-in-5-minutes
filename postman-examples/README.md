@@ -3,7 +3,7 @@ WCI Terminology Service in 5 minutes: Postman Tutorial
 
 This tutorial shows how to use Postman access content from the WCI Terminology API.
 
-[Postman Tutorial Training Video](https://youtube.com/tbd)
+[Postman Tutorial Training Video](https://youtu.be/i9zjAqPaStw)
 
 Prerequisites
 -------------
