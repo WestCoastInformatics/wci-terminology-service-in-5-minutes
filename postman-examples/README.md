@@ -38,7 +38,8 @@ For testing against a local install that is using embedded username/password aut
 
 1. Set the "type" to "Oauth 2.0"
 2. "Grant Type" should be set to "Password Credentials"
-3. "Access Token URL" should be set to "https://wci.terminology.tools/auth/token"
+3. "Access Token URL" should be set to something like "https://example.com/auth/token"
+   where "example.com" represents the deployment to authenticate against
 4. "Username" and "Password" should be your account credentials
 5. "Client ID", "Client Secret", and "Scope" should be blank (but their values do not matter)
 6. "Client Authentication" should be set to "Send client credentials in body"
