@@ -6,9 +6,9 @@ This is an easy-to-use tutorial for accessing West Coast Informatics Terminology
 
 **Reference deployments**
 
-For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com that can be used for Authentication bearer tokens.
+For testing against "https://termserver.westcoastinformatics.com", request a 30-day token from info@westcoastinformatics.com that can be used for Authentication bearer tokens.
 
-For testing against "https://snomed.terminology.tools", no Authentication headers are required.
+For testing against "https://snomed.westcoastinformatics.com", no Authentication headers are required.
 
 ## Table of Contents
 
@@ -46,8 +46,8 @@ Terminology Server API
 ## Resources
 
 * API Documentation 
-  * https://wci.terminology.tools/terminology-ui/swagger/index.html
-  * https://snomed.terminology.tools/terminology-ui/swagger/index.html 
+  * https://termserver.westcoastinformatics.com/terminology-ui/swagger/index.html
+  * https://snomed.westcoastinformatics.com/terminology-ui/swagger/index.html 
 * Terminology Server Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 * [Additional Documentation](../master/doc/)
 * [Data Loading Documentation](../master/load-data/)

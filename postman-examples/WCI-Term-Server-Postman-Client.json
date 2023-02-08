@@ -207,7 +207,7 @@
 		{
 			"id": "b4b75c63-135a-4003-9f2b-9963477d6ecb",
 			"key": "API_URL",
-			"value": "https://wci.terminology.tools",
+			"value": "https://termserver.westcoastinformatics.com",
 			"type": "string"
 		}
 	],

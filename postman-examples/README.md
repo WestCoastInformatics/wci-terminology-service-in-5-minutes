@@ -10,7 +10,7 @@ Prerequisites
 * Postman must be installed (with a version capable of importing a v2.1 collection)
 * The [WCI-Term-Server-Postman-Client.json](WCI-Term-Server-Postman-Client.json) file must be loaded into Postman using File->Import
 * The base API_URL variable is et in the collection.  To change this, edit the collection, select the "Variables" tab, change the value, click "Update".
- - It is currently set to `https://wci.terminology.tools`
+ - It is currently set to `https://termserver.westcoastinformatics.com`
 
 Login
 -----
@@ -28,10 +28,10 @@ After importing the collection, if you choose a request and click "Send" you sho
 This message means you have to first configure authentication.  Edit the collection and choose
 the "Authorization" tab.
 
-For testing against "https://wci.terminology.tools", set the "Type" to "Bearer Token"
+For testing against "https://termserver.westcoastinformatics.com", set the "Type" to "Bearer Token"
 and request a 30-day token from info@westcoastinformatics.com to use as that token.
 
-For testing against "https://snomed.terminology.tools", no authentication is needed, so set the
+For testing against "https://snomed.westcoastinformatics.com", no authentication is needed, so set the
 "Type" to "No auth".
 
 For testing against a local install that is using embedded username/password auth, do the following.

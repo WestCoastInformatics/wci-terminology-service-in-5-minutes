@@ -14,7 +14,7 @@ Prerequisites
 An $API_URL environment variable must be set before starting as the sample curl calls below as they expect it.
 
 When using an API_URL that points to an instance that requires authentication
-(such as https://wci.terminology.tools), the login call must first be used to obtain an access token.
+(such as https://termserver.westcoastinformatics.com), the login call must first be used to obtain an access token.
 
 If running against a local server with authentication disabled, use "guest" as the access token value
 and skip the login call.  See [Login](#login) for more details regarding reference deployments.
@@ -37,13 +37,13 @@ The following examples can be types into the command line of any terminal that h
 
 Depending on the environment, it will be important to configure a login token for subsequent calls.
 
-For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com and set the "token" variable to that value.
+For testing against "https://termserver.westcoastinformatics.com", request a 30-day token from info@westcoastinformatics.com and set the "token" variable to that value.
 
 ```
 token=<value provided by info@westcoastinformatics.com>
 ```
 
-For testing against "https://snomed.terminology.tools", set the "token" variable to the value "guest".
+For testing against "https://snomed.westcoastinformatics.com", set the "token" variable to the value "guest".
 
 ```
 token=guest

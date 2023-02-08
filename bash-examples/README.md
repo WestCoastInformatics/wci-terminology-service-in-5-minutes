@@ -16,13 +16,13 @@ The various scripts make use of the local `url.env` file to define the API URL.
 When using a url.env that points to an instance that requires authentication, first obtain an access
 token.
 
-For testing against "https://wci.terminology.tools", request a 30-day token from info@westcoastinformatics.com and set the "token" variable to that value.
+For testing against "https://termserver.westcoastinformatics.com", request a 30-day token from info@westcoastinformatics.com and set the "token" variable to that value.
 
 ```
 token=<value provided by info@westcoastinformatics.com>
 ```
 
-For testing against "https://snomed.terminology.tools", use "guest" as the token.
+For testing against "https://snomed.westcoastinformatics.com", use "guest" as the token.
 
 ```
 token=guest
@@ -78,7 +78,7 @@ $ ./get-terminologies.sh --token $token
 -----------------------------------------------------
 Starting ...Thu, Feb 27, 2020  3:47:56 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = https://termserver.westcoastinformatics.com
 
   Performing terminologies lookup
     count = 5
@@ -409,7 +409,7 @@ $ ./find-concepts.sh SNOMEDCT_US "malignant melanoma" --token $token --limit 5
 -----------------------------------------------------
 Starting ...Thu, Apr  2, 2020  6:35:23 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = https://termserver.westcoastinformatics.com
 terminology = SNOMEDCT_US
 query = malignant melanoma
 resolver = MIN
@@ -485,7 +485,7 @@ $ ./find-concepts.sh SNOMEDCT_US "" --expr ^723264001 --limit 5 --token $token
 -----------------------------------------------------
 Starting ...Thu, Apr  2, 2020  6:34:28 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = https://termserver.westcoastinformatics.com
 terminology = SNOMEDCT_US
 query =
 resolver = MIN
@@ -563,7 +563,7 @@ $ ./get-subtree.sh ICD10CM M01 --level 3 --token $token
 -----------------------------------------------------
 Starting ...Mon, Mar 23, 2020  4:40:37 PM
 -----------------------------------------------------
-url = https://wci.terminology.tools
+url = https://termserver.westcoastinformatics.com
 terminology = ICD10CM
 code = M01
 level = 3
