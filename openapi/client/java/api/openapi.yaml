@@ -1,0 +1,2849 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: info@westcoastinformatics.com
+    name: API Support
+    url: https://westcoastinformatics.com
+  description: "API documentation for the <a href=\"https://www.westcoastinformatics.com\"\
+    >West Coast Informatics</a> terminology server API.<p>Request a 30-day bearer\
+    \ token from <a href=\"mailto:info@westcoastinformatics.com\">info@westcoastinformatics.com</a>.</p>\
+    \ <p>For full documentation on this service, please visit our wiki page at <a\
+    \ href=\"https://wci-wiki.atlassian.net/wiki/spaces/TSV2\">https://wci-wiki.atlassian.net/wiki/spaces/TSV2</a>.</p>"
+  title: West Coast Informatics Terminology API
+  version: 1.0.0
+servers:
+- description: Current Instance
+  url: https://termserver.westcoastinformatics.com/
+- description: Reference Deployment
+  url: https://termserver.westcoastinformatics.com
+security:
+- bearerAuth: []
+tags:
+- name: terminology
+paths:
+  /auth/token:
+    post:
+      operationId: auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+        description: Authorization information
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+          description: Acquire access token for subsequent calls
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Login
+      tags:
+      - login
+      x-content-type: application/json
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/atom:
+    post:
+      description: Add synonym with specified parameters
+      operationId: addSynonym
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "code, e.g. 80891009"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "synonym name, e.g. \"test name\""
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "term type, e.g. INDEX_SY"
+        explode: true
+        in: query
+        name: termType
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                type: string
+              type: object
+          application/xml:
+            schema:
+              additionalProperties:
+                type: string
+              type: object
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Atom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Atom'
+          description: Synonym added
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Add synonym
+      tags:
+      - terminology
+      x-content-type: application/json
+      x-accepts: application/json
+  /terminology/concept/{terminology}/autocomplete:
+    get:
+      description: Find concepts for a type-ahead search field
+      operationId: autocompleteConcepts_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: expression
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: clause
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListConcept'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Autocomplete
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept:
+    get:
+      description: Find concepts matching the specified search criteria
+      operationId: findConcepts_2
+      parameters:
+      - description: "query, e.g. \"heart attack\""
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "offset, e.g. 0"
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "limit, e.g. 10"
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "ascending, e.g. true"
+        explode: true
+        in: query
+        name: ascending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "sort field, e.g. code"
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "search handler, e.g. STANDARD, EXACT, NGRAM"
+        explode: true
+        in: query
+        name: handler
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "graph resolver, e.g. DEFAULT, MIN"
+        explode: true
+        in: query
+        name: resolver
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "active only, e.g. true"
+        explode: true
+        in: query
+        name: active
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "leaf nodes only, e.g. false"
+        explode: true
+        in: query
+        name: leaf
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListConcept'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Find concepts (across all terminologies)
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}:
+    get:
+      description: Find concepts matching the specified search criteria
+      operationId: findConcepts
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "query, e.g. \"heart attack\""
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "ECL Expression, e.g. <<80891009"
+        explode: true
+        in: query
+        name: expression
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "offset, e.g. 0"
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "limit, e.g. 10"
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "ascending, e.g. true"
+        explode: true
+        in: query
+        name: ascending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "sort field, e.g. code"
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "search handler, e.g. STANDARD, EXACT, NGRAM"
+        explode: true
+        in: query
+        name: handler
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "graph resolver, e.g. DEFAULT, MIN"
+        explode: true
+        in: query
+        name: resolver
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "active only, e.g. true"
+        explode: true
+        in: query
+        name: active
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "leaf nodes only, e.g. false"
+        explode: true
+        in: query
+        name: leaf
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListConcept'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Find concepts
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/mapset/{terminology}/{code}/mapping:
+    get:
+      description: Find mappings for the specified terminology and code
+      operationId: findMappings_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 6011000124106"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: ascending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListMapping'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Find mappings
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/subsets:
+    get:
+      description: Get subsets that the specified terminology and code are a member
+        of
+      operationId: findSubsetMemberships_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 723264001"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListSubset'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get concept subset memberships
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/trees/children:
+    get:
+      description: Find the child tree position nodes for the specified terminology
+        and code
+      operationId: findTreePositionChildren_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 71388002"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: ascending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListConceptTreePosition'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Find tree position children
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/trees:
+    get:
+      description: Find tree positions for the specified terminology and code
+      operationId: findTreePositions_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 71388002"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: ascending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListConceptTreePosition'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Find tree positions
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}:
+    get:
+      description: "Get concept object for the specified terminology, code, and resolver"
+      operationId: getConcept_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 71388002"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "graph resolver, e.g. DEFAULT, MIN"
+        explode: true
+        in: query
+        name: resolver
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Concept'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get concept
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/mapping:
+    get:
+      description: Get mappings that the specified terminology and code are mapped
+        from
+      operationId: getConceptMappings_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 283231003"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListMapping'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get concept mappings
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/properties:
+    get:
+      description: Get configuration information used to drive certain UI functionality
+      operationId: getConfigProperties_1
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Internal server error
+      summary: Get properties
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/mapset/{terminology}/{code}:
+    get:
+      description: Get mapsets for the specified terminology and code
+      operationId: getMapset_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 6011000124106"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mapset'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get mapset
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/mapset/{terminology}:
+    get:
+      description: Get all mapsets for the specified terminology
+      operationId: getMapsets_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListMapset'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get mapsets
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/relationships:
+    get:
+      description: Get relationships for for specified terminology and code
+      operationId: getRelationships_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 71388002"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: ascending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: inverse
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: active
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListConceptRelationship'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get concept relationships
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/subset/{terminology}/{code}:
+    get:
+      description: Get subsets for the specified terminology and code
+      operationId: getSubset_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 723264001"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subset'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get subset
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/subset/{terminology}:
+    get:
+      description: Get all subsets for the specified terminology
+      operationId: getSubsets_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultListSubset'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get subsets
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/concept/{terminology}/{code}/subtree:
+    get:
+      description: Get the subtree for the specified terminology and code
+      operationId: getSubtree_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - description: "concept code, e.g. 71388002"
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: maxLevel
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConceptTreePosition'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get subtree
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology:
+    get:
+      description: Get all terminologies
+      operationId: getTerminologies_1
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Terminology'
+                type: array
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get terminologies
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/{terminology}:
+    get:
+      description: Get terminology object for the specified terminology
+      operationId: getTerminology_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Terminology'
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get terminology
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/metadata/{terminology}:
+    get:
+      description: Get map of terminology abbreviations to metadata for specified
+        terminology
+      operationId: getTerminologyMetadata_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json: {}
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Get terminology metadata
+      tags:
+      - terminology
+      x-accepts: application/json
+  /terminology/expr/{terminology}:
+    get:
+      description: "Get concept ids corresponding to thespecified terminology and\
+        \ expression. For more information on working with expressions, see <a href=\"\
+        https://github.com/WestCoastInformatics/wci-terminology-service-in-5-minutes/blob/master/doc/EXPRESSION.md\"\
+        >https://github.com/WestCoastInformatics/wci-terminology-service-in-5-minutes/blob/master/doc/EXPRESSION.md</a>."
+      operationId: resolveExpression_1
+      parameters:
+      - description: "terminology, e.g. SNOMEDCT_US"
+        explode: false
+        in: path
+        name: terminology
+        required: true
+        schema:
+          default: SNOMEDCT_US
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: expression
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: OK
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal server error
+      summary: Resolve expression
+      tags:
+      - terminology
+      x-accepts: application/json
+components:
+  schemas:
+    AuthResponse:
+      description: Response to successful authentication
+      example:
+        access_token: access_token
+        expires_on: 6
+        token_type: token_type
+        expires_in: 0
+      properties:
+        access_token:
+          description: the access token
+          type: string
+        expires_in:
+          description: milliseconds until the access token expires
+          format: int64
+          type: integer
+        expires_on:
+          description: epoch time of access token expiration
+          format: int64
+          type: integer
+        token_type:
+          description: the token type
+          type: string
+      required:
+      - access_token
+      - expires_in
+      - expires_on
+      - token_type
+      type: object
+    AuthRequest:
+      description: Represents info for an authentication request.
+      example:
+        password: password
+        grant_type: username_password
+        username: username
+        token: token
+      properties:
+        username:
+          description: the username
+          type: string
+        password:
+          description: the password
+          type: string
+        token:
+          description: the token (for a refresh flow)
+          type: string
+        grant_type:
+          enum:
+          - username_password
+          - password
+          - authorization_code
+          type: string
+      required:
+      - grant_type
+      type: object
+    Atom:
+      description: Represents a name with a term type that contributes meaning to
+        a concept
+      example:
+        created: 2000-01-23T04:56:07.000+00:00
+        termType: e.g. PT or 900000000000013009
+        active: true
+        local: true
+        codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+        localeMap:
+          en: true
+          en_GB: false
+        terminology: terminology
+        descriptorId: e.g. D001241 in MSH
+        name: name
+        conceptId: e.g. 404684003 in SNOMEDCT
+        modified: 2000-01-23T04:56:07.000+00:00
+        modifiedBy: modifiedBy
+        attributes:
+          key: attributes
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        terminologyId: terminologyId
+      properties:
+        codeId:
+          description: the code in the specified terminology
+          example: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          type: string
+        localeMap:
+          additionalProperties:
+            description: a map of language codes to boolean values indicated whether
+              this definition is preferred in that language context
+            example: false
+            type: boolean
+          description: a map of language codes to boolean values indicated whether
+            this definition is preferred in that language context
+          example:
+            en: true
+            en_GB: false
+          type: object
+        conceptId:
+          description: the concept id (for terminologies that use concepts)
+          example: e.g. 404684003 in SNOMEDCT
+          type: string
+        descriptorId:
+          description: the descriptor id (for terminologies that use descriptors)
+          example: e.g. D001241 in MSH
+          type: string
+        termType:
+          description: the term type
+          example: e.g. PT or 900000000000013009
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        name:
+          description: the name
+          type: string
+        terminologyId:
+          description: the identifier asserted by the terminology
+          type: string
+        terminology:
+          description: the terminology abbreviation
+          type: string
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+      required:
+      - active
+      - codeId
+      - created
+      - id
+      - local
+      - localeMap
+      - modified
+      - modifiedBy
+      - name
+      - termType
+      - terminology
+      type: object
+    Axiom:
+      description: the axioms associated with this concept
+      example:
+        code: code
+        terminology: terminology
+        created: 2000-01-23T04:56:07.000+00:00
+        modified: 2000-01-23T04:56:07.000+00:00
+        active: true
+        modifiedBy: modifiedBy
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        local: true
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        terminology:
+          description: the terminology abbreviation
+          type: string
+      required:
+      - active
+      - created
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - terminology
+      type: object
+    Concept:
+      description: Represents a concept with a code in a terminology
+      example:
+        code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+        created: 2000-01-23T04:56:07.000+00:00
+        active: true
+        local: true
+        atoms:
+        - created: 2000-01-23T04:56:07.000+00:00
+          termType: e.g. PT or 900000000000013009
+          active: true
+          local: true
+          codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          localeMap:
+            en: true
+            en_GB: false
+          terminology: terminology
+          descriptorId: e.g. D001241 in MSH
+          name: name
+          conceptId: e.g. 404684003 in SNOMEDCT
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          terminologyId: terminologyId
+        - created: 2000-01-23T04:56:07.000+00:00
+          termType: e.g. PT or 900000000000013009
+          active: true
+          local: true
+          codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          localeMap:
+            en: true
+            en_GB: false
+          terminology: terminology
+          descriptorId: e.g. D001241 in MSH
+          name: name
+          conceptId: e.g. 404684003 in SNOMEDCT
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          terminologyId: terminologyId
+        axioms:
+        - code: code
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+          local: true
+        - code: code
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+          local: true
+        terminology: terminology
+        name: name
+        modified: 2000-01-23T04:56:07.000+00:00
+        modifiedBy: modifiedBy
+        attributes:
+          key: attributes
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        definitions:
+        - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          localeMap:
+            en: true
+            en_GB: false
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+          local: true
+        - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          localeMap:
+            en: true
+            en_GB: false
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+          local: true
+        sufficientlyDefined: true
+        semanticTypes:
+        - semanticTypes
+        - semanticTypes
+      properties:
+        code:
+          description: the code in the specified terminology
+          example: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          type: string
+        atoms:
+          description: the names associated with this concept
+          items:
+            $ref: '#/components/schemas/Atom'
+          type: array
+        semanticTypes:
+          description: high-level semantic categories associated with this concept
+            - values depend on the terminologies loaded
+          items:
+            description: high-level semantic categories associated with this concept
+              - values depend on the terminologies loaded
+            type: string
+          type: array
+          uniqueItems: true
+        definitions:
+          description: the definitions associated with this concept
+          items:
+            $ref: '#/components/schemas/Definition'
+          type: array
+        axioms:
+          description: the axioms associated with this concept
+          items:
+            $ref: '#/components/schemas/Axiom'
+          type: array
+        sufficientlyDefined:
+          description: indicates whether the concept is specified with logical necessary
+            and sufficient conditions.  Generally not important except for description-logic
+            based terminologies where this is important.
+          type: boolean
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        terminology:
+          description: the terminology abbreviation
+          type: string
+        name:
+          description: the name
+          type: string
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+      required:
+      - active
+      - atoms
+      - code
+      - created
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - name
+      - sufficientlyDefined
+      - terminology
+      type: object
+    Definition:
+      description: Represents a textual definition for a concept
+      example:
+        code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+        localeMap:
+          en: true
+          en_GB: false
+        terminology: terminology
+        created: 2000-01-23T04:56:07.000+00:00
+        modified: 2000-01-23T04:56:07.000+00:00
+        active: true
+        modifiedBy: modifiedBy
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        local: true
+      properties:
+        code:
+          description: the code in the specified terminology
+          example: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          type: string
+        localeMap:
+          additionalProperties:
+            description: a map of language codes to boolean values indicated whether
+              this definition is preferred in that language context
+            example: false
+            type: boolean
+          description: a map of language codes to boolean values indicated whether
+            this definition is preferred in that language context
+          example:
+            en: true
+            en_GB: false
+          type: object
+        value:
+          description: the definition value itself
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        terminology:
+          description: the terminology abbreviation
+          type: string
+      required:
+      - active
+      - code
+      - created
+      - id
+      - local
+      - localeMap
+      - modified
+      - modifiedBy
+      - terminology
+      - value
+      type: object
+    ResultListConcept:
+      example:
+        total: 0
+        offset: 1
+        confidence: 5.962133916683182
+        limit: 6
+        items:
+        - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          created: 2000-01-23T04:56:07.000+00:00
+          active: true
+          local: true
+          atoms:
+          - created: 2000-01-23T04:56:07.000+00:00
+            termType: e.g. PT or 900000000000013009
+            active: true
+            local: true
+            codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            descriptorId: e.g. D001241 in MSH
+            name: name
+            conceptId: e.g. 404684003 in SNOMEDCT
+            modified: 2000-01-23T04:56:07.000+00:00
+            modifiedBy: modifiedBy
+            attributes:
+              key: attributes
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            terminologyId: terminologyId
+          - created: 2000-01-23T04:56:07.000+00:00
+            termType: e.g. PT or 900000000000013009
+            active: true
+            local: true
+            codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            descriptorId: e.g. D001241 in MSH
+            name: name
+            conceptId: e.g. 404684003 in SNOMEDCT
+            modified: 2000-01-23T04:56:07.000+00:00
+            modifiedBy: modifiedBy
+            attributes:
+              key: attributes
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            terminologyId: terminologyId
+          axioms:
+          - code: code
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          - code: code
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          terminology: terminology
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          definitions:
+          - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          sufficientlyDefined: true
+          semanticTypes:
+          - semanticTypes
+          - semanticTypes
+        - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          created: 2000-01-23T04:56:07.000+00:00
+          active: true
+          local: true
+          atoms:
+          - created: 2000-01-23T04:56:07.000+00:00
+            termType: e.g. PT or 900000000000013009
+            active: true
+            local: true
+            codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            descriptorId: e.g. D001241 in MSH
+            name: name
+            conceptId: e.g. 404684003 in SNOMEDCT
+            modified: 2000-01-23T04:56:07.000+00:00
+            modifiedBy: modifiedBy
+            attributes:
+              key: attributes
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            terminologyId: terminologyId
+          - created: 2000-01-23T04:56:07.000+00:00
+            termType: e.g. PT or 900000000000013009
+            active: true
+            local: true
+            codeId: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            descriptorId: e.g. D001241 in MSH
+            name: name
+            conceptId: e.g. 404684003 in SNOMEDCT
+            modified: 2000-01-23T04:56:07.000+00:00
+            modifiedBy: modifiedBy
+            attributes:
+              key: attributes
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            terminologyId: terminologyId
+          axioms:
+          - code: code
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          - code: code
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          terminology: terminology
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          definitions:
+          - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+            localeMap:
+              en: true
+              en_GB: false
+            terminology: terminology
+            created: 2000-01-23T04:56:07.000+00:00
+            modified: 2000-01-23T04:56:07.000+00:00
+            active: true
+            modifiedBy: modifiedBy
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            value: value
+            local: true
+          sufficientlyDefined: true
+          semanticTypes:
+          - semanticTypes
+          - semanticTypes
+      properties:
+        total:
+          description: the total number of potential results
+          format: int32
+          type: integer
+        limit:
+          description: the max number results requested
+          format: int32
+          type: integer
+        offset:
+          description: the starting index requested
+          format: int32
+          type: integer
+        confidence:
+          description: "the score of the search result, when used"
+          format: double
+          type: number
+        items:
+          description: the items themselves (the format will vary depending on the
+            type of list)
+          items:
+            $ref: '#/components/schemas/Concept'
+          type: array
+      required:
+      - items
+      - limit
+      - offset
+      - total
+      type: object
+    Mapping:
+      description: Represents a mapping from a concept in one terminology to a concept
+        in another
+      example:
+        toCode: toCode
+        advice: advice
+        created: 2000-01-23T04:56:07.000+00:00
+        rule: rule
+        active: true
+        mapsetCode: mapsetCode
+        priority: priority
+        toTerminology: toTerminology
+        local: true
+        toName: toName
+        fromName: fromName
+        modified: 2000-01-23T04:56:07.000+00:00
+        fromTerminology: fromTerminology
+        modifiedBy: modifiedBy
+        attributes:
+          key: attributes
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        category: category
+        group: group
+        fromCode: fromCode
+      properties:
+        group:
+          description: the value for the group this map participates in (for complex
+            maps that use groups)
+          type: string
+        category:
+          description: the map category (for RF2-based maps)
+          type: string
+        fromTerminology:
+          description: the terminology of the 'from' code
+          type: string
+        fromCode:
+          description: the 'from' code (the left-hand side)
+          type: string
+        toTerminology:
+          description: the terminology of the 'to' code
+          type: string
+        toCode:
+          description: the 'to' code (the left-hand side)
+          type: string
+        fromName:
+          description: the name of the 'from' code
+          type: string
+        toName:
+          description: the name of the 'to' code
+          type: string
+        rule:
+          description: the machine-readable map rule for this mapping (for complex
+            maps that use rules)
+          type: string
+        mapsetCode:
+          description: the code of the mapset containing this mapping
+          type: string
+        advice:
+          description: the map advice
+          type: string
+        priority:
+          description: the value for the priority of this map within its group (for
+            complex maps that use groups)
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+      required:
+      - active
+      - created
+      - fromCode
+      - fromName
+      - fromTerminology
+      - id
+      - local
+      - mapsetCode
+      - modified
+      - modifiedBy
+      - toCode
+      - toName
+      - toTerminology
+      type: object
+    ResultListMapping:
+      example:
+        total: 0
+        offset: 1
+        confidence: 5.962133916683182
+        limit: 6
+        items:
+        - toCode: toCode
+          advice: advice
+          created: 2000-01-23T04:56:07.000+00:00
+          rule: rule
+          active: true
+          mapsetCode: mapsetCode
+          priority: priority
+          toTerminology: toTerminology
+          local: true
+          toName: toName
+          fromName: fromName
+          modified: 2000-01-23T04:56:07.000+00:00
+          fromTerminology: fromTerminology
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          category: category
+          group: group
+          fromCode: fromCode
+        - toCode: toCode
+          advice: advice
+          created: 2000-01-23T04:56:07.000+00:00
+          rule: rule
+          active: true
+          mapsetCode: mapsetCode
+          priority: priority
+          toTerminology: toTerminology
+          local: true
+          toName: toName
+          fromName: fromName
+          modified: 2000-01-23T04:56:07.000+00:00
+          fromTerminology: fromTerminology
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          category: category
+          group: group
+          fromCode: fromCode
+      properties:
+        total:
+          description: the total number of potential results
+          format: int32
+          type: integer
+        limit:
+          description: the max number results requested
+          format: int32
+          type: integer
+        offset:
+          description: the starting index requested
+          format: int32
+          type: integer
+        confidence:
+          description: "the score of the search result, when used"
+          format: double
+          type: number
+        items:
+          description: the items themselves (the format will vary depending on the
+            type of list)
+          items:
+            $ref: '#/components/schemas/Mapping'
+          type: array
+      required:
+      - items
+      - limit
+      - offset
+      - total
+      type: object
+    ResultListSubset:
+      example:
+        total: 0
+        offset: 1
+        confidence: 5.962133916683182
+        limit: 6
+        items:
+        - code: e.g. 723264001 in SNOMEDCT
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          memberIds:
+          - memberIds
+          - memberIds
+          local: true
+        - code: e.g. 723264001 in SNOMEDCT
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          memberIds:
+          - memberIds
+          - memberIds
+          local: true
+      properties:
+        total:
+          description: the total number of potential results
+          format: int32
+          type: integer
+        limit:
+          description: the max number results requested
+          format: int32
+          type: integer
+        offset:
+          description: the starting index requested
+          format: int32
+          type: integer
+        confidence:
+          description: "the score of the search result, when used"
+          format: double
+          type: number
+        items:
+          description: the items themselves (the format will vary depending on the
+            type of list)
+          items:
+            $ref: '#/components/schemas/Subset'
+          type: array
+      required:
+      - items
+      - limit
+      - offset
+      - total
+      type: object
+    Subset:
+      description: Represents a subset of concepts in a terminology grouped for a
+        particular reason or use case
+      example:
+        code: e.g. 723264001 in SNOMEDCT
+        terminology: terminology
+        created: 2000-01-23T04:56:07.000+00:00
+        name: name
+        modified: 2000-01-23T04:56:07.000+00:00
+        active: true
+        modifiedBy: modifiedBy
+        attributes:
+          key: attributes
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        memberIds:
+        - memberIds
+        - memberIds
+        local: true
+      properties:
+        code:
+          description: the subset code
+          example: e.g. 723264001 in SNOMEDCT
+          type: string
+        memberIds:
+          description: the codes for members of the subset
+          items:
+            description: the codes for members of the subset
+            type: string
+          type: array
+          uniqueItems: true
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        name:
+          description: the name
+          type: string
+        terminology:
+          description: the terminology abbreviation
+          type: string
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+      required:
+      - active
+      - code
+      - created
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - name
+      - terminology
+      type: object
+    ConceptTreePosition:
+      description: Represents a concept position in a hierarchical tree with a path
+        to the root
+      example:
+        code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+        level: 5
+        created: 2000-01-23T04:56:07.000+00:00
+        active: true
+        local: true
+        ancestorPath: "e.g. isa, part_of"
+        additionalType: "e.g. isa, has_part"
+        children:
+        - null
+        - null
+        terminology: terminology
+        childCt: 2
+        name: name
+        modified: 2000-01-23T04:56:07.000+00:00
+        modifiedBy: modifiedBy
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        children:
+          description: the child tree positions of this node
+          items:
+            $ref: '#/components/schemas/ConceptTreePosition'
+          type: array
+        level:
+          description: the level of depth in the hierarchy of this node
+          format: int32
+          type: integer
+        ancestorPath:
+          description: the path from the root code expressed as a sequence of dot
+            (.) separated code values starting with the root and ending with the parent
+            code
+          example: "e.g. isa, part_of"
+          type: string
+        code:
+          description: the code in the specified terminology
+          example: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          type: string
+        additionalType:
+          description: the more specific type of relationship (more information about
+            this label is provided in the terminology metadata)
+          example: "e.g. isa, has_part"
+          type: string
+        childCt:
+          description: the child count of this node
+          format: int32
+          type: integer
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        name:
+          description: the name
+          type: string
+        terminology:
+          description: the terminology abbreviation
+          type: string
+      required:
+      - active
+      - code
+      - created
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - name
+      - terminology
+      type: object
+    ResultListConceptTreePosition:
+      example:
+        total: 0
+        offset: 1
+        confidence: 5.962133916683182
+        limit: 6
+        items:
+        - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          level: 5
+          created: 2000-01-23T04:56:07.000+00:00
+          active: true
+          local: true
+          ancestorPath: "e.g. isa, part_of"
+          additionalType: "e.g. isa, has_part"
+          children:
+          - null
+          - null
+          terminology: terminology
+          childCt: 2
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - code: "e.g. 404684003 in SNOMEDCT, or 1191 in RXNORM, or 2951-2 in LNC"
+          level: 5
+          created: 2000-01-23T04:56:07.000+00:00
+          active: true
+          local: true
+          ancestorPath: "e.g. isa, part_of"
+          additionalType: "e.g. isa, has_part"
+          children:
+          - null
+          - null
+          terminology: terminology
+          childCt: 2
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        total:
+          description: the total number of potential results
+          format: int32
+          type: integer
+        limit:
+          description: the max number results requested
+          format: int32
+          type: integer
+        offset:
+          description: the starting index requested
+          format: int32
+          type: integer
+        confidence:
+          description: "the score of the search result, when used"
+          format: double
+          type: number
+        items:
+          description: the items themselves (the format will vary depending on the
+            type of list)
+          items:
+            $ref: '#/components/schemas/ConceptTreePosition'
+          type: array
+      required:
+      - items
+      - limit
+      - offset
+      - total
+      type: object
+    Mapset:
+      description: Represents a set of mappings from a concept in one terminology
+        to a concept in another
+      example:
+        code: e.g. 6011000124106 in SNOMEDCT
+        terminology: terminology
+        created: 2000-01-23T04:56:07.000+00:00
+        mappedToTerminology: e.g. SNOMEDCT
+        name: name
+        modified: 2000-01-23T04:56:07.000+00:00
+        active: true
+        modifiedBy: modifiedBy
+        attributes:
+          key: attributes
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        local: true
+      properties:
+        code:
+          description: the code in the specified terminology
+          example: e.g. 6011000124106 in SNOMEDCT
+          type: string
+        mappedToTerminology:
+          description: the target terminology of this map set
+          example: e.g. SNOMEDCT
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        name:
+          description: the name
+          type: string
+        terminology:
+          description: the terminology abbreviation
+          type: string
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+      required:
+      - active
+      - code
+      - created
+      - id
+      - local
+      - mappedToTerminology
+      - modified
+      - modifiedBy
+      - name
+      - terminology
+      type: object
+    ResultListMapset:
+      example:
+        total: 0
+        offset: 1
+        confidence: 5.962133916683182
+        limit: 6
+        items:
+        - code: e.g. 6011000124106 in SNOMEDCT
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          mappedToTerminology: e.g. SNOMEDCT
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          local: true
+        - code: e.g. 6011000124106 in SNOMEDCT
+          terminology: terminology
+          created: 2000-01-23T04:56:07.000+00:00
+          mappedToTerminology: e.g. SNOMEDCT
+          name: name
+          modified: 2000-01-23T04:56:07.000+00:00
+          active: true
+          modifiedBy: modifiedBy
+          attributes:
+            key: attributes
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          local: true
+      properties:
+        total:
+          description: the total number of potential results
+          format: int32
+          type: integer
+        limit:
+          description: the max number results requested
+          format: int32
+          type: integer
+        offset:
+          description: the starting index requested
+          format: int32
+          type: integer
+        confidence:
+          description: "the score of the search result, when used"
+          format: double
+          type: number
+        items:
+          description: the items themselves (the format will vary depending on the
+            type of list)
+          items:
+            $ref: '#/components/schemas/Mapset'
+          type: array
+      required:
+      - items
+      - limit
+      - offset
+      - total
+      type: object
+    ConceptRelationship:
+      description: Represents a relationship between two concepts
+      example:
+        toCode: toCode
+        created: 2000-01-23T04:56:07.000+00:00
+        active: true
+        type: "e.g. PAR, CHD, other"
+        defining: true
+        toTerminology: toTerminology
+        local: true
+        toValue: toValue
+        assertedDirection: true
+        additionalType: "e.g. isa, has_part"
+        toName: toName
+        terminology: terminology
+        hierarchical: true
+        modified: 2000-01-23T04:56:07.000+00:00
+        modifiedBy: modifiedBy
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        terminologyId: terminologyId
+        group: "e.g. 1, 2, ..."
+      properties:
+        hierarchical:
+          description: indicates whether this relationship is part of the hierarchy
+          type: boolean
+        type:
+          description: the high level type of relationship (more information about
+            this label is provided in the terminology metadata)
+          example: "e.g. PAR, CHD, other"
+          type: string
+        group:
+          description: used by terminologies that group relationships (e.g. SNOMEDCT)
+            to indicate the group value
+          example: "e.g. 1, 2, ..."
+          type: string
+        assertedDirection:
+          description: indicates whether this relationship is in the direction asserted
+            by the terminology. This is meaninful because in some instances relationships
+            are loaded in both directions
+          type: boolean
+        additionalType:
+          description: the more specific type of relationship (more information about
+            this label is provided in the terminology metadata)
+          example: "e.g. isa, has_part"
+          type: string
+        defining:
+          description: indicates whether this is a relationship is part of the concept
+            logical definition
+          type: boolean
+        toTerminology:
+          description: "the terminology of the concept this relationship is to (the\
+            \ right-hand side). If this is not used, the relationship will have a\
+            \ 'toValue'"
+          type: string
+        toCode:
+          description: "the code of the concept this relationship is to (the right-hand\
+            \ side). If this is not used, the relationship will have a 'toValue'"
+          type: string
+        toValue:
+          description: "the literal value relationship is to (the right-hand side).\
+            \ If this is null, the relationship will have a 'to'"
+          type: string
+        toName:
+          description: "the name of the concept this relationship is to (the right-hand\
+            \ side). If this is not used, the relationship will have a 'toValue'"
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        terminologyId:
+          description: the identifier asserted by the terminology
+          type: string
+        terminology:
+          description: the terminology abbreviation
+          type: string
+      required:
+      - active
+      - assertedDirection
+      - created
+      - defining
+      - hierarchical
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - terminology
+      - type
+      type: object
+    ResultListConceptRelationship:
+      example:
+        total: 0
+        offset: 1
+        confidence: 5.962133916683182
+        limit: 6
+        items:
+        - toCode: toCode
+          created: 2000-01-23T04:56:07.000+00:00
+          active: true
+          type: "e.g. PAR, CHD, other"
+          defining: true
+          toTerminology: toTerminology
+          local: true
+          toValue: toValue
+          assertedDirection: true
+          additionalType: "e.g. isa, has_part"
+          toName: toName
+          terminology: terminology
+          hierarchical: true
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          terminologyId: terminologyId
+          group: "e.g. 1, 2, ..."
+        - toCode: toCode
+          created: 2000-01-23T04:56:07.000+00:00
+          active: true
+          type: "e.g. PAR, CHD, other"
+          defining: true
+          toTerminology: toTerminology
+          local: true
+          toValue: toValue
+          assertedDirection: true
+          additionalType: "e.g. isa, has_part"
+          toName: toName
+          terminology: terminology
+          hierarchical: true
+          modified: 2000-01-23T04:56:07.000+00:00
+          modifiedBy: modifiedBy
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          terminologyId: terminologyId
+          group: "e.g. 1, 2, ..."
+      properties:
+        total:
+          description: the total number of potential results
+          format: int32
+          type: integer
+        limit:
+          description: the max number results requested
+          format: int32
+          type: integer
+        offset:
+          description: the starting index requested
+          format: int32
+          type: integer
+        confidence:
+          description: "the score of the search result, when used"
+          format: double
+          type: number
+        items:
+          description: the items themselves (the format will vary depending on the
+            type of list)
+          items:
+            $ref: '#/components/schemas/ConceptRelationship'
+          type: array
+      required:
+      - items
+      - limit
+      - offset
+      - total
+      type: object
+    Terminology:
+      description: Represents a terminology abbreviation and associated metadata
+      example:
+        created: 2000-01-23T04:56:07.000+00:00
+        active: true
+        abbreviation: "e.g. SNOMEDCT, RXNORM, LNC, ICD10CM"
+        version: e.g. 20230301
+        local: true
+        systemUri: e.g. http://snomed.info/sct
+        systemOid: e.g. 2.16.840.1.113883.6.96
+        name: name
+        modified: 2000-01-23T04:56:07.000+00:00
+        modifiedBy: modifiedBy
+        attributes:
+          key: attributes
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        expressionEnabled: true
+      properties:
+        version:
+          description: the terminology version
+          example: e.g. 20230301
+          type: string
+        abbreviation:
+          description: the terminology abbreviation
+          example: "e.g. SNOMEDCT, RXNORM, LNC, ICD10CM"
+          type: string
+        systemOid:
+          description: the OID for the terminology
+          example: e.g. 2.16.840.1.113883.6.96
+          type: string
+        systemUri:
+          description: the FHIR system URI for the terminology
+          example: e.g. http://snomed.info/sct
+          type: string
+        expressionEnabled:
+          description: indicates whether ECL-style expressions can be used when searching
+            the terminology
+          type: boolean
+        name:
+          description: the name
+          type: string
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+      required:
+      - abbreviation
+      - active
+      - created
+      - expressionEnabled
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - name
+      - version
+      type: object
+    Metadata:
+      description: Represents a named metadata entry
+      properties:
+        type:
+          description: the type of metadata
+          example: "e.g. STY, REL"
+          type: string
+        abbreviation:
+          description: the label for the metadata element
+          example: "e.g. isa, PT, en_US"
+          type: string
+        rank:
+          description: used for when metadata lists need to be ranked (as in a ranked
+            list of term types)
+          format: int32
+          type: integer
+        name:
+          description: the name
+          type: string
+        terminology:
+          description: the terminology abbreviation
+          type: string
+        attributes:
+          additionalProperties:
+            description: key/value pairs associated with this object. Entries in this
+              map are terminology-specific
+            type: string
+          description: key/value pairs associated with this object. Entries in this
+            map are terminology-specific
+          type: object
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+      required:
+      - abbreviation
+      - active
+      - created
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - name
+      - terminology
+      - type
+      type: object
+    TerminologyMetadata:
+      description: Represents all types of metadata associated with a terminology
+      properties:
+        attributeNames:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: the attribute names used by the terminology
+          type: object
+        terminology:
+          $ref: '#/components/schemas/Terminology'
+        semanticTypes:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: the semantic types used by the terminology
+          type: object
+        additionalRelationshipTypes:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: the additional relationship types used by the terminology
+          type: object
+        relationshipTypes:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: the relationship types used by the terminology
+          type: object
+        termTypes:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: the term types used by the terminology
+          type: object
+        languages:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: the languages used by the terminology
+          type: object
+        other:
+          additionalProperties:
+            $ref: '#/components/schemas/Metadata'
+          description: miscellaneous terminology metadata (terminology-specific)
+          type: object
+        created:
+          description: the created date
+          format: date-time
+          type: string
+        local:
+          description: indicates whether this data element was created by local editing
+          type: boolean
+        modifiedBy:
+          description: the identifier of the user who made the last modification
+          type: string
+        modified:
+          description: the last modified date
+          format: date-time
+          type: string
+        id:
+          description: the unique identifier
+          format: uuid
+          type: string
+        active:
+          description: indicates whether or not this data element is active
+          type: boolean
+      required:
+      - active
+      - created
+      - id
+      - local
+      - modified
+      - modifiedBy
+      - terminology
+      type: object
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: "Bearer [token]"
+      description: JWT authentication with bearer token
+      scheme: bearer
+      type: http
+
