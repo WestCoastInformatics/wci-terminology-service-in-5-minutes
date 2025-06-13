@@ -46,8 +46,8 @@ Terminology Server API
 ## Resources
 
 * API Documentation 
-  * https://termserver.westcoastinformatics.com/terminology-ui/swagger/index.html
-  * https://snomed.westcoastinformatics.com/terminology-ui/swagger/index.html 
+  * https://termserver.westcoastinformatics.com/swagger-ui/index.html
+  * https://snomed.westcoastinformatics.com/swagger-ui/index.html 
 * Terminology Server Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 * [Additional Documentation](../master/doc/)
 * [Data Loading Documentation](../master/load-data/)
