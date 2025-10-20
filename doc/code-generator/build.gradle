@@ -1,0 +1,171 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+  id 'java'
+  id 'org.openapi.generator'
+  id 'maven-publish'
+}
+
+group = "org.openapitools"
+version = "2.0.0-SNAPSHOT"
+
+// Input Specification location for terminology-service
+def inputURL = 'https://snomed.westcoastinformatics.com/v3/api-docs'
+
+repositories {
+  mavenCentral()
+}
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+test {
+  useJUnitPlatform()
+}
+
+final artifactGroup = "${group}"
+final artifactVersion = "${version}"
+final artifactId = 'terminology-java-client'
+
+/**
+ * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
+ * To use a local file, replace {remoteInputSpec.set(inputURL)} with input {inputSpec.set(inputFile)}
+*/
+tasks.register('buildJavaSdk', GenerateTask) {
+    generatorName.set("java")
+    remoteInputSpec.set(inputURL)
+    outputDir.set(layout.buildDirectory.dir("java").get().getAsFile().getAbsolutePath())
+    apiPackage.set("api")
+    invokerPackage.set("api.invoker")
+    modelPackage.set("com.wci.terminology.client.model")
+    configOptions.set([
+            "useJakartaEe": "true",
+            "library": "jersey2",
+            "serializationLibrary": "jackson",
+            "hideGenerationTimestamp": "true",
+            "dateLibrary": "java17",
+            "groupId": "org.openapitools",
+            "artifactId": "terminology-java-client",
+            "artifactVersion": "${artifactVersion}",
+            "java8": "false"
+    ])
+    globalProperties.set([
+            "apis": "",
+            "models": "",
+            "supportingFiles": "ApiClient,ApiException,ApiResponse,Configuration,Pair,JSON,RFC3339DateFormat,ServerConfiguration,ServerVariable,StringUtil,auth/Authentication,auth/HttpBearerAuth,auth/ApiKeyAuth,auth/HttpBasicAuth",
+            "apiTests": "false",
+            "modelTests": "false",
+            "apiDocs": "true",
+            "modelDocs": "true"
+    ])
+}
+
+/**
+ * Cannot exclude from build, so remove the unwanted APIs and associated tests.
+ */
+tasks.register('removeUnwantedApis') {
+    doLast {
+        delete fileTree(
+            dir: "${buildDir}/java/src/main/java/api",
+            include: ['NlmApi.java', 'LoginApi.java']
+        )
+        delete fileTree(
+            dir: "${buildDir}/java/src/test/java/api",
+            include: ['NlmApiTest.java', 'LoginApiTest.java']
+        )
+    }
+}
+
+/**
+ * Post-generation task that opens doc/code-generator/build/java/build.gradle and normalizes the Java level to 17.
+ */
+tasks.register('patchGeneratedJavaVersion') {
+    doLast {
+        def gradleFile = file("$buildDir/java/build.gradle")
+        if (gradleFile.exists()) {
+            def text = gradleFile.text
+            text = text.replaceAll(/sourceCompatibility\s*=\s*['\"]1\.8['\"]/,'sourceCompatibility = \'17\'')
+                       .replaceAll(/targetCompatibility\s*=\s*['\"]1\.8['\"]/,'targetCompatibility = \'17\'')
+                       .replaceAll(/JavaVersion\\.VERSION_1_8/,'JavaVersion.VERSION_17')
+            gradleFile.text = text
+        }
+    }
+}
+
+/**
+ * Patch the generated build.gradle file to use the correct group, version, artifactId, and JAR name.
+ * This sets group (to the value of artifactGroup), version (to artifactVersion the version of the artifact),
+ * and artifactId (e.g. terminology-java-client). It also ensures any Jar task uses those names for
+ * archiveBaseName/archiveVersion.
+ * The generator's default names are generic (e.g., openapi-java-client).
+ * This enforces your repo’s coordinates and produces correctly named artifacts.
+ */
+tasks.register('patchGeneratedArtifactId') {
+    doLast {
+        def gradleFile = file("$buildDir/java/build.gradle")
+        if (gradleFile.exists()) {
+            println "Patching group, version, artifactId, and JAR name in ${gradleFile}..."
+            def text = gradleFile.text
+            text = text.replaceFirst(
+                /group\s*=\s*['"].*['"]/,
+                "group = '${artifactGroup}'"
+            )
+            text = text.replaceFirst(
+                /version\s*=\s*['"].*['"]/,
+                "version = '${artifactVersion}'"
+            )
+            text = text.replaceAll(
+                /artifactId\s*=\s*['"][^'"]*['"]/,
+                "artifactId = '${artifactId}'"
+            )
+            // Patch JAR file name
+            if (text.contains('tasks.withType(Jar)')) {
+                text = text.replaceAll(
+                    /archiveBaseName\.set\(['"].*['"]\)/,
+                    "archiveBaseName.set('${artifactId}')"
+                ).replaceAll(
+                    /archiveVersion\.set\(['"].*['"]\)/,
+                    "archiveVersion.set('${artifactVersion}')"
+                )
+            } else {
+                text += """
+tasks.withType(Jar) {
+    archiveBaseName.set('${artifactId}')
+    archiveVersion.set('${artifactVersion}')
+}
+"""
+            }
+            gradleFile.text = text
+        } else {
+            println "No generated build.gradle found at ${gradleFile}"
+        }
+    }
+}
+
+tasks.register("makeGeneratedJavaSdkJar", Jar) {
+    // If a nested Gradle project exists, we could invoke it, but to avoid
+    // environment/tooling dependencies, always produce a sources jar here.
+    from("$buildDir/java/src/main/java")
+    archiveBaseName.set(artifactId)
+    archiveVersion.set(version)
+    destinationDirectory = layout.buildDirectory.dir("libs").get().asFile
+}
+
+/**
+ * Run the tasks in the correct order.
+ */
+tasks.named('buildJavaSdk') {
+    finalizedBy('removeUnwantedApis', 'patchGeneratedJavaVersion', 'patchGeneratedArtifactId', 'makeGeneratedJavaSdkJar')
+}
+
+/** Runs all code-gen tasks for each language to generate the clients */
+tasks.register("buildClients") {
+  dependsOn("buildJavaSdk")
+  doLast {
+    println 'All client sdk generated. They can be found in the code-gen/build folder.'
+  }
+}
+
+compileJava.dependsOn tasks.named("buildClients")
+build.dependsOn("buildClients")
+publishToMavenLocal.dependsOn = ["buildJavaSdk"]
