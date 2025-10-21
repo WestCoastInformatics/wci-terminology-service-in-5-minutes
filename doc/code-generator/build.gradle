@@ -40,7 +40,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
     modelPackage.set("com.wci.terminology.client.model")
     configOptions.set([
             "useJakartaEe": "true",
-            "library": "jersey2",
+            "library": "resttemplate",
             "serializationLibrary": "jackson",
             "hideGenerationTimestamp": "true",
             "dateLibrary": "java17",
@@ -52,7 +52,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
     globalProperties.set([
             "apis": "",
             "models": "",
-            "supportingFiles": "ApiClient,ApiException,ApiResponse,Configuration,Pair,JSON,RFC3339DateFormat,ServerConfiguration,ServerVariable,StringUtil,auth/Authentication,auth/HttpBearerAuth,auth/ApiKeyAuth,auth/HttpBasicAuth",
+            "supportingFiles": "",
             "apiTests": "false",
             "modelTests": "false",
             "apiDocs": "true",
@@ -98,7 +98,7 @@ tasks.register('patchGeneratedJavaVersion') {
  * and artifactId (e.g. terminology-java-client). It also ensures any Jar task uses those names for
  * archiveBaseName/archiveVersion.
  * The generator's default names are generic (e.g., openapi-java-client).
- * This enforces your repo’s coordinates and produces correctly named artifacts.
+ * This enforces your repo's coordinates and produces correctly named artifacts.
  */
 tasks.register('patchGeneratedArtifactId') {
     doLast {
