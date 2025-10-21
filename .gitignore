@@ -140,3 +140,6 @@ typings/
 
 out/
 *.zip
+
+# don't commit the generated Java code from doc/code-generator/build/java
+java-examples/src/main/
