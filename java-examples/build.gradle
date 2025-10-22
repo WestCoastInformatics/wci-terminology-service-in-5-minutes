@@ -49,8 +49,6 @@ ext {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.0'
-
     implementation "io.swagger:swagger-annotations:$swagger_annotations_version"
     implementation "com.google.code.findbugs:jsr305:3.0.2"
     implementation "org.glassfish.jersey.core:jersey-client:$jersey_version"

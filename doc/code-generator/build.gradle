@@ -40,14 +40,15 @@ tasks.register('buildJavaSdk', GenerateTask) {
     modelPackage.set("com.wci.terminology.client.model")
     configOptions.set([
             "useJakartaEe": "true",
-            "library": "resttemplate",
+            "library": "jersey2",
             "serializationLibrary": "jackson",
             "hideGenerationTimestamp": "true",
             "dateLibrary": "java17",
             "groupId": "org.openapitools",
             "artifactId": "terminology-java-client",
             "artifactVersion": "${artifactVersion}",
-            "java8": "false"
+            "java8": "false",
+            "additionalModelTypeAnnotations": "@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)"
     ])
     globalProperties.set([
             "apis": "",
