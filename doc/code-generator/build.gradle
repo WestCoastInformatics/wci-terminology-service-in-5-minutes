@@ -40,7 +40,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
     modelPackage.set("com.wci.terminology.client.model")
     configOptions.set([
             "useJakartaEe": "true",
-            "library": "jersey2",
+            "library": "jersey3",
             "serializationLibrary": "jackson",
             "hideGenerationTimestamp": "true",
             "dateLibrary": "java17",
