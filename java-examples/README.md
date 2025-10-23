@@ -4,7 +4,7 @@ This tutorial shows how to use a locally defined Java client to interact with th
 
 ## Prerequisites
 
-- JDK 11+ must be installed
+- JDK 17+ must be installed
 - Gradle (7.2+)
 
 The API URL for terminology-service is:
@@ -41,7 +41,7 @@ This will build the model objects and clients, while not running the tests.
 
 ## Client generation (no authentication required)
 
-This client targets `https://snomed.westcoastinformatics.com` and does not require login. To generate/update the client code, follow `.work/run.md` for Docker or JAR instructions. The generator output should replace only `src/main/java/api/**` sources. The base URL can be overridden with `-DapiUrl` or `API_URL`.
+This client targets `https://snomed.westcoastinformatics.com` and does not require login. To generate/update the client code, follow `doc/code-generator/BUILDME.md` for Docker or JAR instructions. The generator output should replace only `src/main/java/api/**` sources. The base URL can be overridden with `-DapiUrl` or `API_URL`.
 
 ### Sample Java tests (TerminologyApi)
 -----------------
