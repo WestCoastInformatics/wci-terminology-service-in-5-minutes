@@ -6,7 +6,7 @@ plugins {
   id 'maven-publish'
 }
 
-group = "org.openapitools"
+group = "com.wci.terminology"
 version = "2.0.0-SNAPSHOT"
 
 // Input Specification location for terminology-service
@@ -25,7 +25,7 @@ test {
 
 final artifactGroup = "${group}"
 final artifactVersion = "${version}"
-final artifactId = 'terminology-java-client'
+final artifactId = 'wci-terminology-java-client'
 
 /**
  * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
@@ -36,19 +36,16 @@ tasks.register('buildJavaSdk', GenerateTask) {
     remoteInputSpec.set(inputURL)
     outputDir.set(layout.buildDirectory.dir("java").get().getAsFile().getAbsolutePath())
     apiPackage.set("api")
-    invokerPackage.set("api.invoker")
+    invokerPackage.set("com.wci.terminology.client.invoker")
     modelPackage.set("com.wci.terminology.client.model")
     configOptions.set([
-            "useJakartaEe": "true",
-            "library": "jersey3",
-            "serializationLibrary": "jackson",
-            "hideGenerationTimestamp": "true",
-            "dateLibrary": "java17",
-            "groupId": "org.openapitools",
-            "artifactId": "terminology-java-client",
-            "artifactVersion": "${artifactVersion}",
-            "java8": "false",
-            "additionalModelTypeAnnotations": "@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)"
+        "useJakartaEe": "true",
+        "library": "jersey3",
+        "serializationLibrary": "jackson",
+        "hideGenerationTimestamp": "true",
+        "java8": "false",
+        "dateLibrary": "legacy",
+         "additionalModelTypeAnnotations": "@com.fasterxml.jackson.annotation.JsonIgnoreProperties(ignoreUnknown = true)"
     ])
     globalProperties.set([
             "apis": "",
@@ -67,28 +64,48 @@ tasks.register('buildJavaSdk', GenerateTask) {
 tasks.register('removeUnwantedApis') {
     doLast {
         delete fileTree(
-            dir: "${buildDir}/java/src/main/java/api",
+            dir: "${buildDir}/java/src/main/java/com/wci/terminology/api",
             include: ['NlmApi.java', 'LoginApi.java']
         )
         delete fileTree(
-            dir: "${buildDir}/java/src/test/java/api",
+            dir: "${buildDir}/java/src/test/java/com/wci/terminology/api",
             include: ['NlmApiTest.java', 'LoginApiTest.java']
         )
     }
 }
 
 /**
- * Post-generation task that opens doc/code-generator/build/java/build.gradle and normalizes the Java level to 17.
+ * Patch the generated build.gradle file to use Java 17 and the correct artifactId.
+ * OpenAPI Generator 7.5.0 uses Java 8 by default, so we need to patch the build.gradle file to use Java 17.
  */
 tasks.register('patchGeneratedJavaVersion') {
     doLast {
         def gradleFile = file("$buildDir/java/build.gradle")
         if (gradleFile.exists()) {
+            println "Patching Java version to 17 in ${gradleFile}..."
             def text = gradleFile.text
-            text = text.replaceAll(/sourceCompatibility\s*=\s*['\"]1\.8['\"]/,'sourceCompatibility = \'17\'')
-                       .replaceAll(/targetCompatibility\s*=\s*['\"]1\.8['\"]/,'targetCompatibility = \'17\'')
-                       .replaceAll(/JavaVersion\\.VERSION_1_8/,'JavaVersion.VERSION_17')
+            text = text.replaceAll(
+                /sourceCompatibility\s*=\s*JavaVersion\.VERSION_1_8/,
+                'sourceCompatibility = JavaVersion.VERSION_17'
+            ).replaceAll(
+                /targetCompatibility\s*=\s*JavaVersion\.VERSION_1_8/,
+                'targetCompatibility = JavaVersion.VERSION_17'
+            ).replaceAll(
+                /sourceCompatibility\s+JavaVersion\.VERSION_1_8/,  // Android syntax
+                'sourceCompatibility JavaVersion.VERSION_17'
+            ).replaceAll(
+                /targetCompatibility\s+JavaVersion\.VERSION_1_8/,  // Android syntax
+                'targetCompatibility JavaVersion.VERSION_17'
+            ).replaceAll(
+                /sourceCompatibility\s*=\s*['"]1\.8['"]/,
+                'sourceCompatibility = \'17\''
+            ).replaceAll(
+                /targetCompatibility\s*=\s*['"]1\.8['"]/,
+                'targetCompatibility = \'17\''
+            )
             gradleFile.text = text
+        } else {
+            println "No generated build.gradle found at ${gradleFile}"
         }
     }
 }

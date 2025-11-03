@@ -1,4 +1,4 @@
-package api;
+package com.wci.terminology.api;
 
 import static org.junit.jupiter.api.Assertions.*;
 

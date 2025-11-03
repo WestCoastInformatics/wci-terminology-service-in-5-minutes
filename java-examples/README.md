@@ -50,52 +50,52 @@ Run these from the `java-examples` directory:
 
 - Get terminologies
 ```
-./gradlew test --tests api.TerminologyApiTest.getTerminologiesTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getTerminologiesTest
 ```
 
 - Get terminology
 ```
-./gradlew test --tests api.TerminologyApiTest.getTerminologyTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getTerminologyTest
 ```
 
 - Get concept
 ```
-./gradlew test --tests api.TerminologyApiTest.getConceptTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getConceptTest
 ```
 
 - Find concepts (global)
 ```
-./gradlew test --tests api.TerminologyApiTest.findConceptsGlobalTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.findConceptsGlobalTest
 ```
 
 - Find concepts (by terminology)
 ```
-./gradlew test --tests api.TerminologyApiTest.findConceptsByTerminologyTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.findConceptsByTerminologyTest
 ```
 
 - Get relationships
 ```
-./gradlew test --tests api.TerminologyApiTest.getConceptRelationshipsTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getConceptRelationshipsTest
 ```
 
 - Get subsets and subset
 ```
-./gradlew test --tests api.TerminologyApiTest.getSubsetsAndSubsetTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getSubsetsAndSubsetTest
 ```
 
 - Get subtree and tree positions
 ```
-./gradlew test --tests api.TerminologyApiTest.getSubtreeAndTreePositionsTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getSubtreeAndTreePositionsTest
 ```
 
 - Resolve expression
 ```
-./gradlew test --tests api.TerminologyApiTest.resolveExpressionTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.resolveExpressionTest
 ```
 
 - Get config properties
 ```
-./gradlew test --tests api.TerminologyApiTest.getConfigPropertiesTest
+./gradlew test --tests com.wci.terminology.api.TerminologyApiTest.getConfigPropertiesTest
 ```
 
 ## Notes
