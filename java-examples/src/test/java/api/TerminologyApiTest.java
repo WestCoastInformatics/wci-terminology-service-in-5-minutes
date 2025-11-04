@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import com.wci.terminology.api.TerminologyApi;
 import com.wci.terminology.client.model.Concept;
 import com.wci.terminology.client.model.Terminology;
 

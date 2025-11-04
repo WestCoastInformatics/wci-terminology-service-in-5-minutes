@@ -64,11 +64,11 @@ tasks.register('buildJavaSdk', GenerateTask) {
 tasks.register('removeUnwantedApis') {
     doLast {
         delete fileTree(
-            dir: "${buildDir}/java/src/main/java/com/wci/terminology/api",
+            dir: "${buildDir}/java/src/main/java/api",
             include: ['NlmApi.java', 'LoginApi.java']
         )
         delete fileTree(
-            dir: "${buildDir}/java/src/test/java/com/wci/terminology/api",
+            dir: "${buildDir}/java/src/test/java/api",
             include: ['NlmApiTest.java', 'LoginApiTest.java']
         )
     }
