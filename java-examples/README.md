@@ -41,7 +41,7 @@ This will build the model objects and clients, while not running the tests.
 
 ## Client generation (no authentication required)
 
-This client targets `https://snomed.westcoastinformatics.com` and does not require login. To generate/update the client code, follow `doc/code-generator/BUILDME.md` for Docker or JAR instructions. The generator output should replace only `src/main/java/api/**` sources. The base URL can be overridden with `-DapiUrl` or `API_URL`.
+This client targets `https://snomed.westcoastinformatics.com` and does not require login. To generate/update the client code, follow `doc/code-generator/BUILDME.md` for Docker or JAR instructions. The generator output should replace sources in `src/main/java/com/wci/terminology/**` (specifically the `api/`, `client/invoker/`, and `client/model/` subdirectories). The base URL can be overridden with `-DapiUrl` or `API_URL`.
 
 ### Sample Java tests (TerminologyApi)
 -----------------

@@ -11,7 +11,12 @@ import com.wci.terminology.client.model.Terminology;
 public class TerminologyApiTest {
 
     private final TerminologyApi api = new TerminologyApi();
-    { api.getApiClient().setBasePath("https://snomed.westcoastinformatics.com"); }
+    {
+        final String apiUrl = System.getProperty("apiUrl") != null ? System.getProperty("apiUrl")
+            : (System.getenv("API_URL") != null ? System.getenv("API_URL")
+            : "https://snomed.westcoastinformatics.com");
+        api.getApiClient().setBasePath(apiUrl);
+    }
 
     @Test
     public void getTerminologiesTest() throws Exception {
