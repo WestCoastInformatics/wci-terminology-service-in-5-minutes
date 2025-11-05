@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.wci.terminology"
-version = "2.0.0-SNAPSHOT"
+version = "2.2.0.202511"
 
 // Input Specification location for terminology-service
 def inputURL = 'https://snomed.westcoastinformatics.com/v3/api-docs'
