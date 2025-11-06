@@ -20,9 +20,10 @@ For testing against "https://snomed.westcoastinformatics.com", no Authentication
 
 ## Tutorials by Language
 
-- [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
-- [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
-- [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
+- [Click for Bash examples.](bash-examples/README.md "Bash Examples")
+- [Click for Curl examples.](curl-examples/README.md "Curl Examples")
+- [Click for Java examples.](java-examples/README.md "Java Examples")
+- [Click for Postman examples.](postman-examples/README.md "Postman Examples")
 
 
 **[Back to top](#table-of-contents)**
@@ -45,9 +46,9 @@ Terminology Server API
 
 ## Resources
 
-* API Documentation 
+* API Documentation
   * https://termserver.westcoastinformatics.com/swagger-ui/index.html
-  * https://snomed.westcoastinformatics.com/swagger-ui/index.html 
+  * https://snomed.westcoastinformatics.com/swagger-ui/index.html
 * Terminology Server Documentation - https://wci-wiki.atlassian.net/wiki/spaces/TSV2
 * [Additional Documentation](../master/doc/)
 * [Data Loading Documentation](../master/load-data/)
