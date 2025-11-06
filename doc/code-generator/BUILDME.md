@@ -52,16 +52,16 @@ cd build/libs
 ### Local
 
 ```bash
-mvn install:install-file -Dfile=build/libs/wci-terminlogy-java-client-2.2.0.202511-SNAPSHOT.jar
+mvn install:install-file -Dfile=build/libs/wci-terminology-java-client-2.2.0.202511-SNAPSHOT.jar
 ```
 
 ### Remote
 
 ```bash
 mvn deploy:deploy-file \
-  -Dfile=build/libs/wci-terminlogy-java-client-2.2.0.202511-SNAPSHOT.jar \
-  -DgroupId=com.wci.terminlogy \
-  -DartifactId=wci-terminlogy-java-client \
+  -Dfile=build/libs/wci-terminology-java-client-2.2.0.202511-SNAPSHOT.jar \
+  -DgroupId=com.wci.terminology \
+  -DartifactId=wci-terminology-java-client \
   -Dversion=2.2.0.202511-SNAPSHOT \
   -Dpackaging=jar \
   -DrepositoryId=your-repo-id \
