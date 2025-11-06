@@ -43,24 +43,32 @@ If you don't need the generated source but only a jar file to use in your projec
 4. The jar file can be used in your project as a dependency either by copying it to your project or by adding it to
    your build tool's dependencies.
 
-## To add file to Maven Repository ## \
-   `cd build/libs`
+## To add file to Maven Repository
 
-   ### Local
-   `mvn install:install-file -Dfile=build/libs/wci-terminlogy-java-client-2.2.0.202511-SNAPSHOT.jar`
+```bash
+cd build/libs
+```
 
-   ### Remote
-   `mvn deploy:deploy-file \
-   -Dfile=build/libs/wci-terminlogy-java-client-2.2.0.202511-SNAPSHOT.jar \
-   -DgroupId=com.wci.terminlogy \
-   -DartifactId=wci-terminlogy-java-client \
-   -Dversion=2.2.0.202511-SNAPSHOT \
-   -Dpackaging=jar \
-   -DrepositoryId=your-repo-id \
-   -Durl=https://your-repository-url/repository/path`
+### Local
 
-   Note: Edit the version number of and SNAPSHOT as necessary.
-         Replace 'your-repo-id' and 'https://your-repository-url/repository/path' with your own.
+```bash
+mvn install:install-file -Dfile=build/libs/wci-terminlogy-java-client-2.2.0.202511-SNAPSHOT.jar
+```
+
+### Remote
+
+```bash
+mvn deploy:deploy-file \
+  -Dfile=build/libs/wci-terminlogy-java-client-2.2.0.202511-SNAPSHOT.jar \
+  -DgroupId=com.wci.terminlogy \
+  -DartifactId=wci-terminlogy-java-client \
+  -Dversion=2.2.0.202511-SNAPSHOT \
+  -Dpackaging=jar \
+  -DrepositoryId=your-repo-id \
+  -Durl=https://your-repository-url/repository/path
+```
+
+**Note:** Edit the version number and SNAPSHOT as necessary. Replace `your-repo-id` and `https://your-repository-url/repository/path` with your own.
 
 **[Back to top](#top)**
 
