@@ -11,7 +11,7 @@ final artifactVersion = "${version}"
 final artifactId = 'wci-terminology-java-client'
 
 group = "com.wci.terminology"
-version = "2.2.0.202511"
+version = "2.2.1.202605"
 
 // Input Specification location for terminology-service
 def inputURL = 'https://snomed.westcoastinformatics.com/v3/api-docs'

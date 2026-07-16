@@ -52,14 +52,14 @@ cd doc/code-generator
 ### Local
 
 ```bash
-mvn install:install-file -Dfile=build/libs/wci-terminology-java-client-2.2.0.202511.jar
+mvn install:install-file -Dfile=build/libs/wci-terminology-java-client-2.2.1.202605.jar
 ```
 
 ### Remote
 
 ```bash
 mvn deploy:deploy-file \
-  -Dfile=build/libs/wci-terminology-java-client-2.2.0.202511.jar \
+  -Dfile=build/libs/wci-terminology-java-client-2.2.1.202605.jar \
   -DrepositoryId=your-repo-id \
   -Durl=https://your-repository-url/repository/path
 ```
